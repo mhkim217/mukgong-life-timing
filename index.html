@@ -37,6 +37,14 @@
       padding: 56px 0 36px;
     }
 
+    .business-owner {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--main);
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
     .brand {
       display: inline-flex;
       align-items: center;
@@ -162,6 +170,19 @@
       font-size: 14px;
     }
 
+    .legal-info {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .legal-info a {
+      color: var(--main);
+    }
+
     @media (max-width: 760px) {
       .grid {
         grid-template-columns: 1fr;
@@ -180,6 +201,8 @@
 <body>
   <div class="wrap">
     <header>
+      <div class="business-owner">묵공오행연구소</div>
+
       <div class="brand">
         <span class="logo">默</span>
         <span>Mukgong Life Timing</span>
@@ -275,7 +298,29 @@
     </section>
 
     <footer>
-      <p>© 2026 Mukgong Life Timing. All rights reserved.</p>
+      <div class="legal-info">
+        <p>
+          운영 주체 / Legal Business Name:
+          <strong>묵공오행연구소</strong>
+        </p>
+
+        <p>
+          Official Business Website:
+          <a href="https://mhkim217.github.io/">
+            https://mhkim217.github.io/
+          </a>
+        </p>
+
+        <p>
+          Business Address:
+          청원구 오창읍 오창중앙로 83,
+          705동 1402호(이안오창아파트),
+          청주시, 충청북도 28123
+        </p>
+      </div>
+
+      <p>© 2026 묵공오행연구소 · Mukgong Life Timing. All rights reserved.</p>
+
       <p>
         Privacy Policy:
         <a href="privacy.html">privacy.html</a>
