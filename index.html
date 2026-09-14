@@ -3,329 +3,1128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mukgong Life Timing</title>
+
+  <title>묵공오행연구소 | Mukgong Life Timing</title>
+
+  <meta
+    name="description"
+    content="묵공오행연구소의 Mukgong Life Timing 공식 홈페이지입니다. 출생시를 몰라도 기본성향과 생활 리듬을 살펴보고, 무료 양력·음력 변환기를 이용할 수 있습니다."
+  />
+
   <style>
     :root {
       --main: #073f43;
       --accent: #a62b32;
+      --gold: #b98735;
       --bg: #f6f2e9;
+      --bg-soft: #fbf8f1;
       --card: #ffffff;
       --text: #17383b;
       --muted: #607174;
       --line: #e3ddd2;
+      --soft-red: #fff6f4;
+      --soft-green: #eef7f4;
+      --shadow: 0 12px 32px rgba(20, 55, 55, 0.06);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
-      background: linear-gradient(180deg, #f8f5ee 0%, #f1eadf 100%);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans KR",
+        Arial,
+        sans-serif;
+      background:
+        linear-gradient(180deg, #f8f5ee 0%, #f3eee4 100%);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.72;
+    }
+
+    a {
+      color: inherit;
     }
 
     .wrap {
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 40px 22px 64px;
+      padding: 42px 24px 68px;
     }
 
-    header {
-      padding: 56px 0 36px;
-    }
-
-    .business-owner {
-      font-size: 30px;
-      font-weight: 800;
+    .business-name {
+      margin: 0 0 24px;
       color: var(--main);
-      letter-spacing: -0.03em;
-      margin-bottom: 18px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-weight: 800;
+      margin-bottom: 26px;
       color: var(--main);
-      letter-spacing: 0.03em;
-      margin-bottom: 24px;
+      font-weight: 800;
     }
 
-    .logo {
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(7, 63, 67, 0.35);
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #b9cbc8;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-      background: rgba(255,255,255,0.5);
+      background: #fff;
+      font-size: 22px;
+      font-weight: 800;
     }
 
-    h1 {
-      font-size: clamp(40px, 7vw, 76px);
-      line-height: 1.08;
-      margin: 0 0 24px;
-      letter-spacing: -0.05em;
+    .hero {
+      padding-bottom: 38px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 900px;
       color: var(--main);
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
     }
 
-    .lead {
-      font-size: clamp(18px, 2.5vw, 26px);
-      color: #496064;
-      max-width: 850px;
-      margin-bottom: 32px;
+    .hero p {
+      max-width: 880px;
+      margin: 24px 0 0;
+      font-size: 20px;
+      color: #38585b;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin: 28px 0 12px;
+      margin-top: 28px;
     }
 
     .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 12px 20px;
       border: 1px solid var(--line);
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 14px 28px rgba(166, 43, 50, 0.18);
-    }
-
-    .btn.secondary {
+      border-radius: 12px;
       background: #fff;
       color: var(--main);
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    .grid {
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-main {
+      background: var(--main);
+      border-color: var(--main);
+      color: #fff;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding-top: 12px;
+    }
+
+    .section-heading {
+      margin: 0 0 8px;
+      color: var(--main);
+      font-size: 34px;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    .section-lead {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      margin: 28px 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .card {
-      background: rgba(255,255,255,0.84);
+      padding: 24px;
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 18px 40px rgba(15, 50, 45, 0.06);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow);
     }
 
-    h2 {
+    .card h2,
+    .card h3 {
+      margin-top: 0;
       color: var(--main);
-      font-size: 30px;
-      line-height: 1.25;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
     }
 
-    h3 {
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin-bottom: 0;
+      padding-left: 21px;
+    }
+
+    .status {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--soft-green);
       color: var(--main);
-      font-size: 21px;
-      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    p {
-      margin: 0 0 14px;
+    .status-dev {
+      background: #fff2df;
+      color: #8b5c13;
     }
 
-    ul {
-      margin: 0;
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 6px 0;
+    .status-plan {
+      background: #f1f2f4;
+      color: #566064;
     }
 
     .notice {
-      background: #fbf3f1;
-      border-left: 6px solid var(--accent);
+      margin-top: 22px;
+      padding: 24px;
+      border-left: 5px solid var(--accent);
+      border-radius: 18px;
+      background: var(--soft-red);
     }
 
-    .en {
-      margin-top: 28px;
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
+    .notice h2,
+    .notice h3 {
+      margin-top: 0;
+      color: var(--main);
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      margin-top: 44px;
-      padding-top: 24px;
+    /* 무료 변환기 */
+    .converter {
+      margin-top: 38px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .converter-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .converter-top h2 {
+      margin: 0;
+      color: var(--main);
+      font-size: 32px;
+      line-height: 1.25;
+    }
+
+    .converter-top p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn,
+    .mode-btn {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--main);
+      padding: 9px 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang-btn.active,
+    .mode-btn.active {
+      background: var(--main);
+      border-color: var(--main);
+      color: #fff;
+    }
+
+    .mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .date-fields {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--main);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid #cfc9bf;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .leap-row {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--text);
+    }
+
+    .convert-action {
+      margin-top: 20px;
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--soft-green);
+      border: 1px solid #d3e6df;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result h3 {
+      margin: 0 0 12px;
+      color: var(--main);
+    }
+
+    .result-line {
+      margin: 5px 0;
+      font-size: 17px;
+    }
+
+    .error {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #fff0ef;
+      color: #922b2b;
+      font-weight: 700;
+    }
+
+    .error.show {
+      display: block;
+    }
+
+    .privacy-note {
+      margin-top: 16px;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .legal-info {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      font-size: 13px;
-      line-height: 1.8;
-      color: var(--muted);
+    .research {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 22px;
+      background: #0b474b;
+      color: #f7f2e8;
     }
 
-    .legal-info a {
+    .research h2 {
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .research strong {
+      color: #fff3ce;
+    }
+
+    .english {
+      margin-top: 44px;
+      padding-top: 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .english h2 {
       color: var(--main);
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    .official-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    footer {
+      margin-top: 46px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: var(--main);
+      font-weight: 700;
     }
 
     @media (max-width: 760px) {
-      .grid {
+      .wrap {
+        padding: 28px 18px 50px;
+      }
+
+      .business-name {
+        font-size: 24px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .grid-2,
+      .grid-4 {
         grid-template-columns: 1fr;
       }
 
-      header {
-        padding-top: 28px;
+      .converter-top {
+        flex-direction: column;
       }
 
-      .card {
-        padding: 22px;
+      .date-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .english h2 {
+        font-size: 34px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="business-owner">묵공오행연구소</div>
+  <main class="wrap">
 
-      <div class="brand">
-        <span class="logo">默</span>
-        <span>Mukgong Life Timing</span>
-      </div>
+    <!-- 법적 사업자명: 유지 -->
+    <div class="business-name">묵공오행연구소</div>
 
-      <h1>생시를 몰라도,<br />나의 기본성향과 인생의 흐름을 읽을 수 있습니다.</h1>
+    <div class="brand">
+      <span class="brand-mark">默</span>
+      <span>Mukgong Life Timing</span>
+    </div>
 
-      <p class="lead">
-        묵공식 Life Timing System은 성별과 양력 생년월일만 입력하면 자동 변환된 음력 생월·생일을 바탕으로
-        기본성향, 생활 리듬, 강점과 주의점을 살펴보는 한국어·영어 지원 생활 멘토링 앱입니다.
+    <!-- 1호 앱 -->
+    <section class="hero">
+      <h1>
+        출생시를 몰라도,<br />
+        나의 기본성향과 생활 리듬을<br />
+        살펴볼 수 있습니다.
+      </h1>
+
+      <p>
+        「출생시를 몰라도」는 Mukgong Life Timing 시리즈의 첫 번째 앱으로,
+        성별과 양력 또는 음력 생년월일을 바탕으로 기본성향, 관계, 사회성,
+        적성과 진로, 재물, 생활 리듬과 주의점을 살펴보는 생활 멘토링 앱입니다.
       </p>
 
       <div class="actions">
-        <a class="btn primary" href="#features">주요 기능 보기</a>
-        <a class="btn secondary" href="privacy.html">개인정보처리방침</a>
-      </div>
-    </header>
+        <a class="btn btn-primary" href="#converter">무료 양·음력 변환기</a>
 
-    <section class="grid" id="features">
-      <div class="card">
+        <a
+          class="btn btn-main"
+          href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Play에서 보기
+        </a>
+
+        <a class="btn" href="privacy.html">개인정보처리방침</a>
+      </div>
+    </section>
+
+    <section class="grid-2 section">
+      <article class="card">
         <h2>주요 기능</h2>
         <ul>
           <li>출생시 입력 없음</li>
           <li>이름 입력 없음</li>
           <li>회원가입 없음</li>
-          <li>양력 생년월일 입력 후 음력 생월·생일 자동 변환</li>
+          <li>양력·음력 생년월일 입력 및 변환</li>
           <li>한국어 / English 지원</li>
-          <li>기본성향, 관계, 사회성, 진로, 재물, 생활 리듬, 최종 멘토링 제공</li>
+          <li>기본성향, 감정·관계, 사회성 분석</li>
+          <li>적성과 진로, 재물, 관직·사업 성향</li>
+          <li>건강·생활 리듬과 최종 멘토링</li>
+          <li>달력 및 양·음력 날짜 확인</li>
+          <li>지원 환경에서 인쇄 및 PDF 저장</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <h2>앱의 방향</h2>
         <p>
-          이 앱은 특정 사건의 성공과 실패를 단정하거나 미래를 확정하지 않습니다.
-          사용자가 자신의 반복되는 성향, 강점, 조심해야 할 흐름, 생활 속 보완점을 현실적인 언어로 확인하도록 돕습니다.
+          본 앱은 특정 사건의 성공과 실패를 단정하거나 미래를 확정하는
+          도구가 아닙니다.
         </p>
-      </div>
+        <p>
+          사용자가 자신의 반복되는 성향과 강점, 주의할 흐름,
+          생활 속 보완점을 현실적인 언어로 이해하고
+          스스로 점검하도록 돕는 것을 목표로 합니다.
+        </p>
+      </article>
     </section>
 
-    <section class="card notice">
+    <aside class="notice">
       <h2>중요 안내</h2>
       <p>
-        본 앱의 분석 결과는 자기이해와 생활 멘토링을 위한 참고자료입니다.
-        의학적 진단, 법률 자문, 투자 권유 또는 수익 보장을 제공하지 않습니다.
-        중요한 결정은 충분한 검토와 전문가 상담을 함께 참고하시기 바랍니다.
+        분석 결과는 자기이해와 생활 멘토링을 위한 참고자료입니다.
+        의학적 진단·치료, 법률 자문, 투자 권유 또는 수익 보장을 제공하지 않습니다.
+        건강·법률·투자·직업·가족 등 중요한 결정은 현실적인 상황과
+        해당 분야 전문가의 조언을 함께 참고하시기 바랍니다.
+      </p>
+    </aside>
+
+    <!-- 무료 양음력 변환기 -->
+    <section id="converter" class="converter">
+      <div class="converter-top">
+        <div>
+          <h2 id="converterTitle">무료 양·음력 변환기</h2>
+          <p id="converterSubtitle">
+            필요한 날짜를 양력과 음력으로 무료 변환할 수 있습니다.
+          </p>
+        </div>
+
+        <div class="lang-switch">
+          <button
+            type="button"
+            id="langKo"
+            class="lang-btn active"
+            onclick="setConverterLanguage('ko')"
+          >
+            한국어
+          </button>
+          <button
+            type="button"
+            id="langEn"
+            class="lang-btn"
+            onclick="setConverterLanguage('en')"
+          >
+            English
+          </button>
+        </div>
+      </div>
+
+      <div class="mode-row">
+        <button
+          type="button"
+          id="solarMode"
+          class="mode-btn active"
+          onclick="setConverterMode('solar')"
+        >
+          양력 → 음력
+        </button>
+
+        <button
+          type="button"
+          id="lunarMode"
+          class="mode-btn"
+          onclick="setConverterMode('lunar')"
+        >
+          음력 → 양력
+        </button>
+      </div>
+
+      <div class="date-fields">
+        <div class="field">
+          <label id="yearLabel" for="yearInput">년</label>
+          <input
+            id="yearInput"
+            type="number"
+            min="1900"
+            max="2050"
+            inputmode="numeric"
+          />
+        </div>
+
+        <div class="field">
+          <label id="monthLabel" for="monthInput">월</label>
+          <input
+            id="monthInput"
+            type="number"
+            min="1"
+            max="12"
+            inputmode="numeric"
+          />
+        </div>
+
+        <div class="field">
+          <label id="dayLabel" for="dayInput">일</label>
+          <input
+            id="dayInput"
+            type="number"
+            min="1"
+            max="31"
+            inputmode="numeric"
+          />
+        </div>
+      </div>
+
+      <label id="leapRow" class="leap-row">
+        <input id="leapInput" type="checkbox" />
+        <span id="leapLabel">윤달로 입력</span>
+      </label>
+
+      <div class="convert-action">
+        <button
+          type="button"
+          id="convertButton"
+          class="btn btn-primary"
+          onclick="convertCalendarDate()"
+        >
+          변환하기
+        </button>
+      </div>
+
+      <div id="converterError" class="error"></div>
+
+      <div id="converterResult" class="result">
+        <h3 id="resultTitle">변환 결과</h3>
+        <div id="resultBody"></div>
+
+        <div class="actions">
+          <a
+            id="appAnalysisButton"
+            class="btn btn-main"
+            href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            이 생년월일로 Life Timing 살펴보기
+          </a>
+        </div>
+      </div>
+
+      <p id="privacyNote" class="privacy-note">
+        입력한 날짜는 이 페이지의 변환 계산에만 사용되며,
+        별도 서버로 저장하도록 구현하지 않았습니다.
       </p>
     </section>
 
-    <section class="en">
+    <!-- 시리즈 -->
+    <section class="section">
+      <h2 class="section-heading">Mukgong Life Timing Series</h2>
+      <p class="section-lead">
+        기본성향에서 학습·진로, 장기 인생 흐름까지 단계적으로 확장하는
+        Life Timing 시리즈입니다.
+      </p>
+
+      <div class="grid-4">
+        <article class="card">
+          <span class="status">1st App · Available</span>
+          <h3>출생시를 몰라도</h3>
+          <p><strong>No Birth Time Needed</strong></p>
+          <p>
+            기본성향, 관계, 사회성, 적성과 진로, 재물,
+            생활 리듬과 주의점을 살펴보는 현재 서비스입니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="status status-dev">2nd App · In Development</span>
+          <h3>6년 학습·적성·재능·진로 분석</h3>
+          <p><strong>6-Year Learning, Aptitude &amp; Career Analysis</strong></p>
+          <p>
+            6년의 흐름을 따라 학습방식, 잠재적성, 재능 발현,
+            전공 및 진로 방향을 살펴보는 서비스로 개발 중입니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="status status-plan">3rd App · Planned</span>
+          <h3>인생 주기와 연도별 흐름</h3>
+          <p><strong>Life Cycle &amp; Annual Timing</strong></p>
+          <p>
+            장기 인생 주기와 연도별 변화의 흐름을 살펴보는
+            후속 서비스로 계획하고 있습니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="status status-plan">4th App · Planned Premium</span>
+          <h3>Premium Life Timing</h3>
+          <p>
+            기본성향, 학습·진로, 장기 인생 흐름을 하나의 체계로 연결하는
+            종합형 프리미엄 서비스로 계획하고 있습니다.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 연구개발 -->
+    <section class="research">
+      <h2>Research &amp; AI-Assisted Development</h2>
+
+      <p>
+        Mukgong Life Timing은 전통 동양학 연구를 현대적인 데이터 구조화와
+        AI-assisted research &amp; development 방식으로 정리하여 개발하고 있습니다.
+      </p>
+
+      <p>
+        AI는 전통 이론 자체를 대신하거나 결과를 임의로 만들어내는 역할이 아니라,
+        <strong>
+          분석 구조 정리, 데이터 체계화, 문장 구성과 검토,
+          일관성 점검 및 결과 표현 개선
+        </strong>
+        을 위한 연구·개발 보조도구로 활용됩니다.
+      </p>
+
+      <p>
+        개발자는 <strong>동양학 미래예측학전공 석사학위</strong>와
+        <strong>인공지능데이터전문가 2급 자격</strong>을 보유하고 있으며,
+        장기간의 연구·검토와 반복적인 데이터 구조화 과정을 통해
+        Mukgong Life Timing 시리즈를 개발하고 있습니다.
+      </p>
+    </section>
+
+    <!-- 영어 -->
+    <section class="english">
       <div class="brand">
-        <span class="logo">默</span>
+        <span class="brand-mark">默</span>
         <span>English</span>
       </div>
 
-      <h1>Birth time is not required<br />to read your core disposition and larger life rhythm.</h1>
+      <h2>
+        No Birth Time Needed
+      </h2>
 
-      <p class="lead">
-        Mukgong Life Timing System is a Korean-English life mentoring app that helps you explore
-        your core disposition, daily rhythm, strengths, and caution points without entering a birth time.
+      <p>
+        No Birth Time Needed is the first app in the Mukgong Life Timing series.
+        It is a lifestyle mentoring app that helps users explore their core
+        disposition, relationships, aptitude, career direction, financial
+        tendencies, and life rhythm without requiring a birth time.
       </p>
 
-      <div class="grid">
-        <div class="card">
-          <h2>Main Features</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Main Features</h3>
           <ul>
             <li>No birth time required</li>
             <li>No name required</li>
             <li>No account registration</li>
-            <li>Automatic lunar date conversion from solar birth date</li>
+            <li>Solar and lunar date support</li>
             <li>Korean and English support</li>
-            <li>Core disposition, relationships, social groups, career direction, wealth pattern, health rhythm, and final mentoring</li>
+            <li>Core disposition and relationship analysis</li>
+            <li>Aptitude and career direction</li>
+            <li>Life rhythm and practical mentoring guidance</li>
+            <li>Calendar view</li>
+            <li>Print or save as PDF on supported devices</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h2>Purpose of the App</h2>
+        <article class="card">
+          <h3>Purpose of the App</h3>
           <p>
-            This app does not predict fixed success or failure, nor does it determine your future.
-            It provides practical self-understanding guidance based on recurring patterns, strengths, caution points, and daily life rhythm.
+            This app is designed for self-understanding and reflection.
+            It does not make absolute predictions about specific future events
+            or guarantee success or failure at a particular time.
           </p>
-        </div>
+          <p>
+            Important health, legal, financial, career, and family decisions
+            should also take relevant professional advice and real-world
+            circumstances into account.
+          </p>
+        </article>
       </div>
 
-      <section class="card notice">
-        <h2>Important Disclaimer</h2>
+      <aside class="notice">
+        <h3>Important Disclaimer</h3>
         <p>
-          The result is for self-understanding and life mentoring only.
-          It does not provide medical diagnosis, legal advice, investment recommendation, or income guarantee.
-          For important decisions, please review carefully and consult qualified professionals when needed.
+          Results are provided for self-understanding and lifestyle mentoring only.
+          The service does not provide medical diagnosis or treatment,
+          legal advice, investment recommendations, or guarantees of financial returns.
         </p>
-      </section>
+      </aside>
     </section>
 
-    <footer>
-      <div class="legal-info">
-        <p>
-          운영 주체 / Legal Business Name:
-          <strong>묵공오행연구소</strong>
-        </p>
+    <!-- 공식 링크 -->
+    <section class="section">
+      <h2 class="section-heading">공식 연결 / Official Links</h2>
 
-        <p>
-          Official Business Website:
-          <a href="https://mhkim217.github.io/">
-            https://mhkim217.github.io/
-          </a>
-        </p>
+      <div class="official-links">
+        <a
+          class="btn btn-main"
+          href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Play
+        </a>
 
-        <p>
-          Business Address:
-          청원구 오창읍 오창중앙로 83,
-          705동 1402호(이안오창아파트),
-          청주시, 충청북도 28123
-        </p>
+        <a
+          class="btn"
+          href="https://www.facebook.com/MukgongLifeTiming"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook · Mukgong Life Timing
+        </a>
+
+        <a class="btn" href="privacy.html">
+          개인정보처리방침 / Privacy Policy
+        </a>
+
+        <a
+          class="btn"
+          href="https://mhkim217.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Official Business Website
+        </a>
       </div>
+    </section>
 
-      <p>© 2026 묵공오행연구소 · Mukgong Life Timing. All rights reserved.</p>
+    <!-- 법적 사업자 정보 -->
+    <footer>
+      <p>
+        <strong>운영 주체 / Legal Business Name: 묵공오행연구소</strong>
+      </p>
+
+      <p>
+        Official Business Website:
+        <a
+          href="https://mhkim217.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          https://mhkim217.github.io/
+        </a>
+      </p>
+
+      <p>
+        Business Address:
+        충청북도 청주시 청원구 오창읍 오창중앙로 83,
+        705동 1402호(이안오창아파트), 28123
+      </p>
+
+      <p>
+        © 2026 묵공오행연구소 · Mukgong Life Timing.
+        All rights reserved.
+      </p>
 
       <p>
         Privacy Policy:
         <a href="privacy.html">privacy.html</a>
       </p>
     </footer>
-  </div>
+
+  </main>
+
+  <!-- 한국 음력 변환 라이브러리 -->
+  <script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar@0.4.0/dist/korean-lunar-calendar.min.js"></script>
+
+  <script>
+    let converterLanguage = "ko";
+    let converterMode = "solar";
+
+    const converterText = {
+      ko: {
+        title: "무료 양·음력 변환기",
+        subtitle: "필요한 날짜를 양력과 음력으로 무료 변환할 수 있습니다.",
+        solarMode: "양력 → 음력",
+        lunarMode: "음력 → 양력",
+        year: "년",
+        month: "월",
+        day: "일",
+        leap: "윤달로 입력",
+        convert: "변환하기",
+        result: "변환 결과",
+        solar: "양력",
+        lunar: "음력",
+        leapYes: "윤달",
+        leapNo: "평달",
+        error:
+          "날짜를 다시 확인해주세요. 지원 범위를 벗어났거나 존재하지 않는 날짜 또는 윤달일 수 있습니다.",
+        libraryError:
+          "변환 기능을 불러오지 못했습니다. 잠시 후 페이지를 새로고침해주세요.",
+        appButton: "이 생년월일로 Life Timing 살펴보기",
+        privacy:
+          "입력한 날짜는 이 페이지의 변환 계산에만 사용되며, 별도 서버로 저장하도록 구현하지 않았습니다."
+      },
+
+      en: {
+        title: "Free Solar–Lunar Date Converter",
+        subtitle: "Convert a date between the solar and Korean lunar calendars.",
+        solarMode: "Solar → Lunar",
+        lunarMode: "Lunar → Solar",
+        year: "Year",
+        month: "Month",
+        day: "Day",
+        leap: "Leap month",
+        convert: "Convert",
+        result: "Conversion Result",
+        solar: "Solar Date",
+        lunar: "Lunar Date",
+        leapYes: "Leap Month",
+        leapNo: "Regular Month",
+        error:
+          "Please check the date. It may be outside the supported range, invalid, or an unavailable leap-month date.",
+        libraryError:
+          "The converter could not be loaded. Please refresh the page and try again.",
+        appButton: "Explore with Mukgong Life Timing",
+        privacy:
+          "The entered date is used only for conversion on this page and is not designed to be stored on a separate server."
+      }
+    };
+
+    function setConverterLanguage(lang) {
+      converterLanguage = lang;
+      const t = converterText[lang];
+
+      document.getElementById("converterTitle").textContent = t.title;
+      document.getElementById("converterSubtitle").textContent = t.subtitle;
+
+      document.getElementById("solarMode").textContent = t.solarMode;
+      document.getElementById("lunarMode").textContent = t.lunarMode;
+
+      document.getElementById("yearLabel").textContent = t.year;
+      document.getElementById("monthLabel").textContent = t.month;
+      document.getElementById("dayLabel").textContent = t.day;
+
+      document.getElementById("leapLabel").textContent = t.leap;
+      document.getElementById("convertButton").textContent = t.convert;
+      document.getElementById("resultTitle").textContent = t.result;
+      document.getElementById("appAnalysisButton").textContent = t.appButton;
+      document.getElementById("privacyNote").textContent = t.privacy;
+
+      document.getElementById("langKo").classList.toggle("active", lang === "ko");
+      document.getElementById("langEn").classList.toggle("active", lang === "en");
+
+      hideConverterMessages();
+    }
+
+    function setConverterMode(mode) {
+      converterMode = mode;
+
+      document
+        .getElementById("solarMode")
+        .classList.toggle("active", mode === "solar");
+
+      document
+        .getElementById("lunarMode")
+        .classList.toggle("active", mode === "lunar");
+
+      document.getElementById("leapRow").style.display =
+        mode === "lunar" ? "flex" : "none";
+
+      if (mode === "solar") {
+        document.getElementById("leapInput").checked = false;
+      }
+
+      hideConverterMessages();
+    }
+
+    function hideConverterMessages() {
+      document.getElementById("converterResult").classList.remove("show");
+      document.getElementById("converterError").classList.remove("show");
+    }
+
+    function showConverterError(message) {
+      const errorBox = document.getElementById("converterError");
+      errorBox.textContent = message;
+      errorBox.classList.add("show");
+      document.getElementById("converterResult").classList.remove("show");
+    }
+
+    function convertCalendarDate() {
+      hideConverterMessages();
+
+      const t = converterText[converterLanguage];
+
+      if (typeof KoreanLunarCalendar === "undefined") {
+        showConverterError(t.libraryError);
+        return;
+      }
+
+      const year = Number(document.getElementById("yearInput").value);
+      const month = Number(document.getElementById("monthInput").value);
+      const day = Number(document.getElementById("dayInput").value);
+
+      if (
+        !Number.isInteger(year) ||
+        !Number.isInteger(month) ||
+        !Number.isInteger(day)
+      ) {
+        showConverterError(t.error);
+        return;
+      }
+
+      try {
+        const calendar = new KoreanLunarCalendar();
+
+        let ok = false;
+        let resultHtml = "";
+
+        if (converterMode === "solar") {
+          ok = calendar.setSolarDate(year, month, day);
+
+          if (!ok) {
+            showConverterError(t.error);
+            return;
+          }
+
+          const solar = calendar.getSolarCalendar();
+          const lunar = calendar.getLunarCalendar();
+
+          const lunarType =
+            lunar.intercalation ? t.leapYes : t.leapNo;
+
+          resultHtml =
+            '<div class="result-line"><strong>' +
+            t.solar +
+            ":</strong> " +
+            solar.year +
+            "-" +
+            String(solar.month).padStart(2, "0") +
+            "-" +
+            String(solar.day).padStart(2, "0") +
+            "</div>" +
+            '<div class="result-line"><strong>' +
+            t.lunar +
+            ":</strong> " +
+            lunar.year +
+            "-" +
+            String(lunar.month).padStart(2, "0") +
+            "-" +
+            String(lunar.day).padStart(2, "0") +
+            " · " +
+            lunarType +
+            "</div>";
+        } else {
+          const isLeap = document.getElementById("leapInput").checked;
+
+          ok = calendar.setLunarDate(
+            year,
+            month,
+            day,
+            isLeap
+          );
+
+          if (!ok) {
+            showConverterError(t.error);
+            return;
+          }
+
+          const lunar = calendar.getLunarCalendar();
+          const solar = calendar.getSolarCalendar();
+
+          const lunarType =
+            lunar.intercalation ? t.leapYes : t.leapNo;
+
+          resultHtml =
+            '<div class="result-line"><strong>' +
+            t.lunar +
+            ":</strong> " +
+            lunar.year +
+            "-" +
+            String(lunar.month).padStart(2, "0") +
+            "-" +
+            String(lunar.day).padStart(2, "0") +
+            " · " +
+            lunarType +
+            "</div>" +
+            '<div class="result-line"><strong>' +
+            t.solar +
+            ":</strong> " +
+            solar.year +
+            "-" +
+            String(solar.month).padStart(2, "0") +
+            "-" +
+            String(solar.day).padStart(2, "0") +
+            "</div>";
+        }
+
+        document.getElementById("resultBody").innerHTML = resultHtml;
+        document.getElementById("converterResult").classList.add("show");
+      } catch (error) {
+        showConverterError(t.error);
+      }
+    }
+
+    /* 오늘 날짜를 기본 입력값으로 설정 */
+    (function setDefaultDate() {
+      const today = new Date();
+
+      document.getElementById("yearInput").value = today.getFullYear();
+      document.getElementById("monthInput").value = today.getMonth() + 1;
+      document.getElementById("dayInput").value = today.getDate();
+
+      setConverterMode("solar");
+      setConverterLanguage("ko");
+    })();
+  </script>
 </body>
 </html>
