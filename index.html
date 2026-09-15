@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>묵공오행연구소 | Mukgong Life Timing</title>
-
   <meta
     name="description"
     content="묵공오행연구소의 Mukgong Life Timing 공식 홈페이지입니다. 출생시를 몰라도 기본성향과 생활 리듬을 살펴보고, 무료 양력·음력 변환기를 이용할 수 있습니다."
@@ -27,38 +25,27 @@
       --shadow: 0 12px 32px rgba(20, 55, 55, 0.06);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Noto Sans KR",
-        Arial,
-        sans-serif;
-      background:
-        linear-gradient(180deg, #f8f5ee 0%, #f3eee4 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+      background: linear-gradient(180deg, #f8f5ee 0%, #f3eee4 100%);
       color: var(--text);
       line-height: 1.72;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     .wrap {
       max-width: 1040px;
       margin: 0 auto;
       padding: 42px 24px 68px;
     }
+
+    .page-anchor { scroll-margin-top: 28px; }
 
     .business-name {
       margin: 0 0 24px;
@@ -90,9 +77,7 @@
       font-weight: 800;
     }
 
-    .hero {
-      padding-bottom: 38px;
-    }
+    .hero { padding-bottom: 38px; }
 
     .hero h1 {
       margin: 0;
@@ -189,14 +174,8 @@
       color: var(--main);
     }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .card ul {
-      margin-bottom: 0;
-      padding-left: 21px;
-    }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { margin-bottom: 0; padding-left: 21px; }
 
     .status {
       display: inline-flex;
@@ -209,15 +188,8 @@
       font-weight: 800;
     }
 
-    .status-dev {
-      background: #fff2df;
-      color: #8b5c13;
-    }
-
-    .status-plan {
-      background: #f1f2f4;
-      color: #566064;
-    }
+    .status-dev { background: #fff2df; color: #8b5c13; }
+    .status-plan { background: #f1f2f4; color: #566064; }
 
     .notice {
       margin-top: 22px;
@@ -233,7 +205,7 @@
       color: var(--main);
     }
 
-    /* 무료 변환기 */
+    /* 무료 양·음력 변환기 */
     .converter {
       margin-top: 38px;
       padding: 30px;
@@ -327,9 +299,7 @@
       color: var(--text);
     }
 
-    .convert-action {
-      margin-top: 20px;
-    }
+    .convert-action { margin-top: 20px; }
 
     .result {
       display: none;
@@ -340,19 +310,9 @@
       border: 1px solid #d3e6df;
     }
 
-    .result.show {
-      display: block;
-    }
-
-    .result h3 {
-      margin: 0 0 12px;
-      color: var(--main);
-    }
-
-    .result-line {
-      margin: 5px 0;
-      font-size: 17px;
-    }
+    .result.show { display: block; }
+    .result h3 { margin: 0 0 12px; color: var(--main); }
+    .result-line { margin: 5px 0; font-size: 17px; }
 
     .error {
       display: none;
@@ -364,9 +324,7 @@
       font-weight: 700;
     }
 
-    .error.show {
-      display: block;
-    }
+    .error.show { display: block; }
 
     .privacy-note {
       margin-top: 16px;
@@ -382,27 +340,8 @@
       color: #f7f2e8;
     }
 
-    .research h2 {
-      margin-top: 0;
-      color: #fff;
-    }
-
-    .research strong {
-      color: #fff3ce;
-    }
-
-    .english {
-      margin-top: 44px;
-      padding-top: 38px;
-      border-top: 1px solid var(--line);
-    }
-
-    .english h2 {
-      color: var(--main);
-      font-size: 42px;
-      line-height: 1.15;
-      letter-spacing: -0.035em;
-    }
+    .research h2 { margin-top: 0; color: #fff; }
+    .research strong { color: #fff3ce; }
 
     .official-links {
       display: flex;
@@ -419,56 +358,156 @@
       font-size: 14px;
     }
 
-    footer p {
-      margin: 8px 0;
+    footer p { margin: 8px 0; }
+    footer a { color: var(--main); font-weight: 700; }
+
+    /* 전체 사이트 언어 전환 */
+    .lang-block-en,
+    .lang-inline-en { display: none; }
+
+    body.site-en .lang-block-ko,
+    body.site-en .lang-inline-ko { display: none !important; }
+
+    body.site-en .lang-block-en { display: block; }
+    body.site-en .lang-inline-en { display: inline; }
+
+    /* 상단 언어 버튼 */
+    .site-language {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      z-index: 1000;
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
     }
 
-    footer a {
+    .site-lang-btn {
+      border: 0;
+      border-radius: 9px;
+      padding: 8px 12px;
+      background: transparent;
       color: var(--main);
-      font-weight: 700;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .site-lang-btn.active {
+      background: var(--main);
+      color: #fff;
+    }
+
+    /* PC 왼쪽 고정 메뉴 */
+    .side-nav {
+      position: fixed;
+      top: 150px;
+      left: 24px;
+      z-index: 900;
+      width: 160px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .side-nav a {
+      display: block;
+      margin: 3px 0;
+      padding: 9px 10px;
+      border-radius: 9px;
+      color: var(--main);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .side-nav a:hover { background: var(--soft-green); }
+
+    /* 중간 화면·모바일 하단 메뉴 */
+    .mobile-nav { display: none; }
+
+    @media (max-width: 1280px) {
+      body { padding-bottom: 72px; }
+      .side-nav { display: none; }
+
+      .mobile-nav {
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        z-index: 1000;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+        padding: 6px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+        backdrop-filter: blur(8px);
+      }
+
+      .mobile-nav a {
+        padding: 8px 2px;
+        border-radius: 9px;
+        color: var(--main);
+        text-decoration: none;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .mobile-nav a:hover { background: var(--soft-green); }
     }
 
     @media (max-width: 760px) {
-      .wrap {
-        padding: 28px 18px 50px;
-      }
-
-      .business-name {
-        font-size: 24px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .grid-2,
-      .grid-4 {
-        grid-template-columns: 1fr;
-      }
-
-      .converter-top {
-        flex-direction: column;
-      }
-
-      .date-fields {
-        grid-template-columns: 1fr;
-      }
-
-      .english h2 {
-        font-size: 34px;
-      }
+      .wrap { padding: 76px 18px 92px; }
+      .business-name { font-size: 24px; }
+      .hero h1 { font-size: 42px; }
+      .hero p { font-size: 18px; }
+      .grid-2, .grid-4 { grid-template-columns: 1fr; }
+      .converter-top { flex-direction: column; }
+      .date-fields { grid-template-columns: 1fr; }
+      .site-language { top: 10px; right: 10px; }
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
+  <!-- 전체 사이트 언어 전환 -->
+  <div class="site-language" aria-label="Language selector">
+    <button id="siteLangKo" class="site-lang-btn active" type="button" onclick="setSiteLanguage('ko')">한국어</button>
+    <button id="siteLangEn" class="site-lang-btn" type="button" onclick="setSiteLanguage('en')">English</button>
+  </div>
 
-    <!-- 법적 사업자명: 유지 -->
+  <!-- PC 왼쪽 고정 메뉴 -->
+  <nav class="side-nav" aria-label="페이지 메뉴">
+    <a href="#top"><span class="lang-inline-ko">홈</span><span class="lang-inline-en">Home</span></a>
+    <a href="#converter"><span class="lang-inline-ko">무료 변환기</span><span class="lang-inline-en">Converter</span></a>
+    <a href="#series"><span class="lang-inline-ko">앱 시리즈</span><span class="lang-inline-en">App Series</span></a>
+    <a href="#research"><span class="lang-inline-ko">연구 · AI</span><span class="lang-inline-en">Research · AI</span></a>
+    <a href="#official"><span class="lang-inline-ko">공식 연결</span><span class="lang-inline-en">Official Links</span></a>
+    <a href="#top">↑ TOP</a>
+  </nav>
+
+  <!-- 중간 화면·모바일 하단 메뉴 -->
+  <nav class="mobile-nav" aria-label="모바일 페이지 메뉴">
+    <a href="#top"><span class="lang-inline-ko">홈</span><span class="lang-inline-en">Home</span></a>
+    <a href="#converter"><span class="lang-inline-ko">변환기</span><span class="lang-inline-en">Convert</span></a>
+    <a href="#series"><span class="lang-inline-ko">시리즈</span><span class="lang-inline-en">Apps</span></a>
+    <a href="#research"><span class="lang-inline-ko">연구</span><span class="lang-inline-en">Research</span></a>
+    <a href="#official"><span class="lang-inline-ko">연결</span><span class="lang-inline-en">Links</span></a>
+  </nav>
+
+  <main id="top" class="wrap page-anchor">
+    <!-- 법적 사업자명: Meta/사업자 인증 정합성을 위해 유지 -->
     <div class="business-name">묵공오행연구소</div>
 
     <div class="brand">
@@ -476,159 +515,157 @@
       <span>Mukgong Life Timing</span>
     </div>
 
-    <!-- 1호 앱 -->
+    <!-- 1호 앱 Hero -->
     <section class="hero">
-      <h1>
-        출생시를 몰라도,<br />
-        나의 기본성향과 생활 리듬을<br />
-        살펴볼 수 있습니다.
-      </h1>
+      <div class="lang-block-ko">
+        <h1>출생시를 몰라도,<br />나의 기본성향과 생활 리듬을<br />살펴볼 수 있습니다.</h1>
+        <p>
+          「출생시를 몰라도」는 Mukgong Life Timing 시리즈의 첫 번째 앱으로,
+          성별과 양력 또는 음력 생년월일을 바탕으로 기본성향, 관계, 사회성,
+          적성과 진로, 재물, 생활 리듬과 주의점을 살펴보는 생활 멘토링 앱입니다.
+        </p>
+      </div>
 
-      <p>
-        「출생시를 몰라도」는 Mukgong Life Timing 시리즈의 첫 번째 앱으로,
-        성별과 양력 또는 음력 생년월일을 바탕으로 기본성향, 관계, 사회성,
-        적성과 진로, 재물, 생활 리듬과 주의점을 살펴보는 생활 멘토링 앱입니다.
-      </p>
+      <div class="lang-block-en">
+        <h1>No Birth Time Needed.<br />Explore your core disposition<br />and life rhythm.</h1>
+        <p>
+          No Birth Time Needed is the first app in the Mukgong Life Timing series.
+          Using gender and either a solar or lunar birth date, it helps users explore
+          core disposition, relationships, social tendencies, aptitude and career direction,
+          financial tendencies, life rhythm, and practical points of caution.
+        </p>
+      </div>
 
       <div class="actions">
-        <a class="btn btn-primary" href="#converter">무료 양·음력 변환기</a>
-
-        <a
-          class="btn btn-main"
-          href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Google Play에서 보기
+        <a class="btn btn-primary" href="#converter">
+          <span class="lang-inline-ko">무료 양·음력 변환기</span>
+          <span class="lang-inline-en">Free Solar–Lunar Converter</span>
         </a>
 
-        <a class="btn" href="privacy.html">개인정보처리방침</a>
+        <a class="btn btn-main" href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming" target="_blank" rel="noopener noreferrer">
+          <span class="lang-inline-ko">Google Play에서 보기</span>
+          <span class="lang-inline-en">View on Google Play</span>
+        </a>
+
+        <a class="btn" href="privacy.html">
+          <span class="lang-inline-ko">개인정보처리방침</span>
+          <span class="lang-inline-en">Privacy Policy</span>
+        </a>
       </div>
     </section>
 
+    <!-- 주요 기능 / 목적 -->
     <section class="grid-2 section">
       <article class="card">
-        <h2>주요 기능</h2>
-        <ul>
-          <li>출생시 입력 없음</li>
-          <li>이름 입력 없음</li>
-          <li>회원가입 없음</li>
-          <li>양력·음력 생년월일 입력 및 변환</li>
-          <li>한국어 / English 지원</li>
-          <li>기본성향, 감정·관계, 사회성 분석</li>
-          <li>적성과 진로, 재물, 관직·사업 성향</li>
-          <li>건강·생활 리듬과 최종 멘토링</li>
-          <li>달력 및 양·음력 날짜 확인</li>
-          <li>지원 환경에서 인쇄 및 PDF 저장</li>
-        </ul>
+        <div class="lang-block-ko">
+          <h2>주요 기능</h2>
+          <ul>
+            <li>출생시 입력 없음</li>
+            <li>이름 입력 없음</li>
+            <li>회원가입 없음</li>
+            <li>양력·음력 생년월일 입력 및 변환</li>
+            <li>한국어 / English 지원</li>
+            <li>기본성향, 감정·관계, 사회성 분석</li>
+            <li>적성과 진로, 재물, 관직·사업 성향</li>
+            <li>건강·생활 리듬과 최종 멘토링</li>
+            <li>달력 및 양·음력 날짜 확인</li>
+            <li>지원 환경에서 인쇄 및 PDF 저장</li>
+          </ul>
+        </div>
+
+        <div class="lang-block-en">
+          <h2>Main Features</h2>
+          <ul>
+            <li>No birth time required</li>
+            <li>No name required</li>
+            <li>No account registration</li>
+            <li>Solar and lunar birth-date input and conversion</li>
+            <li>Korean and English support</li>
+            <li>Core disposition, emotions, relationships and social tendencies</li>
+            <li>Aptitude, career direction, financial and business tendencies</li>
+            <li>Health and lifestyle rhythm with final mentoring guidance</li>
+            <li>Calendar with solar and lunar dates</li>
+            <li>Print or save as PDF on supported devices</li>
+          </ul>
+        </div>
       </article>
 
       <article class="card">
-        <h2>앱의 방향</h2>
-        <p>
-          본 앱은 특정 사건의 성공과 실패를 단정하거나 미래를 확정하는
-          도구가 아닙니다.
-        </p>
-        <p>
-          사용자가 자신의 반복되는 성향과 강점, 주의할 흐름,
-          생활 속 보완점을 현실적인 언어로 이해하고
-          스스로 점검하도록 돕는 것을 목표로 합니다.
-        </p>
-      </article>
-    </section>
-
-    <aside class="notice">
-      <h2>중요 안내</h2>
-      <p>
-        분석 결과는 자기이해와 생활 멘토링을 위한 참고자료입니다.
-        의학적 진단·치료, 법률 자문, 투자 권유 또는 수익 보장을 제공하지 않습니다.
-        건강·법률·투자·직업·가족 등 중요한 결정은 현실적인 상황과
-        해당 분야 전문가의 조언을 함께 참고하시기 바랍니다.
-      </p>
-    </aside>
-
-    <!-- 무료 양음력 변환기 -->
-    <section id="converter" class="converter">
-      <div class="converter-top">
-        <div>
-          <h2 id="converterTitle">무료 양·음력 변환기</h2>
-          <p id="converterSubtitle">
-            필요한 날짜를 양력과 음력으로 무료 변환할 수 있습니다.
+        <div class="lang-block-ko">
+          <h2>앱의 방향</h2>
+          <p>본 앱은 특정 사건의 성공과 실패를 단정하거나 미래를 확정하는 도구가 아닙니다.</p>
+          <p>
+            사용자가 자신의 반복되는 성향과 강점, 주의할 흐름, 생활 속 보완점을
+            현실적인 언어로 이해하고 스스로 점검하도록 돕는 것을 목표로 합니다.
           </p>
         </div>
 
-        <div class="lang-switch">
-          <button
-            type="button"
-            id="langKo"
-            class="lang-btn active"
-            onclick="setConverterLanguage('ko')"
-          >
-            한국어
-          </button>
-          <button
-            type="button"
-            id="langEn"
-            class="lang-btn"
-            onclick="setConverterLanguage('en')"
-          >
-            English
-          </button>
+        <div class="lang-block-en">
+          <h2>Purpose of the App</h2>
+          <p>This app does not make absolute predictions about specific future events or guarantee success or failure.</p>
+          <p>
+            Its purpose is to support self-understanding and reflection by presenting recurring tendencies,
+            strengths, points of caution, and lifestyle patterns in clear, practical language.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- 중요 안내 -->
+    <aside class="notice">
+      <div class="lang-block-ko">
+        <h2>중요 안내</h2>
+        <p>
+          분석 결과는 자기이해와 생활 멘토링을 위한 참고자료입니다. 의학적 진단·치료,
+          법률 자문, 투자 권유 또는 수익 보장을 제공하지 않습니다. 건강·법률·투자·직업·가족 등
+          중요한 결정은 현실적인 상황과 해당 분야 전문가의 조언을 함께 참고하시기 바랍니다.
+        </p>
+      </div>
+
+      <div class="lang-block-en">
+        <h2>Important Disclaimer</h2>
+        <p>
+          Results are provided for self-understanding and lifestyle mentoring only. The service does not provide
+          medical diagnosis or treatment, legal advice, investment recommendations, or guarantees of financial returns.
+          Important health, legal, financial, career and family decisions should also consider real-world circumstances
+          and qualified professional advice when needed.
+        </p>
+      </div>
+    </aside>
+
+    <!-- 무료 양·음력 변환기 -->
+    <section id="converter" class="converter page-anchor">
+      <div class="converter-top">
+        <div>
+          <h2 id="converterTitle">무료 양·음력 변환기</h2>
+          <p id="converterSubtitle">필요한 날짜를 양력과 음력으로 무료 변환할 수 있습니다.</p>
+        </div>
+
+        <div class="lang-switch" aria-label="Converter language">
+          <button type="button" id="langKo" class="lang-btn active" onclick="setSiteLanguage('ko')">한국어</button>
+          <button type="button" id="langEn" class="lang-btn" onclick="setSiteLanguage('en')">English</button>
         </div>
       </div>
 
       <div class="mode-row">
-        <button
-          type="button"
-          id="solarMode"
-          class="mode-btn active"
-          onclick="setConverterMode('solar')"
-        >
-          양력 → 음력
-        </button>
-
-        <button
-          type="button"
-          id="lunarMode"
-          class="mode-btn"
-          onclick="setConverterMode('lunar')"
-        >
-          음력 → 양력
-        </button>
+        <button type="button" id="solarMode" class="mode-btn active" onclick="setConverterMode('solar')">양력 → 음력</button>
+        <button type="button" id="lunarMode" class="mode-btn" onclick="setConverterMode('lunar')">음력 → 양력</button>
       </div>
 
       <div class="date-fields">
         <div class="field">
           <label id="yearLabel" for="yearInput">년</label>
-          <input
-            id="yearInput"
-            type="number"
-            min="1900"
-            max="2050"
-            inputmode="numeric"
-          />
+          <input id="yearInput" type="number" min="1950" max="2050" inputmode="numeric" />
         </div>
 
         <div class="field">
           <label id="monthLabel" for="monthInput">월</label>
-          <input
-            id="monthInput"
-            type="number"
-            min="1"
-            max="12"
-            inputmode="numeric"
-          />
+          <input id="monthInput" type="number" min="1" max="12" inputmode="numeric" />
         </div>
 
         <div class="field">
           <label id="dayLabel" for="dayInput">일</label>
-          <input
-            id="dayInput"
-            type="number"
-            min="1"
-            max="31"
-            inputmode="numeric"
-          />
+          <input id="dayInput" type="number" min="1" max="31" inputmode="numeric" />
         </div>
       </div>
 
@@ -638,14 +675,7 @@
       </label>
 
       <div class="convert-action">
-        <button
-          type="button"
-          id="convertButton"
-          class="btn btn-primary"
-          onclick="convertCalendarDate()"
-        >
-          변환하기
-        </button>
+        <button type="button" id="convertButton" class="btn btn-primary" onclick="convertCalendarDate()">변환하기</button>
       </div>
 
       <div id="converterError" class="error"></div>
@@ -655,232 +685,147 @@
         <div id="resultBody"></div>
 
         <div class="actions">
-          <a
-            id="appAnalysisButton"
-            class="btn btn-main"
-            href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a id="appAnalysisButton" class="btn btn-main" href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming" target="_blank" rel="noopener noreferrer">
             이 생년월일로 Life Timing 살펴보기
           </a>
         </div>
       </div>
 
       <p id="privacyNote" class="privacy-note">
-        입력한 날짜는 이 페이지의 변환 계산에만 사용되며,
-        별도 서버로 저장하도록 구현하지 않았습니다.
+        입력한 날짜는 이 페이지의 변환 계산에만 사용되며, 별도 서버로 저장하도록 구현하지 않았습니다.
       </p>
     </section>
 
-    <!-- 시리즈 -->
-    <section class="section">
-      <h2 class="section-heading">Mukgong Life Timing Series</h2>
-      <p class="section-lead">
-        기본성향에서 학습·진로, 장기 인생 흐름까지 단계적으로 확장하는
-        Life Timing 시리즈입니다.
-      </p>
+    <!-- Mukgong Life Timing Series -->
+    <section id="series" class="section page-anchor">
+      <div class="lang-block-ko">
+        <h2 class="section-heading">Mukgong Life Timing Series</h2>
+        <p class="section-lead">기본성향에서 학습·진로, 장기 인생 흐름까지 단계적으로 확장하는 Life Timing 시리즈입니다.</p>
+      </div>
+
+      <div class="lang-block-en">
+        <h2 class="section-heading">Mukgong Life Timing Series</h2>
+        <p class="section-lead">A staged series that expands from core disposition to learning, career direction and longer life-cycle patterns.</p>
+      </div>
 
       <div class="grid-4">
         <article class="card">
           <span class="status">1st App · Available</span>
-          <h3>출생시를 몰라도</h3>
-          <p><strong>No Birth Time Needed</strong></p>
-          <p>
-            기본성향, 관계, 사회성, 적성과 진로, 재물,
-            생활 리듬과 주의점을 살펴보는 현재 서비스입니다.
-          </p>
+          <div class="lang-block-ko">
+            <h3>출생시를 몰라도</h3>
+            <p><strong>No Birth Time Needed</strong></p>
+            <p>기본성향, 관계, 사회성, 적성과 진로, 재물, 생활 리듬과 주의점을 살펴보는 현재 서비스입니다.</p>
+          </div>
+          <div class="lang-block-en">
+            <h3>No Birth Time Needed</h3>
+            <p>Our currently available service for exploring core disposition, relationships, social tendencies, aptitude, career direction, finances and life rhythm.</p>
+          </div>
         </article>
 
         <article class="card">
           <span class="status status-dev">2nd App · In Development</span>
-          <h3>6년 학습·적성·재능·진로 분석</h3>
-          <p><strong>6-Year Learning, Aptitude &amp; Career Analysis</strong></p>
-          <p>
-            6년의 흐름을 따라 학습방식, 잠재적성, 재능 발현,
-            전공 및 진로 방향을 살펴보는 서비스로 개발 중입니다.
-          </p>
+          <div class="lang-block-ko">
+            <h3>6년 학습·적성·재능·진로 분석</h3>
+            <p><strong>6-Year Learning, Aptitude &amp; Career Analysis</strong></p>
+            <p>6년의 흐름을 따라 학습방식, 잠재적성, 재능 발현, 전공 및 진로 방향을 살펴보는 서비스로 개발 중입니다.</p>
+          </div>
+          <div class="lang-block-en">
+            <h3>6-Year Learning, Aptitude &amp; Career Analysis</h3>
+            <p>In development: a six-year analysis of learning style, latent aptitude, talent development, academic direction and career possibilities.</p>
+          </div>
         </article>
 
         <article class="card">
           <span class="status status-plan">3rd App · Planned</span>
-          <h3>인생 주기와 연도별 흐름</h3>
-          <p><strong>Life Cycle &amp; Annual Timing</strong></p>
-          <p>
-            장기 인생 주기와 연도별 변화의 흐름을 살펴보는
-            후속 서비스로 계획하고 있습니다.
-          </p>
+          <div class="lang-block-ko">
+            <h3>인생 주기와 연도별 흐름</h3>
+            <p><strong>Life Cycle &amp; Annual Timing</strong></p>
+            <p>장기 인생 주기와 연도별 변화의 흐름을 살펴보는 후속 서비스로 계획하고 있습니다.</p>
+          </div>
+          <div class="lang-block-en">
+            <h3>Life Cycle &amp; Annual Timing</h3>
+            <p>A planned follow-up service for exploring longer life cycles and year-by-year patterns of change.</p>
+          </div>
         </article>
 
         <article class="card">
           <span class="status status-plan">4th App · Planned Premium</span>
-          <h3>Premium Life Timing</h3>
-          <p>
-            기본성향, 학습·진로, 장기 인생 흐름을 하나의 체계로 연결하는
-            종합형 프리미엄 서비스로 계획하고 있습니다.
-          </p>
+          <div class="lang-block-ko">
+            <h3>Premium Life Timing</h3>
+            <p>기본성향, 학습·진로, 장기 인생 흐름을 하나의 체계로 연결하는 종합형 프리미엄 서비스로 계획하고 있습니다.</p>
+          </div>
+          <div class="lang-block-en">
+            <h3>Premium Life Timing</h3>
+            <p>A planned premium service integrating core disposition, learning and career analysis, and longer life-cycle patterns in one system.</p>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- 연구개발 -->
-    <section class="research">
-      <h2>Research &amp; AI-Assisted Development</h2>
-
-      <p>
-        Mukgong Life Timing은 전통 동양학 연구를 현대적인 데이터 구조화와
-        AI-assisted research &amp; development 방식으로 정리하여 개발하고 있습니다.
-      </p>
-
-      <p>
-        AI는 전통 이론 자체를 대신하거나 결과를 임의로 만들어내는 역할이 아니라,
-        <strong>
-          분석 구조 정리, 데이터 체계화, 문장 구성과 검토,
-          일관성 점검 및 결과 표현 개선
-        </strong>
-        을 위한 연구·개발 보조도구로 활용됩니다.
-      </p>
-
-      <p>
-        개발자는 <strong>동양학 미래예측학전공 석사학위</strong>와
-        <strong>인공지능데이터전문가 2급 자격</strong>을 보유하고 있으며,
-        장기간의 연구·검토와 반복적인 데이터 구조화 과정을 통해
-        Mukgong Life Timing 시리즈를 개발하고 있습니다.
-      </p>
-    </section>
-
-    <!-- 영어 -->
-    <section class="english">
-      <div class="brand">
-        <span class="brand-mark">默</span>
-        <span>English</span>
+    <section id="research" class="research page-anchor">
+      <div class="lang-block-ko">
+        <h2>Research &amp; AI-Assisted Development</h2>
+        <p>
+          Mukgong Life Timing은 전통 동양학 연구를 현대적인 데이터 구조화와
+          AI-assisted research &amp; development 방식으로 정리하여 개발하고 있습니다.
+        </p>
+        <p>
+          AI는 전통 이론 자체를 대신하거나 결과를 임의로 만들어내는 역할이 아니라,
+          <strong>분석 구조 정리, 데이터 체계화, 문장 구성과 검토, 일관성 점검 및 결과 표현 개선</strong>을 위한
+          연구·개발 보조도구로 활용됩니다.
+        </p>
+        <p>
+          개발자는 <strong>동양학 미래예측학전공 석사학위</strong>와
+          <strong>인공지능데이터전문가 2급 자격</strong>을 보유하고 있으며,
+          장기간의 연구·검토와 반복적인 데이터 구조화 과정을 통해 Mukgong Life Timing 시리즈를 개발하고 있습니다.
+        </p>
       </div>
 
-      <h2>
-        No Birth Time Needed
+      <div class="lang-block-en">
+        <h2>Research &amp; AI-Assisted Development</h2>
+        <p>
+          Mukgong Life Timing is developed by organizing traditional East Asian studies through modern data structuring
+          and AI-assisted research and development.
+        </p>
+        <p>
+          AI does not replace the underlying traditional theories or randomly generate results. It is used as a support tool
+          for <strong>organizing analytical structures, arranging data, reviewing wording and consistency, and improving presentation</strong>.
+        </p>
+        <p>
+          The developer holds a <strong>Master's degree in Oriental Studies with a major in Myeongri Future Prediction</strong>
+          and a <strong>Level 2 AI Data Specialist qualification</strong>. The Mukgong Life Timing series is being developed through
+          long-term research, repeated review and structured data organization.
+        </p>
+      </div>
+    </section>
+
+    <!-- 공식 연결 -->
+    <section id="official" class="section page-anchor">
+      <h2 class="section-heading">
+        <span class="lang-inline-ko">공식 연결</span>
+        <span class="lang-inline-en">Official Links</span>
       </h2>
 
-      <p>
-        No Birth Time Needed is the first app in the Mukgong Life Timing series.
-        It is a lifestyle mentoring app that helps users explore their core
-        disposition, relationships, aptitude, career direction, financial
-        tendencies, and life rhythm without requiring a birth time.
-      </p>
-
-      <div class="grid-2">
-        <article class="card">
-          <h3>Main Features</h3>
-          <ul>
-            <li>No birth time required</li>
-            <li>No name required</li>
-            <li>No account registration</li>
-            <li>Solar and lunar date support</li>
-            <li>Korean and English support</li>
-            <li>Core disposition and relationship analysis</li>
-            <li>Aptitude and career direction</li>
-            <li>Life rhythm and practical mentoring guidance</li>
-            <li>Calendar view</li>
-            <li>Print or save as PDF on supported devices</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Purpose of the App</h3>
-          <p>
-            This app is designed for self-understanding and reflection.
-            It does not make absolute predictions about specific future events
-            or guarantee success or failure at a particular time.
-          </p>
-          <p>
-            Important health, legal, financial, career, and family decisions
-            should also take relevant professional advice and real-world
-            circumstances into account.
-          </p>
-        </article>
-      </div>
-
-      <aside class="notice">
-        <h3>Important Disclaimer</h3>
-        <p>
-          Results are provided for self-understanding and lifestyle mentoring only.
-          The service does not provide medical diagnosis or treatment,
-          legal advice, investment recommendations, or guarantees of financial returns.
-        </p>
-      </aside>
-    </section>
-
-    <!-- 공식 링크 -->
-    <section class="section">
-      <h2 class="section-heading">공식 연결 / Official Links</h2>
-
       <div class="official-links">
-        <a
-          class="btn btn-main"
-          href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Google Play
-        </a>
-
-        <a
-          class="btn"
-          href="https://www.facebook.com/MukgongLifeTiming"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Facebook · Mukgong Life Timing
-        </a>
-
-        <a class="btn" href="privacy.html">
-          개인정보처리방침 / Privacy Policy
-        </a>
-
-        <a
-          class="btn"
-          href="https://mhkim217.github.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Official Business Website
-        </a>
+        <a class="btn btn-main" href="https://play.google.com/store/apps/details?id=com.mukgong.lifetiming" target="_blank" rel="noopener noreferrer">Google Play</a>
+        <a class="btn" href="https://www.facebook.com/MukgongLifeTiming" target="_blank" rel="noopener noreferrer">Facebook · Mukgong Life Timing</a>
+        <a class="btn" href="privacy.html"><span class="lang-inline-ko">개인정보처리방침</span><span class="lang-inline-en">Privacy Policy</span></a>
+        <a class="btn" href="https://mhkim217.github.io/" target="_blank" rel="noopener noreferrer">Official Business Website</a>
       </div>
     </section>
 
     <!-- 법적 사업자 정보 -->
     <footer>
-      <p>
-        <strong>운영 주체 / Legal Business Name: 묵공오행연구소</strong>
-      </p>
-
+      <p><strong>운영 주체 / Legal Business Name: 묵공오행연구소</strong></p>
       <p>
         Official Business Website:
-        <a
-          href="https://mhkim217.github.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://mhkim217.github.io/
-        </a>
+        <a href="https://mhkim217.github.io/" target="_blank" rel="noopener noreferrer">https://mhkim217.github.io/</a>
       </p>
-
-      <p>
-        Business Address:
-        충청북도 청주시 청원구 오창읍 오창중앙로 83,
-        705동 1402호(이안오창아파트), 28123
-      </p>
-
-      <p>
-        © 2026 묵공오행연구소 · Mukgong Life Timing.
-        All rights reserved.
-      </p>
-
-      <p>
-        Privacy Policy:
-        <a href="privacy.html">privacy.html</a>
-      </p>
+      <p>Business Address: 충청북도 청주시 청원구 오창읍 오창중앙로 83, 705동 1402호(이안오창아파트), 28123</p>
+      <p>© 2026 묵공오행연구소 · Mukgong Life Timing. All rights reserved.</p>
+      <p>Privacy Policy: <a href="privacy.html">privacy.html</a></p>
     </footer>
-
   </main>
 
   <!-- 한국 음력 변환 라이브러리 -->
@@ -906,15 +851,12 @@
         lunar: "음력",
         leapYes: "윤달",
         leapNo: "평달",
-        error:
-          "날짜를 다시 확인해주세요. 지원 범위를 벗어났거나 존재하지 않는 날짜 또는 윤달일 수 있습니다.",
-        libraryError:
-          "변환 기능을 불러오지 못했습니다. 잠시 후 페이지를 새로고침해주세요.",
+        error: "날짜를 다시 확인해주세요. 지원 범위를 벗어났거나 존재하지 않는 날짜 또는 윤달일 수 있습니다.",
+        rangeError: "지원 범위는 1950년부터 2050년까지입니다.",
+        libraryError: "변환 기능을 불러오지 못했습니다. 잠시 후 페이지를 새로고침해주세요.",
         appButton: "이 생년월일로 Life Timing 살펴보기",
-        privacy:
-          "입력한 날짜는 이 페이지의 변환 계산에만 사용되며, 별도 서버로 저장하도록 구현하지 않았습니다."
+        privacy: "입력한 날짜는 이 페이지의 변환 계산에만 사용되며, 별도 서버로 저장하도록 구현하지 않았습니다."
       },
-
       en: {
         title: "Free Solar–Lunar Date Converter",
         subtitle: "Convert a date between the solar and Korean lunar calendars.",
@@ -930,15 +872,30 @@
         lunar: "Lunar Date",
         leapYes: "Leap Month",
         leapNo: "Regular Month",
-        error:
-          "Please check the date. It may be outside the supported range, invalid, or an unavailable leap-month date.",
-        libraryError:
-          "The converter could not be loaded. Please refresh the page and try again.",
+        error: "Please check the date. It may be invalid or an unavailable leap-month date.",
+        rangeError: "The supported range is 1950 through 2050.",
+        libraryError: "The converter could not be loaded. Please refresh the page and try again.",
         appButton: "Explore with Mukgong Life Timing",
-        privacy:
-          "The entered date is used only for conversion on this page and is not designed to be stored on a separate server."
+        privacy: "The entered date is used only for conversion on this page and is not designed to be stored on a separate server."
       }
     };
+
+    function setSiteLanguage(lang, savePreference = true) {
+      const isEnglish = lang === "en";
+      document.body.classList.toggle("site-en", isEnglish);
+      document.documentElement.lang = isEnglish ? "en" : "ko";
+
+      document.getElementById("siteLangKo").classList.toggle("active", !isEnglish);
+      document.getElementById("siteLangEn").classList.toggle("active", isEnglish);
+      document.getElementById("langKo").classList.toggle("active", !isEnglish);
+      document.getElementById("langEn").classList.toggle("active", isEnglish);
+
+      setConverterLanguage(lang);
+
+      if (savePreference) {
+        try { localStorage.setItem("mukgongSiteLanguage", lang); } catch (e) {}
+      }
+    }
 
     function setConverterLanguage(lang) {
       converterLanguage = lang;
@@ -946,39 +903,25 @@
 
       document.getElementById("converterTitle").textContent = t.title;
       document.getElementById("converterSubtitle").textContent = t.subtitle;
-
       document.getElementById("solarMode").textContent = t.solarMode;
       document.getElementById("lunarMode").textContent = t.lunarMode;
-
       document.getElementById("yearLabel").textContent = t.year;
       document.getElementById("monthLabel").textContent = t.month;
       document.getElementById("dayLabel").textContent = t.day;
-
       document.getElementById("leapLabel").textContent = t.leap;
       document.getElementById("convertButton").textContent = t.convert;
       document.getElementById("resultTitle").textContent = t.result;
       document.getElementById("appAnalysisButton").textContent = t.appButton;
       document.getElementById("privacyNote").textContent = t.privacy;
 
-      document.getElementById("langKo").classList.toggle("active", lang === "ko");
-      document.getElementById("langEn").classList.toggle("active", lang === "en");
-
       hideConverterMessages();
     }
 
     function setConverterMode(mode) {
       converterMode = mode;
-
-      document
-        .getElementById("solarMode")
-        .classList.toggle("active", mode === "solar");
-
-      document
-        .getElementById("lunarMode")
-        .classList.toggle("active", mode === "lunar");
-
-      document.getElementById("leapRow").style.display =
-        mode === "lunar" ? "flex" : "none";
+      document.getElementById("solarMode").classList.toggle("active", mode === "solar");
+      document.getElementById("lunarMode").classList.toggle("active", mode === "lunar");
+      document.getElementById("leapRow").style.display = mode === "lunar" ? "flex" : "none";
 
       if (mode === "solar") {
         document.getElementById("leapInput").checked = false;
@@ -1001,7 +944,6 @@
 
     function convertCalendarDate() {
       hideConverterMessages();
-
       const t = converterText[converterLanguage];
 
       if (typeof KoreanLunarCalendar === "undefined") {
@@ -1013,24 +955,23 @@
       const month = Number(document.getElementById("monthInput").value);
       const day = Number(document.getElementById("dayInput").value);
 
-      if (
-        !Number.isInteger(year) ||
-        !Number.isInteger(month) ||
-        !Number.isInteger(day)
-      ) {
+      if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) {
         showConverterError(t.error);
+        return;
+      }
+
+      if (year < 1950 || year > 2050) {
+        showConverterError(t.rangeError);
         return;
       }
 
       try {
         const calendar = new KoreanLunarCalendar();
-
         let ok = false;
         let resultHtml = "";
 
         if (converterMode === "solar") {
           ok = calendar.setSolarDate(year, month, day);
-
           if (!ok) {
             showConverterError(t.error);
             return;
@@ -1038,41 +979,18 @@
 
           const solar = calendar.getSolarCalendar();
           const lunar = calendar.getLunarCalendar();
-
-          const lunarType =
-            lunar.intercalation ? t.leapYes : t.leapNo;
+          const lunarType = lunar.intercalation ? t.leapYes : t.leapNo;
 
           resultHtml =
-            '<div class="result-line"><strong>' +
-            t.solar +
-            ":</strong> " +
-            solar.year +
-            "-" +
-            String(solar.month).padStart(2, "0") +
-            "-" +
-            String(solar.day).padStart(2, "0") +
+            '<div class="result-line"><strong>' + t.solar + ":</strong> " +
+            solar.year + "-" + String(solar.month).padStart(2, "0") + "-" + String(solar.day).padStart(2, "0") +
             "</div>" +
-            '<div class="result-line"><strong>' +
-            t.lunar +
-            ":</strong> " +
-            lunar.year +
-            "-" +
-            String(lunar.month).padStart(2, "0") +
-            "-" +
-            String(lunar.day).padStart(2, "0") +
-            " · " +
-            lunarType +
-            "</div>";
+            '<div class="result-line"><strong>' + t.lunar + ":</strong> " +
+            lunar.year + "-" + String(lunar.month).padStart(2, "0") + "-" + String(lunar.day).padStart(2, "0") +
+            " · " + lunarType + "</div>";
         } else {
           const isLeap = document.getElementById("leapInput").checked;
-
-          ok = calendar.setLunarDate(
-            year,
-            month,
-            day,
-            isLeap
-          );
-
+          ok = calendar.setLunarDate(year, month, day, isLeap);
           if (!ok) {
             showConverterError(t.error);
             return;
@@ -1080,30 +998,14 @@
 
           const lunar = calendar.getLunarCalendar();
           const solar = calendar.getSolarCalendar();
-
-          const lunarType =
-            lunar.intercalation ? t.leapYes : t.leapNo;
+          const lunarType = lunar.intercalation ? t.leapYes : t.leapNo;
 
           resultHtml =
-            '<div class="result-line"><strong>' +
-            t.lunar +
-            ":</strong> " +
-            lunar.year +
-            "-" +
-            String(lunar.month).padStart(2, "0") +
-            "-" +
-            String(lunar.day).padStart(2, "0") +
-            " · " +
-            lunarType +
-            "</div>" +
-            '<div class="result-line"><strong>' +
-            t.solar +
-            ":</strong> " +
-            solar.year +
-            "-" +
-            String(solar.month).padStart(2, "0") +
-            "-" +
-            String(solar.day).padStart(2, "0") +
+            '<div class="result-line"><strong>' + t.lunar + ":</strong> " +
+            lunar.year + "-" + String(lunar.month).padStart(2, "0") + "-" + String(lunar.day).padStart(2, "0") +
+            " · " + lunarType + "</div>" +
+            '<div class="result-line"><strong>' + t.solar + ":</strong> " +
+            solar.year + "-" + String(solar.month).padStart(2, "0") + "-" + String(solar.day).padStart(2, "0") +
             "</div>";
         }
 
@@ -1114,16 +1016,23 @@
       }
     }
 
-    /* 오늘 날짜를 기본 입력값으로 설정 */
-    (function setDefaultDate() {
+    (function initializePage() {
       const today = new Date();
+      const safeYear = Math.min(2050, Math.max(1950, today.getFullYear()));
 
-      document.getElementById("yearInput").value = today.getFullYear();
+      document.getElementById("yearInput").value = safeYear;
       document.getElementById("monthInput").value = today.getMonth() + 1;
       document.getElementById("dayInput").value = today.getDate();
 
       setConverterMode("solar");
-      setConverterLanguage("ko");
+
+      let savedLanguage = "ko";
+      try {
+        const stored = localStorage.getItem("mukgongSiteLanguage");
+        if (stored === "ko" || stored === "en") savedLanguage = stored;
+      } catch (e) {}
+
+      setSiteLanguage(savedLanguage, false);
     })();
   </script>
 </body>
