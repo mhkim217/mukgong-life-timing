@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>사용자 데이터 삭제 안내 | User Data Deletion | Mukgong Life Timing</title>
+
+  <meta
+    name="description"
+    content="Mukgong Life Timing - No Birth Time Needed 앱의 사용자 데이터 삭제 안내 및 User Data Deletion Instructions입니다."
+  />
+
+  <style>
+    :root {
+      --main: #073f43;
+      --accent: #a62b32;
+      --gold: #b98735;
+      --bg: #f6f2e9;
+      --card: #ffffff;
+      --text: #17383b;
+      --muted: #607174;
+      --line: #ded8cc;
+      --soft: #eef4f2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans KR",
+        Arial,
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .wrap {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      color: var(--main);
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--main);
+      color: white;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 34px;
+      box-shadow: 0 10px 30px rgba(7, 63, 67, 0.06);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--main);
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0 0 18px;
+      font-size: 19px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .effective {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--main);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 30px;
+      margin: 18px 0;
+    }
+
+    .notice {
+      border-left: 5px solid var(--gold);
+      background: #fffaf0;
+    }
+
+    .important {
+      border-left: 5px solid var(--main);
+      background: #f2f8f7;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--main);
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    h3 {
+      color: var(--main);
+      margin-top: 26px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ol,
+    ul {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    a {
+      color: var(--main);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .english {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--line);
+      color: #385457;
+    }
+
+    .email-box {
+      margin: 18px 0;
+      padding: 18px 20px;
+      background: var(--soft);
+      border-radius: 12px;
+    }
+
+    .email-box strong {
+      color: var(--main);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 17px;
+      border-radius: 10px;
+      background: var(--main);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      background: #ffffff;
+      color: var(--main);
+      border: 1px solid var(--line);
+    }
+
+    footer {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 20px, 920px);
+        padding-top: 24px;
+      }
+
+      .hero,
+      .section {
+        padding: 22px 20px;
+        border-radius: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <div class="brand">
+      <div class="brand-mark">默</div>
+      <div>Mukgong Life Timing</div>
+    </div>
+
+    <section class="hero">
+      <h1>사용자 데이터 삭제 안내</h1>
+      <p class="subtitle">User Data Deletion Instructions</p>
+
+      <span class="effective">
+        시행일 · Effective Date: 2026-09-16
+      </span>
+    </section>
+
+
+    <section class="section">
+      <h2>1. 안내 목적</h2>
+
+      <p>
+        본 페이지는 묵공오행연구소(Mukgong Ohaeng Research Institute)가
+        제공하는 「No Birth Time Needed」 및 Mukgong Life Timing 관련
+        서비스의 사용자 데이터 삭제 요청 절차를 안내합니다.
+      </p>
+
+      <p>
+        이용자는 관련 법령 및 적용되는 개인정보 보호 정책에 따라
+        자신과 관련된 데이터의 삭제를 요청할 수 있습니다.
+      </p>
+
+      <div class="english">
+        <h3>1. Purpose</h3>
+
+        <p>
+          This page explains how users may request deletion of data associated
+          with “No Birth Time Needed” and related Mukgong Life Timing services
+          provided by Mukgong Ohaeng Research Institute.
+        </p>
+
+        <p>
+          Users may request deletion of data associated with them in accordance
+          with applicable laws and privacy requirements.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section important">
+      <h2>2. 앱 이용 및 계정</h2>
+
+      <p>
+        「No Birth Time Needed」 앱은 기본적으로 별도의 회원가입이나
+        사용자 이름 입력을 요구하지 않습니다.
+      </p>
+
+      <p>
+        개인정보 및 앱 이용 과정에서 처리되는 정보에 관한 자세한 내용은
+        개인정보처리방침에서 확인할 수 있습니다.
+      </p>
+
+      <p>
+        <strong>개인정보처리방침:</strong><br />
+        <a href="privacy.html">
+          https://mhkim217.github.io/mukgong-life-timing/privacy.html
+        </a>
+      </p>
+
+      <div class="english">
+        <h3>2. App Use and Accounts</h3>
+
+        <p>
+          “No Birth Time Needed” does not normally require separate account
+          registration or a user name.
+        </p>
+
+        <p>
+          More information about personal information and information processed
+          during use of the app is available in our Privacy Policy.
+        </p>
+
+        <p>
+          <strong>Privacy Policy:</strong><br />
+          <a href="privacy.html">
+            https://mhkim217.github.io/mukgong-life-timing/privacy.html
+          </a>
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2>3. 데이터 삭제 요청 방법</h2>
+
+      <p>
+        데이터 삭제가 필요한 경우 아래 이메일 주소로 요청해 주시기 바랍니다.
+      </p>
+
+      <div class="email-box">
+        <strong>삭제 요청 이메일</strong><br />
+        <a href="mailto:mhkim217@gmail.com">
+          mhkim217@gmail.com
+        </a>
+      </div>
+
+      <p>
+        이메일 제목에는 아래와 같이 작성해 주시면 확인에 도움이 됩니다.
+      </p>
+
+      <p>
+        <strong>[Mukgong Life Timing 데이터 삭제 요청]</strong>
+      </p>
+
+      <p>
+        요청 내용에는 다음 정보를 포함해 주시기 바랍니다.
+      </p>
+
+      <ol>
+        <li>이용한 앱 이름: No Birth Time Needed</li>
+        <li>데이터 삭제를 요청한다는 내용</li>
+        <li>회신을 받을 수 있는 이메일 주소</li>
+      </ol>
+
+      <p>
+        삭제 요청 확인을 위해 추가 정보가 필요한 경우 별도로 안내할 수 있습니다.
+        필요하지 않은 주민등록번호, 비밀번호, 금융정보 또는 기타 민감한 정보는
+        이메일에 포함하지 마시기 바랍니다.
+      </p>
+
+      <div class="english">
+        <h3>3. How to Request Data Deletion</h3>
+
+        <p>
+          If you wish to request deletion of data associated with your use of
+          the service, please contact us at the email address below.
+        </p>
+
+        <div class="email-box">
+          <strong>Data Deletion Request Email</strong><br />
+          <a href="mailto:mhkim217@gmail.com">
+            mhkim217@gmail.com
+          </a>
+        </div>
+
+        <p>
+          We recommend using the following email subject:
+        </p>
+
+        <p>
+          <strong>[Mukgong Life Timing Data Deletion Request]</strong>
+        </p>
+
+        <p>
+          Please include:
+        </p>
+
+        <ol>
+          <li>App name: No Birth Time Needed</li>
+          <li>A statement that you are requesting deletion of data</li>
+          <li>An email address where we can respond to your request</li>
+        </ol>
+
+        <p>
+          If additional information is reasonably required to identify the
+          relevant data or verify the request, we may contact you.
+          Please do not send unnecessary sensitive information such as passwords,
+          financial information, or government identification numbers.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2>4. 삭제 요청 처리</h2>
+
+      <p>
+        삭제 요청을 접수하면 요청 내용을 확인하고, 보유하고 있는 해당 데이터가
+        있는 경우 관련 법령과 개인정보처리방침에 따라 처리합니다.
+      </p>
+
+      <p>
+        관련 법령에서 일정 기간 보관이 요구되는 정보 또는 법적 의무 이행을 위해
+        필요한 정보는 해당 법령이 정한 기간 동안 보관될 수 있습니다.
+      </p>
+
+      <p>
+        삭제 대상 데이터가 존재하지 않는 경우에도 요청자에게 그 사실을
+        안내할 수 있습니다.
+      </p>
+
+      <div class="english">
+        <h3>4. Processing a Deletion Request</h3>
+
+        <p>
+          When a deletion request is received, we will review the request and,
+          where relevant data is held, process the request in accordance with
+          applicable law and our Privacy Policy.
+        </p>
+
+        <p>
+          Certain information may be retained where required by law or where
+          retention is necessary to comply with legal obligations.
+        </p>
+
+        <p>
+          If no relevant data is held, we may inform the requester accordingly.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section notice">
+      <h2>5. 앱 삭제와 데이터 삭제</h2>
+
+      <p>
+        사용자가 기기에서 앱을 삭제하는 것과 서비스 제공자에게 데이터 삭제를
+        요청하는 것은 서로 다른 절차일 수 있습니다.
+      </p>
+
+      <p>
+        앱을 기기에서 제거하려면 Android 기기의 일반적인 앱 삭제 절차를
+        이용해 주시기 바랍니다. 별도의 데이터 삭제 요청이 필요한 경우에는
+        본 페이지의 안내 절차에 따라 문의해 주십시오.
+      </p>
+
+      <div class="english">
+        <h3>5. Uninstalling the App and Deleting Data</h3>
+
+        <p>
+          Uninstalling the app from a device and requesting deletion of data
+          from the service provider may be separate actions.
+        </p>
+
+        <p>
+          To remove the app from your device, please use the standard Android
+          uninstall process. If a separate data deletion request is required,
+          please follow the instructions provided on this page.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2>6. 문의</h2>
+
+      <p>
+        사용자 데이터 삭제 또는 개인정보 보호와 관련한 문의는 아래 연락처로
+        보내주시기 바랍니다.
+      </p>
+
+      <p>
+        <strong>묵공오행연구소</strong><br />
+        Mukgong Ohaeng Research Institute
+      </p>
+
+      <p>
+        <strong>Website</strong><br />
+        <a href="https://mhkim217.github.io/mukgong-life-timing/">
+          https://mhkim217.github.io/mukgong-life-timing/
+        </a>
+      </p>
+
+      <p>
+        <strong>Email</strong><br />
+        <a href="mailto:mhkim217@gmail.com">
+          mhkim217@gmail.com
+        </a>
+      </p>
+
+      <div class="english">
+        <h3>6. Contact</h3>
+
+        <p>
+          For questions regarding user data deletion or privacy, please contact:
+        </p>
+
+        <p>
+          <strong>Mukgong Ohaeng Research Institute</strong>
+        </p>
+
+        <p>
+          Website:<br />
+          <a href="https://mhkim217.github.io/mukgong-life-timing/">
+            https://mhkim217.github.io/mukgong-life-timing/
+          </a>
+        </p>
+
+        <p>
+          Email:<br />
+          <a href="mailto:mhkim217@gmail.com">
+            mhkim217@gmail.com
+          </a>
+        </p>
+      </div>
+    </section>
+
+
+    <div class="links">
+      <a class="button" href="./">
+        홈으로 돌아가기 · Back to Home
+      </a>
+
+      <a class="button secondary" href="privacy.html">
+        개인정보처리방침 · Privacy Policy
+      </a>
+
+      <a class="button secondary" href="terms.html">
+        이용약관 · Terms of Service
+      </a>
+    </div>
+
+
+    <footer>
+      © 2026 묵공오행연구소 · Mukgong Life Timing.
+      All rights reserved.
+    </footer>
+
+  </main>
+</body>
+</html>
