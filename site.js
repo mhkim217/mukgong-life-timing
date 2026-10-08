@@ -41,8 +41,8 @@
   window.addEventListener('resize', () => {
     if (!isMobile() && sidebar.classList.contains('open')) setOpen(false, false);
   });
-  const redirects = {converter:'manse.html#converter',series:'content.html#apps',research:'content.html#research',official:'content.html#contact'};
-  if (!document.getElementById('topicTitle') && !document.getElementById('converterTitle')) {
+  const redirects = {converter:'content.html#apps',series:'content.html#apps',research:'content.html#research',official:'content.html#contact'};
+  if (!document.getElementById('topicTitle')) {
     const target = redirects[location.hash.slice(1)];
     if (target) location.replace(target);
   }
@@ -50,7 +50,7 @@
     sidebar.querySelectorAll('a.side-link').forEach(link => {
       const target = new URL(link.href);
       const samePath = target.pathname === location.pathname;
-      const current = samePath && (target.hash === location.hash || (!target.hash && location.pathname.endsWith('/manse.html')));
+      const current = samePath && target.hash === location.hash;
       if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
     });
   }
