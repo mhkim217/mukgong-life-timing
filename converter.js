@@ -1,129 +1,128 @@
-// 묵공 주석: 기존 0.4.0 양·음력 변환 계산을 유지하고 한국어 화면만 제공합니다.
-let converterMode = "solar";
-const converterText = { ko: {
-        title: "무료 양·음력 변환기",
-        subtitle: "필요한 날짜를 양력과 음력으로 무료 변환할 수 있습니다.",
-        solarMode: "양력 → 음력",
-        lunarMode: "음력 → 양력",
-        year: "년",
-        month: "월",
-        day: "일",
-        leap: "윤달로 입력",
-        convert: "변환하기",
-        result: "변환 결과",
-        solar: "양력",
-        lunar: "음력",
-        leapYes: "윤달",
-        leapNo: "평달",
-        error: "날짜를 다시 확인해주세요. 지원 범위를 벗어났거나 존재하지 않는 날짜 또는 윤달일 수 있습니다.",
-        rangeError: "지원 범위는 1950년부터 2050년까지입니다.",
-        libraryError: "변환 기능을 불러오지 못했습니다. 잠시 후 페이지를 새로고침해주세요.",
-        appButton: "이 생년월일로 Life Timing 살펴보기",
-        privacy: "입력한 날짜는 이 페이지의 변환 계산에만 사용되며, 별도 서버로 저장하도록 구현하지 않았습니다."
-}};
-const converterLanguage = "ko";
-    function setConverterMode(mode) {
-      converterMode = mode;
-      document.getElementById("solarMode").classList.toggle("active", mode === "solar");
-      document.getElementById("lunarMode").classList.toggle("active", mode === "lunar");
-      document.getElementById("leapRow").style.display = mode === "lunar" ? "flex" : "none";
-
-      if (mode === "solar") {
-        document.getElementById("leapInput").checked = false;
-      }
-
-      hideConverterMessages();
+// 묵공 주석: 한 번의 계산 결과로 양·음력 날짜와 연월일시 표를 함께 갱신합니다.
+(() => {
+  'use strict';
+  let converterMode = 'solar';
+  let lastResult = null;
+  const byId = id => document.getElementById(id);
+  const form = byId('manseForm');
+  const fields = ['year','month','day','hour','minute'];
+  const resultBox = byId('converterResult');
+  const errorBox = byId('converterError');
+  const status = byId('resultStatus');
+  const pad = value => String(value).padStart(2,'0');
+  const readableDate = p => `${p.year}년 ${p.month}월 ${p.day}일`;
+  function markPending() {
+    resultBox.hidden = true;
+    byId('resultPlaceholder').hidden = false;
+    errorBox.classList.remove('show');
+    status.textContent = '입력 후 만세력 보기를 눌러 주세요.';
+    status.classList.remove('calculated');
+    lastResult = null;
+  }
+  function setConverterMode(mode, preserveDate = true) {
+    if (!['solar','lunar'].includes(mode)) return;
+    const snapshot = lastResult;
+    if (preserveDate && lastResult && mode!==converterMode) {
+      const date = mode==='solar' ? lastResult.solarDate : lastResult.lunarDate;
+      ['year','month','day'].forEach(key => { byId(key+'Input').value=date[key]; });
+      byId('leapInput').checked = mode==='lunar' && lastResult.lunarDate.intercalation;
     }
-
-    function hideConverterMessages() {
-      document.getElementById("converterResult").classList.remove("show");
-      document.getElementById("converterError").classList.remove("show");
+    converterMode = mode;
+    ['solar','lunar'].forEach(key => {
+      byId(key+'Mode').classList.toggle('active',mode===key);
+      byId(key+'Mode').setAttribute('aria-pressed',String(mode===key));
+    });
+    byId('leapRow').hidden=mode!=='lunar';
+    byId('yearInput').min=mode==='lunar'?'1949':'1950';
+    if (mode==='solar') byId('leapInput').checked=false;
+    markPending();
+    if (preserveDate && snapshot) lastResult = snapshot;
+  }
+  function renderPillars(result) {
+    const table = document.createElement('table');
+    table.className='pillar-table';
+    const caption = document.createElement('caption');
+    caption.className='sr-only';
+    caption.textContent='사주표. 왼쪽부터 시주, 일주, 월주, 년주 순서입니다.';
+    table.append(caption);
+    const columns = [...result.pillars].reverse();
+    const head = table.createTHead().insertRow();
+    columns.forEach(pillar => {
+      const th=document.createElement('th');
+      th.scope='col'; th.textContent=pillar.label;
+      th.dataset.pillar=pillar.key;
+      if (pillar.key==='day') th.className='day-column';
+      head.append(th);
+    });
+    const body = table.createTBody();
+    const gods=body.insertRow(); gods.className='ten-gods';
+    columns.forEach(pillar => {
+      const cell=gods.insertCell(); cell.textContent=pillar.tenGod;
+      if (pillar.key==='day') cell.className='day-column';
+    });
+    ['stem','branch'].forEach(key => {
+      const row=body.insertRow(); row.className=key+'-row';
+      columns.forEach(pillar => {
+        const cell=row.insertCell();
+        const char=pillar[key];
+        cell.className=`element-${char.element}${char.bright?' element-bright':''}${pillar.key==='day'?' day-column':''}`;
+        cell.dataset.pillar=pillar.key;
+        const symbol=document.createElement('span');
+        symbol.className='pillar-character'+(key==='stem'&&pillar.key==='day'?' day-master':'');
+        symbol.textContent=char.hanja;
+        const reading=document.createElement('span');
+        reading.className='pillar-reading';
+        reading.textContent=`${char.reading} · ${char.elementName}`;
+        cell.append(symbol,reading);
+      });
+    });
+    byId('pillarChart').replaceChildren(table);
+  }
+  function renderResult(result, sample) {
+    const engine=window.MukgongManse;
+    byId('solarResult').textContent=`양력 ${engine.dateText(result.solarDate)} ${pad(result.original.hour)}:${pad(result.original.minute)}`;
+    byId('lunarResult').textContent=`음력 ${engine.dateText(result.lunarDate)} · ${result.lunarDate.intercalation?'윤달':'평달'}`;
+    renderPillars(result);
+    byId('correctionResult').textContent=`서울 계산 시각 ${engine.timeText(result.corrected)} · ${result.correctionMinutes}분 보정`;
+    byId('dayChangeResult').textContent=result.dayChanged ? `출생 날짜는 그대로 두고, 자시 기준 ${readableDate(result.sajuDay)}의 일주를 적용합니다.` : '';
+    byId('dayChangeResult').hidden=!result.dayChanged;
+    byId('termResult').textContent=`월주 기준 절입: ${result.previousJie.name} ${engine.timeText(result.previousJie.recordedTime)}`;
+    byId('historicalResult').hidden=result.contemporaryStandard;
+    byId('historicalResult').textContent='당시 표준시·서머타임을 반영하여 현대와 다른 시간 보정을 적용했습니다.';
+    byId('termBoundaryResult').hidden=!result.nearTerm;
+    byId('termBoundaryResult').textContent='절입 경계 1분 이내입니다. 출생 시각의 초에 따라 년주·월주가 달라질 수 있습니다.';
+    resultBox.hidden=false;
+    byId('resultPlaceholder').hidden=true;
+    errorBox.classList.remove('show');
+    status.textContent=sample?'샘플 · 2016.08.03 22:00':'입력한 날짜로 계산됨';
+    status.classList.add('calculated');
+    lastResult=result;
+  }
+  function calculate(sample=false) {
+    markPending();
+    try {
+      if (!window.MukgongManse) throw new Error('만세력 계산 기능을 불러오지 못했습니다. 페이지를 새로고침해 주세요.');
+      const input={mode:converterMode,leap:byId('leapInput').checked};
+      for (const key of fields) {
+        const value=byId(key+'Input').value.trim();
+        input[key]=value===''?NaN:Number(value);
+      }
+      renderResult(window.MukgongManse.calculate(input),sample);
+    } catch (error) {
+      errorBox.textContent=error.message||'입력한 날짜와 시각을 확인해 주세요.';
+      errorBox.classList.add('show');
+      status.textContent='입력값을 확인해 주세요.';
     }
-
-    function showConverterError(message) {
-      const errorBox = document.getElementById("converterError");
-      errorBox.textContent = message;
-      errorBox.classList.add("show");
-      document.getElementById("converterResult").classList.remove("show");
-    }
-
-    function convertCalendarDate() {
-      hideConverterMessages();
-      const t = converterText[converterLanguage];
-
-      if (typeof KoreanLunarCalendar === "undefined") {
-        showConverterError(t.libraryError);
-        return;
-      }
-
-      const year = Number(document.getElementById("yearInput").value);
-      const month = Number(document.getElementById("monthInput").value);
-      const day = Number(document.getElementById("dayInput").value);
-
-      if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) {
-        showConverterError(t.error);
-        return;
-      }
-
-      if (year < 1950 || year > 2050) {
-        showConverterError(t.rangeError);
-        return;
-      }
-
-      try {
-        const calendar = new KoreanLunarCalendar();
-        let ok = false;
-        let resultHtml = "";
-
-        if (converterMode === "solar") {
-          ok = calendar.setSolarDate(year, month, day);
-          if (!ok) {
-            showConverterError(t.error);
-            return;
-          }
-
-          const solar = calendar.getSolarCalendar();
-          const lunar = calendar.getLunarCalendar();
-          const lunarType = lunar.intercalation ? t.leapYes : t.leapNo;
-
-          resultHtml =
-            '<div class="result-line"><strong>' + t.solar + ":</strong> " +
-            solar.year + "-" + String(solar.month).padStart(2, "0") + "-" + String(solar.day).padStart(2, "0") +
-            "</div>" +
-            '<div class="result-line"><strong>' + t.lunar + ":</strong> " +
-            lunar.year + "-" + String(lunar.month).padStart(2, "0") + "-" + String(lunar.day).padStart(2, "0") +
-            " · " + lunarType + "</div>";
-        } else {
-          const isLeap = document.getElementById("leapInput").checked;
-          ok = calendar.setLunarDate(year, month, day, isLeap);
-          if (!ok) {
-            showConverterError(t.error);
-            return;
-          }
-
-          const lunar = calendar.getLunarCalendar();
-          const solar = calendar.getSolarCalendar();
-          const lunarType = lunar.intercalation ? t.leapYes : t.leapNo;
-
-          resultHtml =
-            '<div class="result-line"><strong>' + t.lunar + ":</strong> " +
-            lunar.year + "-" + String(lunar.month).padStart(2, "0") + "-" + String(lunar.day).padStart(2, "0") +
-            " · " + lunarType + "</div>" +
-            '<div class="result-line"><strong>' + t.solar + ":</strong> " +
-            solar.year + "-" + String(solar.month).padStart(2, "0") + "-" + String(solar.day).padStart(2, "0") +
-            "</div>";
-        }
-
-        document.getElementById("resultBody").innerHTML = resultHtml;
-        document.getElementById("converterResult").classList.add("show");
-      } catch (error) {
-        showConverterError(t.error);
-      }
-    }
-
-
-const today = new Date();
-document.getElementById("yearInput").value = Math.min(2050, Math.max(1950, today.getFullYear()));
-document.getElementById("monthInput").value = today.getMonth()+1;
-document.getElementById("dayInput").value = today.getDate();
-setConverterMode("solar");
+  }
+  form.addEventListener('submit',event => {event.preventDefault(); calculate();});
+  form.addEventListener('input',markPending);
+  byId('solarMode').addEventListener('click',()=>setConverterMode('solar'));
+  byId('lunarMode').addEventListener('click',()=>setConverterMode('lunar'));
+  byId('sampleButton').addEventListener('click',()=>{
+    setConverterMode('solar',false);
+    [2016,8,3,22,0].forEach((value,i)=>{byId(fields[i]+'Input').value=value;});
+    calculate(true);
+  });
+  setConverterMode('solar',false);
+  calculate(true);
+})();
