@@ -425,3 +425,26 @@
 @media(max-width:600px){
  .home-first .app-intro-hero{max-width:380px}
 }
+
+/* 묵공 주석: 실제 환율·방문 횟수는 짧은 메뉴 버튼에 표시하고 자세한 기준은 안내 페이지에서 설명합니다. */
+.metric-shortcut .metric-summary{display:block;font-size:18px;font-weight:750;color:var(--teal);line-height:1.45;overflow-wrap:anywhere}
+.metric-shortcut .metric-status{font-size:16.5px;color:#526a7b;line-height:1.4}
+.metrics-detail{border:1px solid var(--line);border-radius:14px;background:#f8fcfd;padding:24px;margin:18px 0}
+.metric-detail-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0}
+.metric-detail-card{min-width:0;background:white;border:1px solid #cce0e8;border-radius:10px;padding:18px}
+.metric-detail-card dt{font-size:21px;line-height:1.5;color:var(--muted)}
+.metric-detail-card dd{font-size:30px;line-height:1.4;font-weight:800;color:var(--teal);margin:8px 0 0;overflow-wrap:anywhere}
+.detail-copy .metric-detail-status{font-size:19.5px;line-height:1.7;color:#526a7b;margin:18px 0 12px}
+.metrics-detail-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;font-size:19.5px;line-height:1.6}
+.metrics-detail-actions .teal-button{min-height:44px;font-size:19.5px}
+.metrics-detail-actions button:disabled{cursor:wait;opacity:.7}
+.detail-copy .metrics-explanation{font-size:21px;line-height:1.85;margin:18px 0 0}
+.detail-copy .metrics-detail h2{font-size:24px;margin:24px 0 0}
+@media(max-width:600px){
+ .metrics-detail{padding:18px 14px}
+ .metric-detail-values{grid-template-columns:1fr;gap:12px}
+ .metric-detail-card{padding:16px}
+ .metric-detail-card dt{font-size:19.5px}
+ .metric-detail-card dd{font-size:27px}
+ .detail-copy .metrics-explanation{font-size:19.5px}
+}

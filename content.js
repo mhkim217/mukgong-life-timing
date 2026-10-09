@@ -14,8 +14,8 @@
     research:{title:'연구 활동',lead:'앱 개발, 출판 작업, 고전연구, 명리학 연구를 위한 AI 보조 멘토링',paragraphs:['각 연구 활동의 안내를 아래 항목에서 확인하실 수 있습니다.'],links:[['1호앱 출시 및 후속앱 개발','content.html#apps'],['출판 작업','content.html#publishing'],['고전연구','content.html#classics'],['명리학 연구를 위한 AI 보조 멘토링','content.html#mentoring']]},
     mentoring:{title:'명리학 연구를 위한 AI 보조 멘토링',lead:'전통 이론의 정리와 연구·개발을 돕는 보조도구',paragraphs:['AI는 분석 구조 정리, 데이터 체계화, 문장 구성과 검토, 일관성 점검 및 결과 표현 개선을 위한 연구·개발 보조도구로 활용됩니다.','이 항목의 멘토링 범위와 이용 안내는 원고 검토 후 추가하겠습니다.']},
     contact:{title:'고객센터',lead:'서비스 및 이용 안내에 관한 문의',paragraphs:['기존 이용약관에 안내된 문의 이메일입니다. 전문 분석의 유료 접수 절차는 별도로 준비 중입니다.'],links:[['mhkim217@gmail.com','mailto:mhkim217@gmail.com'],['이용약관','terms.html'],['개인정보처리방침','privacy.html'],['데이터 삭제 안내','data-deletion.html']]},
-    exchange:{title:'환율 안내',status:'정보 연결 준비 중',lead:'USD / KRW 환율 안내 공간입니다.',paragraphs:['환율 정보 제공처와 갱신 방식을 확인한 후 연결할 예정입니다. 현재 환율·기준 일시·출처는 표시하지 않습니다.']},
-    visitors:{title:'방문 현황',status:'집계 연결 준비 중',lead:'오늘 방문과 누적 방문을 안내할 공간입니다.',paragraphs:['방문 집계 방식과 집계 시작일을 정한 후 연결할 예정입니다. 현재 방문 수는 표시하지 않습니다.']}
+    exchange:{title:'환율 안내',lead:'미국 달러·유로·엔·위안의 원화 환율을 기준일과 함께 확인합니다.',paragraphs:[]},
+    visitors:{title:'방문 현황',lead:'오늘과 누적 방문 횟수를 한국 시간 기준으로 안내합니다.',paragraphs:[]}
   };
   function render() {
     const key = decodeURIComponent(location.hash.slice(1));
@@ -38,6 +38,7 @@
     if (key === 'classics') window.MukgongClassics.renderIndex(copy);
     if (classic) window.MukgongClassics.renderArticle(copy,classic);
     if (key === 'apps') window.MukgongApps.renderIntro(copy);
+    if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
     topic.paragraphs.forEach(text => {const p=document.createElement('p');p.textContent=text;copy.append(p);});
     if (topic.links) {
       const links=document.createElement('nav');links.className='content-topic-links';links.setAttribute('aria-label','관련 안내');
