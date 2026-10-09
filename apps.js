@@ -31,8 +31,9 @@
     const link=element('a','app-store-badge');
     link.href=storeUrl;link.target='_blank';link.rel='noopener noreferrer';
     link.setAttribute('aria-label','Google Play에서 출생시를 몰라도 앱 보기 (새 창)');
-    const image=element('img');image.src='assets/apps/google-play-badge-uploaded.png';
-    image.width=95;image.height=38;image.alt='Google Play에서 앱 보기';
+    // 묵공 주석: 새로 제공된 선명한 원본을 사용하고, 이전 이미지 캐시와 구별합니다.
+    const image=element('img');image.src='assets/apps/google-play-badge-uploaded.png?rev=20261009-clear';
+    image.width=463;image.height=128;image.alt='Google Play에서 앱 보기';
     link.append(image);
     return link;
   }
