@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>묵공 홈페이지 바로가기 | Mukgong Life Timing</title>
+  <meta name="description" content="묵공 홈페이지로 이동하고 카톡에 보낼 홈페이지 주소를 복사할 수 있습니다.">
+  <meta name="theme-color" content="#091d3f">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://mhkim217.github.io/mukgong-life-timing/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="묵공오행연구소">
+  <meta property="og:title" content="묵공 홈페이지">
+  <meta property="og:description" content="앱 소개와 고전연구, 묵공의 연구 소식을 만나보세요.">
+  <meta property="og:url" content="https://mhkim217.github.io/mukgong-life-timing/">
+  <meta property="og:image" content="https://mhkim217.github.io/mukgong-life-timing/assets/share/mukgong-homepage-card-20261009.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1730">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="공식 默 로고와 Mukgong Life Timing — 묵공오행연구소 홈페이지 바로가기">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #091d3f; color: #f8f4eb; font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; }
+    main { width: min(100%, 1020px); margin: 0 auto; padding: 36px 20px; text-align: center; }
+    h1 { font-size: 20px; margin: 0 0 22px; font-weight: 600; }
+    .image-link { display: block; border-radius: 18px; overflow: hidden; }
+    .image-link:focus-visible, button:focus-visible, .address:focus-visible { outline: 3px solid #d8c187; outline-offset: 6px; }
+    img { display: block; width: 100%; height: auto; }
+    .hint { margin: 20px 0; line-height: 1.6; }
+    button { cursor: pointer; border: 1px solid #d8c187; border-radius: 10px; padding: 14px 24px; background: #0b5963; color: white; font: inherit; font-weight: 600; }
+    button:hover { background: #087080; }
+    #copyStatus { min-height: 3em; margin: 16px 0 8px; line-height: 1.5; }
+    .address { display: inline-block; color: #dcd4bd; font-size: 13px; overflow-wrap: anywhere; line-height: 1.6; }
+    @media (max-width: 480px) { main { padding: 24px 12px; } h1 { font-size: 18px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>묵공오행연구소</h1>
+    <!-- 묵공 주석: 홍보 이미지를 홈페이지로 연결하는 실제 링크로 감쌉니다. -->
+    <a class="image-link" href="./" aria-label="묵공 홈페이지 바로가기">
+      <img src="assets/share/mukgong-homepage-card-20261009.png" width="1730" height="909" alt="공식 默 로고, Mukgong Life Timing, 묵공오행연구소, 홈페이지 바로가기">
+    </a>
+    <p class="hint">이미지를 누르면 홈페이지로 이동합니다.</p>
+    <button type="button" id="copyAddress">카톡에 보낼 주소 복사</button>
+    <p id="copyStatus" role="status" aria-live="polite">복사한 주소를 카톡 대화창에 붙여 넣어 보내세요.</p>
+    <a class="address" href="https://mhkim217.github.io/mukgong-life-timing/">https://mhkim217.github.io/mukgong-life-timing/</a>
+  </main>
+  <script>
+    // 묵공 주석: 카톡에는 홈페이지 주소를 공유하여 대문 대표 이미지가 있는 링크 미리보기를 사용합니다.
+    const homepageAddress = "https://mhkim217.github.io/mukgong-life-timing/";
+    document.getElementById("copyAddress").addEventListener("click", async () => {
+      const status = document.getElementById("copyStatus");
+      try {
+        await navigator.clipboard.writeText(homepageAddress);
+        status.textContent = "홈페이지 주소를 복사했습니다. 카톡에 붙여 넣어 보내세요.";
+      } catch {
+        status.textContent = "자동 복사가 지원되지 않습니다. 아래 주소를 직접 복사해 카톡에 보내세요.";
+      }
+    });
+  </script>
+</body>
+</html>
