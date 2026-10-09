@@ -5,6 +5,21 @@
     record:'https://commons.wikimedia.org/wiki/File:Harvard_drs_53262215_三命通會_v.2卷之二.pdf',
     collection:'https://commons.wikimedia.org/wiki/Category:三命通會'
   };
+  // 묵공 주석: 논삼형은 PDF 이미지 92의 왼쪽 면부터 98의 오른쪽 면까지 이어집니다.
+  const originalPages = [
+    {page:92,file:'sanming-tonghui-volume2-lunsanxing.jpg',height:831,note:'왼쪽 면의 「論三刑」 제목에서 시작합니다. 오른쪽 면에는 앞 편 「논육해」의 끝부분이 함께 보입니다.'},
+    {page:93,file:'sanming-tonghui-volume2-lunsanxing-093.jpg',height:833},
+    {page:94,file:'sanming-tonghui-volume2-lunsanxing-094.jpg',height:833},
+    {page:95,file:'sanming-tonghui-volume2-lunsanxing-095.jpg',height:834},
+    {page:96,file:'sanming-tonghui-volume2-lunsanxing-096.jpg',height:831},
+    {page:97,file:'sanming-tonghui-volume2-lunsanxing-097.jpg',height:831},
+    {page:98,file:'sanming-tonghui-volume2-lunsanxing-098.jpg',height:832,note:'오른쪽 면의 「論衝擊」 제목 직전까지가 「논삼형」입니다. 그 아래와 왼쪽 면은 다음 편에 해당합니다.'}
+  ];
+  const largeScan = page => `https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Harvard_drs_53262215_%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83_v.2%E5%8D%B7%E4%B9%8B%E4%BA%8C.pdf/page${page}-1920px-Harvard_drs_53262215_%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83_v.2%E5%8D%B7%E4%B9%8B%E4%BA%8C.pdf.jpg`;
+  const originalGallery = originalPages.map((scan,index) => `<figure class="classic-manuscript" data-source-page="${scan.page}">
+<a href="${largeScan(scan.page)}" target="_blank" rel="noopener noreferrer" aria-label="논삼형 원문 ${index+1}번째 이미지 크게 보기 (새 창)"><img src="assets/classics/${scan.file}" width="960" height="${scan.height}" loading="lazy" decoding="async" alt="삼명통회 권2 논삼형 원문 ${index+1}/7. 공개 PDF ${scan.page}번째 펼침 이미지."></a>
+<figcaption><strong>원문 ${index+1}/7 · PDF ${scan.page}번째 이미지</strong>${scan.note ? `<br>${scan.note}` : ''}<br><a href="${largeScan(scan.page)}" target="_blank" rel="noopener noreferrer">크게 보기 ↗</a> · <a href="${sanming.pdf}#page=${scan.page}" target="_blank" rel="noopener noreferrer">원본 PDF의 해당 위치 ↗</a></figcaption>
+</figure>`).join('');
   const articles = [{
     id:'samhyeong',
     title:'삼형(三刑)의 방향·전승·통변 검토',
@@ -22,7 +37,7 @@
 </figure>
 <div class="classic-source-intro"><p class="classic-source-eyebrow">고전의 원문을 펼치며</p><h2 id="classic-source-title">『삼명통회』와 함께 읽는<br class="classic-source-break"> 삼형 연구</h2>
 <div class="classic-intro"><p>이 글은 『본의12지지』 교정 과정에서 마련한 연구 검토 자료를 홈페이지에서 읽기 편하게 정리한 것입니다. 고전이 제시한 관계와 명칭, 묵공의 연구 관점, 앞으로 확인할 과제를 구별합니다.</p><p>삼형의 구체적 작용을 모두 설명한 최종 학설이나 사건·길흉을 판정하는 공식으로 확정한 글은 아닙니다.</p></div>
-<div class="classic-source-actions"><a class="teal-button" href="${sanming.pdf}" target="_blank" rel="noopener noreferrer">권2 원문 PDF ↗</a><a href="${sanming.collection}" target="_blank" rel="noopener noreferrer">전체 권 공개 목록 ↗</a></div>
+<div class="classic-source-actions"><button class="teal-button" type="button" data-scroll-target="classic-full-original" aria-controls="classic-full-original">논삼형 전체 원문 7장 보기</button><a href="${sanming.pdf}#page=92" target="_blank" rel="noopener noreferrer">권2 원문 PDF ↗</a><a href="${sanming.collection}" target="_blank" rel="noopener noreferrer">전체 권 공개 목록 ↗</a></div>
 <p class="classic-source-credit">이미지: 하버드 옌칭도서관 소장 고서 · <a href="${sanming.record}" target="_blank" rel="noopener noreferrer">Wikimedia Commons 공개 자료</a></p></div>
 </section>
 <nav class="classic-toc" aria-label="연구 글의 순서"><p>글의 순서</p><ol>
@@ -39,6 +54,15 @@
 <a href="assets/classics/sanming-tonghui-volume2-lunsanxing.jpg" target="_blank" rel="noopener noreferrer" aria-label="『삼명통회』 권2 논삼형 시작 면 크게 보기 (새 창)"><img src="assets/classics/sanming-tonghui-volume2-lunsanxing.jpg" width="960" height="831" loading="lazy" decoding="async" alt="삼명통회 권2 펼침 면. 왼쪽 면에 논삼형 제목과 삼합·방위에 따른 형 관계의 설명이 시작됩니다."></a>
 <figcaption>『삼명통회』 권2 「논삼형(論三刑)」 시작 부분 · 공개 PDF 92번째 이미지<br>소장: Harvard-Yenching Library · <a href="${sanming.record}" target="_blank" rel="noopener noreferrer">출처</a> · <a href="assets/classics/sanming-tonghui-volume2-lunsanxing.jpg" target="_blank" rel="noopener noreferrer">내지 크게 보기 ↗</a></figcaption>
 </figure>
+<details class="classic-full-original" id="classic-full-original" tabindex="-1">
+<summary><span>「논삼형」 전체 원문 펼쳐보기</span><span class="classic-original-count">원문 이미지 7장</span></summary>
+<div class="classic-original-content">
+<p class="classic-original-scope"><strong>원문 범위: 권2 PDF 92-98번째 이미지.</strong><br>92번째 이미지 왼쪽 면의 「論三刑」 제목에서 시작해, 98번째 이미지 오른쪽 면의 「論衝擊」 제목 직전까지 이어집니다. 처음과 마지막 이미지에 함께 있는 앞뒤 편도 원래 펼침 면 그대로 보존했습니다.</p>
+<p class="classic-original-guide">읽는 순서: 각 이미지의 오른쪽 면에서 왼쪽 면으로, 각 면의 세로줄도 오른쪽부터 읽습니다. 첫 이미지는 왼쪽 면의 제목부터 읽어 주세요. 아래 번호는 PDF 이미지 순번이며 고서의 인쇄 장차와 다릅니다.</p>
+${originalGallery}
+<p class="classic-source-credit">저자: 만민영(萬民英) · 소장: Harvard-Yenching Library · 공개 스캔: <a href="${sanming.record}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. 출판 부록에서 원문을 대조할 때에도 같은 소장본과 이미지 순번을 함께 기록합니다.</p>
+</div>
+</details>
 <p>삼형(三刑)은 지지 사이의 관계를 설명하는 전통적 범주입니다. 『본의12지지』의 해당 표와 이 글은 『삼명통회(三命通會)』 「논삼형(論三刑)」의 본설을 기준으로 다음 관계를 채택합니다. <span class="classic-citation">[1·2]</span></p>
 <div class="classic-table-wrap" tabindex="0" aria-label="형 관계 일람표"><table class="classic-table"><caption>채택 전승에 따른 형의 관계</caption><thead><tr><th scope="col">구분</th><th scope="col">관계</th></tr></thead><tbody>
 <tr><th scope="row">시세지형(恃勢之刑)</th><td>축(丑) → 술(戌) → 미(未) → 축(丑)</td></tr>
@@ -115,7 +139,7 @@
 </section>
 <section class="classic-references"><h2 id="classic-references" tabindex="-1">참고문헌·전자 원문</h2>
 <p class="classic-note">기준 자료: 묵공 주석 「삼형의 방향·전승·통변 검토」, 2026년 10월 8일. 웹 본문에서는 원고 교정용 각주와 작업 이력 대신 연구 내용의 흐름에 맞춰 순서를 정리했습니다.</p>
-<ol><li>만민영(萬民英), 『삼명통회(三命通會)』 권2 「논삼형(論三刑)」. <a href="${sanming.pdf}" target="_blank" rel="noopener noreferrer">하버드 옌칭도서관 소장본 권2 PDF</a> · <a href="${sanming.collection}" target="_blank" rel="noopener noreferrer">전체 권 공개 목록</a> · <a href="https://www.shidianguji.com/zh/book/HY1521/chapter/1knwemh3lrtpj" target="_blank" rel="noopener noreferrer">식전고적 전자 원문</a> · <a href="https://zh.wikisource.org/zh-hant/欽定古今圖書集成/博物彙編/藝術典/第598卷" target="_blank" rel="noopener noreferrer">『고금도서집성』 수록 원문</a>. 원문 이미지 대조 시 권수·편명과 PDF 이미지 순번을 함께 기록하며 인쇄면의 장차와 구별합니다.</li>
+<ol><li>만민영(萬民英), 『삼명통회(三命通會)』 권2 「논삼형(論三刑)」, 하버드 옌칭도서관 소장본 PDF 92-98번째 이미지. <a href="${sanming.pdf}#page=92" target="_blank" rel="noopener noreferrer">권2 원문 PDF</a> · <a href="${sanming.collection}" target="_blank" rel="noopener noreferrer">전체 권 공개 목록</a> · <a href="https://www.shidianguji.com/zh/book/HY1521/chapter/1knwemh3lrtpj" target="_blank" rel="noopener noreferrer">식전고적 전자 원문</a> · <a href="https://zh.wikisource.org/zh-hant/欽定古今圖書集成/博物彙編/藝術典/第598卷" target="_blank" rel="noopener noreferrer">『고금도서집성』 수록 원문</a>. 원문 이미지 대조 시 권수·편명과 PDF 이미지 순번을 함께 기록하며 인쇄면의 장차와 구별합니다.</li>
 <li>요중(廖中), 『오행정기(五行精紀)』 권25 「논삼형(論三刑)」. <a href="https://zh.wikisource.org/zh-hant/五行精紀" target="_blank" rel="noopener noreferrer">전자 원문</a>. 『옥소보감』은 해당 편의 인용 내용으로 참조합니다.</li>
 <li>『적천수천미(滴天髓闡微)』 「통신론·지지」 및 「방국」, 임씨 주석. <a href="https://zh.wikisource.org/zh-hant/滴天髓闡微" target="_blank" rel="noopener noreferrer">전자 원문</a>.</li>
 <li>소길(蕭吉), 『오행대의(五行大義)』 권2 「제십일논형(第十一論刑)」. <a href="https://zh.wikisource.org/zh-hant/五行大義/2" target="_blank" rel="noopener noreferrer">전자 원문</a>.</li>
@@ -145,6 +169,7 @@
     body.querySelectorAll('[data-scroll-target]').forEach(button=>{
       button.addEventListener('click',()=>{
         const heading=body.querySelector('#'+button.dataset.scrollTarget);
+        if(heading instanceof HTMLDetailsElement) heading.open=true;
         heading.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
         heading.focus({preventScroll:true});
       });

@@ -102,6 +102,18 @@
 .classic-manuscript img{display:block;width:100%;height:auto;border-radius:5px}
 .classic-manuscript figcaption{margin-top:12px;font-size:12px;line-height:1.9;color:#746852;overflow-wrap:anywhere}
 .classic-image-rights{font-size:12px;color:var(--muted);line-height:1.8}
+/* 묵공 주석: 원문 전체는 펼침 영역에 순서대로 배치하고, 첫 면과 끝 면의 편 경계를 안내합니다. */
+.classic-full-original{margin:0 0 28px;border:1px solid #c7d9d4;border-radius:12px;background:#fafcfb;scroll-margin-top:24px}
+.classic-full-original>summary{padding:18px 20px;cursor:pointer;font-weight:700;color:#175f55;line-height:1.8}
+.classic-original-count{display:inline-block;font-size:11px;font-weight:500;margin-left:12px;padding:2px 9px;border-radius:20px;background:#e7f1ed;color:#46675c;white-space:nowrap}
+.classic-original-content{padding:0 20px 20px}
+.classic-body .classic-original-scope{font-size:13px;line-height:1.95;margin:0 0 12px}
+.classic-body .classic-original-guide{font-size:12px;line-height:1.9;color:#69766e;margin:0 0 18px}
+.classic-original-content .classic-manuscript{margin:18px 0 24px;padding:12px}
+.classic-original-content .classic-source-credit{font-size:11px;color:#766a57;line-height:1.85;overflow-wrap:anywhere}
+.classic-source-actions button.teal-button{font:inherit;font-weight:700;cursor:pointer;border:0}
+.classic-full-original:focus-visible,.classic-full-original>summary:focus-visible{outline:3px solid #6ea99b;outline-offset:3px}
+@media(max-width:600px){.classic-full-original>summary{padding:15px 13px;font-size:13px}.classic-original-count{margin-left:8px;font-size:10px;padding:1px 7px}.classic-original-content{padding:0 10px 12px}.classic-original-content .classic-manuscript{padding:7px}.classic-body .classic-original-scope{font-size:12px}}
 @media(max-width:760px){.classic-source-showcase{grid-template-columns:145px minmax(0,1fr);gap:23px;padding:23px}.classic-body .classic-source-intro h2{font-size:23px}.classic-source-break{display:none}}
 @media(max-width:600px){.classic-source-showcase{grid-template-columns:1fr;gap:22px;padding:23px 20px}.classic-cover{width:158px;margin:0 auto}.classic-source-intro .classic-source-eyebrow{text-align:center}.classic-body .classic-source-intro h2{font-size:23px;text-align:center}.classic-source-intro .classic-intro p{font-size:14px}.classic-source-actions{justify-content:center;gap:12px}.classic-source-intro .classic-source-credit{text-align:center}.classic-manuscript{padding:9px}.classic-manuscript figcaption{font-size:11px}}
 @media(max-width:600px){.classic-card{padding:20px}.classic-card h2{font-size:21px}.classic-card-bottom{gap:12px}.classic-intro{padding:14px 17px}.classic-metadata{gap:7px 16px}.classic-toc{padding:16px 19px}.classic-toc ol{grid-template-columns:1fr;gap:2px}.classic-body h2{font-size:21px}.classic-body h3{font-size:17px}.classic-table{font-size:13px}.classic-table th,.classic-table td{padding:10px 12px}.mukgong-comment{padding:13px 17px}}
