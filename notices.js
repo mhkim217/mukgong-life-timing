@@ -2,7 +2,17 @@
 // 각 항목: {id:'고유영문ID', title:'제목', date:'YYYY-MM-DD', paragraphs:['본문 문단']}
 // 확인되지 않은 공지·게시일·댓글 수를 예시로 공개하지 않습니다.
 (() => {
-  const entries = [];
+  const entries = [{
+    id:'homepage-renewal-20261009',
+    title:'홈페이지 개편 안내',
+    date:'2026-10-09',
+    paragraphs:[
+      '묵공 Life Timing 홈페이지를 새롭게 정비했습니다.',
+      '앱 소개와 서비스 안내를 보기 쉽게 구성하고, 연구소 소식을 전하는 공지사항과 고전연구 공간을 마련했습니다.',
+      '고전연구에서는 『삼명통회』 「논삼형」 원문 이미지와 연구 검토 내용을 확인하실 수 있습니다. 각 메뉴의 내용과 연구 자료는 앞으로 차례로 보완해 나가겠습니다.',
+      '방문해 주셔서 감사합니다.'
+    ]
+  }];
   const ordered = [...entries].sort((a, b) => b.date.localeCompare(a.date));
   const formatDate = date => date.replaceAll('-', '.');
   const noticeUrl = entry => `content.html#notice/${encodeURIComponent(entry.id)}`;
