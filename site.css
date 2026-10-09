@@ -151,12 +151,33 @@
 .app-input-steps h3{font-size:16px;line-height:1.5;margin:11px 0 6px;letter-spacing:-.02em}
 .app-detail-body .app-input-steps p{font-size:13px;color:var(--muted);margin:0;line-height:1.8}
 .app-detail-body .app-section-note{font-size:13px;color:var(--muted);line-height:1.85;margin:12px 0 0}
-.app-detail-body .app-analysis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
-.app-analysis-card{position:relative;min-width:0;border:1px solid #d6e4eb;border-radius:12px;padding:23px 23px 23px 61px;background:#fff}
+.app-detail-body .app-analysis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start;list-style:none;margin:0;padding:0}
+.app-analysis-card{position:relative;min-width:0;border:1px solid #d6e4eb;border-radius:12px;padding:23px;background:#fff}
+.app-analysis-summary{padding-left:38px}
 .app-analysis-number{position:absolute;top:25px;left:21px;font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;color:#397f86;line-height:1.5}
 .app-analysis-card h3{font-size:18px;line-height:1.5;margin:0 0 8px;letter-spacing:-.025em}
-.app-detail-body .app-analysis-card p{font-size:14px;color:var(--muted);line-height:1.85;margin:0}
+.app-detail-body .app-analysis-summary p{font-size:14px;color:var(--muted);line-height:1.85;margin:0}
 .app-analysis-card:nth-child(4n+1),.app-analysis-card:nth-child(4n+2){background:#f8fbfd}
+/* 묵공 주석: 앱 결과를 사용자가 ChatGPT에 전달해 질문할 수 있도록 예시와 복사를 제공합니다. */
+.app-question-guide{padding:18px 21px;margin:18px 0 22px;border:1px solid #cce2e5;border-radius:12px;background:#f1f8f8}
+.app-question-guide h3{font-size:16px;line-height:1.6;margin:0 0 7px;letter-spacing:-.025em}
+.app-detail-body .app-question-guide p{font-size:13px;color:#496778;line-height:1.9;margin:7px 0 0}
+.app-topic-questions{margin-top:17px;padding-top:12px;border-top:1px solid #dce7ed;min-width:0}
+.app-topic-questions>summary{font-size:13px;font-weight:700;color:var(--teal);line-height:1.7;cursor:pointer;padding:5px 0}
+.app-topic-questions>summary::marker{color:var(--teal)}
+.app-topic-questions>summary:focus-visible{outline:3px solid #448dc3;outline-offset:4px;border-radius:3px}
+.app-detail-body .app-question-items{margin:8px 0 0;padding-left:19px;list-style:decimal}
+.app-question-items>li{padding:12px 0;min-width:0}
+.app-question-items>li+li{border-top:1px solid #dce7ed}
+.app-question-items>li::marker{font-size:12px;font-weight:750;color:var(--teal)}
+.app-detail-body .app-question-text{font-size:13px;line-height:1.9;color:#415a72;margin:0 0 10px}
+.app-question-copy{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:7px 13px;border:1px solid #b8d3d9;border-radius:7px;background:#fff;color:var(--teal);font-size:12px;font-weight:700;line-height:1.6}
+.app-question-copy:hover{background:#eaf4f5}
+.app-question-copy:disabled{opacity:.65;cursor:wait}
+.app-detail-body .app-question-status{font-size:11px;color:#376978;line-height:1.8;margin:8px 0 0}
+.app-question-status:empty{display:none}
+.app-question-manual{display:block;width:100%;max-width:100%;margin-top:12px;padding:10px;border:1px solid #bfd3df;border-radius:7px;background:#fff;color:var(--navy);font:inherit;font-size:12px;line-height:1.8;resize:vertical;overflow-wrap:anywhere}
+.app-question-manual[hidden]{display:none}
 .app-detail-body .app-audience-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 30px;margin:16px 0 0;padding-left:20px;font-size:14px;color:#4f637b;line-height:1.85}
 .app-guide{padding:25px 28px;background:#f5f9fb;border:1px solid #dce7ec;border-radius:12px}
 .app-guide>h2{font-size:21px}
@@ -169,6 +190,7 @@
 .app-screen img{display:block;width:100%;height:auto;border-radius:6px}
 .app-screen figcaption{font-size:12px;color:var(--muted);line-height:1.8;margin-top:10px}
 .app-detail-facts .app-screen{margin-bottom:20px}
-@media(max-width:1120px) and (min-width:981px){.app-detail-hero{grid-template-columns:minmax(0,1.4fr) minmax(190px,1fr);gap:20px;padding:24px}.app-detail-hero h2{font-size:24px}.app-detail-facts{padding:18px 16px}.app-analysis-card{padding-left:51px}.app-analysis-number{left:16px}}
+@media(max-width:1120px) and (min-width:981px){.app-detail-hero{grid-template-columns:minmax(0,1.4fr) minmax(190px,1fr);gap:20px;padding:24px}.app-detail-hero h2{font-size:24px}.app-detail-facts{padding:18px 16px}.app-analysis-summary{padding-left:28px}.app-analysis-number{left:16px}}
 @media(max-width:760px){.app-detail-hero{grid-template-columns:1fr;gap:24px;padding:25px}.app-detail-facts{width:100%}.app-screen-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.app-detail-hero{padding:21px 19px;gap:22px}.app-detail-hero h2{font-size:23px}.app-detail-intro>p:not(.app-detail-eyebrow){font-size:14px}.app-detail-section{margin-top:30px}.app-detail-section>h2{font-size:21px}.app-detail-body .app-input-steps{grid-template-columns:1fr;gap:10px}.app-input-steps li{display:grid;grid-template-columns:27px minmax(0,1fr);column-gap:12px;row-gap:3px;padding:15px 17px}.app-step-number{grid-row:1/3;align-self:center}.app-input-steps h3{font-size:15px;margin:0}.app-detail-body .app-input-steps p{grid-column:2}.app-detail-body .app-analysis-grid{grid-template-columns:1fr;gap:11px}.app-analysis-card{padding:19px 19px 19px 54px}.app-analysis-number{top:20px;left:18px;font-size:13px}.app-analysis-card h3{font-size:17px}.app-detail-body .app-analysis-card p{font-size:13px}.app-analysis-card:nth-child(n){background:#fff}.app-analysis-card:nth-child(odd){background:#f8fbfd}.app-detail-body .app-audience-list{grid-template-columns:1fr;gap:9px;font-size:13px}.app-guide{padding:21px 19px}.app-guide>p{font-size:13px}.app-screen-gallery{grid-template-columns:1fr;gap:24px}.app-screen{max-width:360px;margin:0 auto}.app-feature-tags li{font-size:10px}.app-store-badge img{width:176px}.app-store-caption{font-size:11px}}
+@media(max-width:600px){.app-question-guide{padding:17px}.app-question-guide h3{font-size:15px}.app-detail-body .app-question-guide p{font-size:12px}.app-topic-questions{margin-top:15px}.app-question-copy{min-height:44px}.app-detail-body .app-question-text{font-size:13px}}
+@media(max-width:600px){.app-detail-hero{padding:21px 19px;gap:22px}.app-detail-hero h2{font-size:23px}.app-detail-intro>p:not(.app-detail-eyebrow){font-size:14px}.app-detail-section{margin-top:30px}.app-detail-section>h2{font-size:21px}.app-detail-body .app-input-steps{grid-template-columns:1fr;gap:10px}.app-input-steps li{display:grid;grid-template-columns:27px minmax(0,1fr);column-gap:12px;row-gap:3px;padding:15px 17px}.app-step-number{grid-row:1/3;align-self:center}.app-input-steps h3{font-size:15px;margin:0}.app-detail-body .app-input-steps p{grid-column:2}.app-detail-body .app-analysis-grid{grid-template-columns:1fr;gap:11px}.app-analysis-card{padding:19px}.app-analysis-summary{padding-left:35px}.app-analysis-number{top:20px;left:18px;font-size:13px}.app-analysis-card h3{font-size:17px}.app-detail-body .app-analysis-summary p{font-size:13px}.app-analysis-card:nth-child(n){background:#fff}.app-analysis-card:nth-child(odd){background:#f8fbfd}.app-detail-body .app-audience-list{grid-template-columns:1fr;gap:9px;font-size:13px}.app-guide{padding:21px 19px}.app-guide>p{font-size:13px}.app-screen-gallery{grid-template-columns:1fr;gap:24px}.app-screen{max-width:360px;margin:0 auto}.app-feature-tags li{font-size:10px}.app-store-badge img{width:176px}.app-store-caption{font-size:11px}}
