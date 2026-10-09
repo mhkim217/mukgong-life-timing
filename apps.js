@@ -137,7 +137,7 @@
           status.textContent='아래 질문을 직접 복사하여 해당 앱 결과와 함께 사용하세요.';
         } finally {button.disabled=false;}
       });
-      item.append(button,manual,status);list.append(item);
+      item.append(button,status,manual);list.append(item);
     });details.append(list);return details;
   }
   function renderIntro(container) {
