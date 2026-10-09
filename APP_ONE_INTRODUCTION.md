@@ -8,6 +8,8 @@
 
 소개 페이지: `https://mhkim217.github.io/mukgong-life-timing/content.html#apps`
 
+2026-10-09 묵공님 요청에 따라 작은 글자를 약 두 배로 확대했습니다. 입력 정보·이용 설명·질문은 13→26px, 앱 소개 본문은 15→30px로 표시합니다. 좁은 화면에서는 정보를 세로로 배치하며, 소개·질문·PDF 사용 안내의 원고는 유지합니다. 현재 글자 크기와 배치·검수 기록은 `READABILITY_REVIEW.md`를 기준으로 확인합니다.
+
 Google Play 연결: `https://play.google.com/store/apps/details?id=com.mukgong.lifetiming`
 
 최초 소개에서는 제공된 스토어 원고에 없는 영어 지원·인쇄·PDF 저장을 기능 목록에 넣지 않았습니다. 이후 2026-10-09 묵공님이 실제 앱의 「인쇄하기」 → 「PDF 파일로 저장」 순서를 안내하셨으므로, 이번에는 이 설명을 기준으로 PDF 저장과 질문 사용법을 추가합니다. 앱 자체를 변경하거나 휴대폰의 인쇄 동작을 검수한 것은 아닙니다.
