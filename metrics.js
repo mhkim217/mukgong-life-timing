@@ -142,11 +142,13 @@
     const actions=element('div','metrics-detail-actions');
     const refresh=element('button','teal-button','새로 확인');refresh.type='button';refresh.dataset.metricRefresh=key;
     refresh.addEventListener('click',()=>key==='exchange'?refreshExchange():refreshVisitors());actions.append(refresh);
-    actions.append(key==='exchange'?link('환율 자료 출처','https://github.com/fawazahmed0/exchange-api'):link('방문 집계 제공처','https://hitscounter.dev/'));
+    // 묵공 주석: 방문자가 환율을 확인하는 링크와 홈페이지 수치의 실제 자료 제공처를 구별합니다.
+    actions.append(key==='exchange'?link('하나은행 환율 보기','https://www.kebhana.com/cont/mall/mall15/mall1501/index.jsp'):link('방문 집계 제공처','https://hitscounter.dev/'));
     if (key==='visitors') actions.append(link('개인정보 안내','privacy.html#website'));
     panel.append(actions);
     if (key==='exchange') {
-      panel.append(element('p','metrics-explanation','위 금액은 공개 자료의 기준일에 해당하는 일일 참고 환율입니다. 실시간 시세나 은행의 현찰·송금 환율과는 차이가 있을 수 있습니다.'));
+      panel.append(element('p','metrics-explanation','자료 제공: Exchange API · 일일 갱신. 위 금액은 표시된 기준일의 공개 참고 환율입니다.'));
+      panel.append(element('p','metrics-explanation','「하나은행 환율 보기」를 누르면 은행의 현재환율 안내가 새 창에서 열립니다. 은행에서 고시하는 매매기준율·현찰·송금 환율은 홈페이지의 일일 참고 환율과 차이가 있을 수 있습니다.'));
       panel.append(element('p','metrics-explanation','유로·엔·위안은 같은 자료의 미국 달러 기준 환율을 원화로 환산합니다. 엔은 100엔 기준으로 표시합니다.'));
     } else {
       panel.append(element('h2','','집계 방법'));
