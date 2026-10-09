@@ -20,10 +20,18 @@
         sidebar.style.removeProperty('--home-first-height');
         return;
       }
+      const numeric = value => parseFloat(value) || 0;
       const style = getComputedStyle(sidebar);
-      const padding = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
-      const gaps = (parts.length - 1) * parseFloat(style.rowGap);
-      const contentHeight = parts.reduce((height, part) => height + part.getBoundingClientRect().height, 0);
+      const padding = numeric(style.paddingTop) + numeric(style.paddingBottom);
+      const gaps = (parts.length - 1) * numeric(style.rowGap);
+      // 묵공 주석: 균등 배치로 늘어난 여백을 제외한 메뉴의 최소 높이를 계산하여 창 축소 시에도 끝선을 맞춥니다.
+      const navigation = parts[1];
+      const items = [...navigation.children];
+      const naturalNavHeight = items.reduce((height, item) => {
+        const itemStyle = getComputedStyle(item);
+        return height + item.getBoundingClientRect().height + numeric(itemStyle.marginTop) + numeric(itemStyle.marginBottom);
+      }, 0) + Math.max(0, items.length - 1) * numeric(getComputedStyle(navigation).rowGap);
+      const contentHeight = parts[0].getBoundingClientRect().height + naturalNavHeight + parts[2].getBoundingClientRect().height;
       setLength(homeFirst, '--sidebar-min-height', `${Math.ceil(contentHeight + padding + gaps)}px`);
       setLength(sidebar, '--home-first-height', `${homeFirst.getBoundingClientRect().height}px`);
     };

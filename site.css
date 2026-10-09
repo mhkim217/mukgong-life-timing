@@ -394,3 +394,34 @@
  .home-page .sidebar{height:var(--home-first-height,100svh)}
  .home-page .home-first{min-height:max(100svh,var(--sidebar-min-height,0px))}
 }
+
+/* 묵공 주석: 중복 명칭을 뺀 상단 메뉴를 정돈하고, 왼쪽 사업자명과 여성 모델 이미지를 확대합니다. */
+.page-header{justify-content:flex-end}
+@media(min-width:981px){
+ :root{--sidebar:300px}
+ .sidebar-brand{font-size:30px;line-height:1.25;gap:8px}
+ .sidebar-brand .brand-mark{width:42px;height:42px;font-size:28px}
+ .sidebar>nav{display:flex;flex-direction:column;gap:4px}
+ .side-link{min-height:38px;padding:4px 6px}
+ .menu-title{margin:0 6px;padding:10px 0 6px}
+ .sidebar-metrics{margin-top:0}
+ .home-page .sidebar>nav{flex-grow:1;justify-content:space-between}
+ .home-first .app-intro-hero{max-width:1040px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:52px}
+ .app-intro-hero .app-poster{max-width:none}
+}
+@media(min-width:981px) and (max-width:1280px){
+ :root{--sidebar:280px}
+ .sidebar-brand{font-size:28px}
+ .sidebar-brand .brand-mark{width:38px;height:38px;font-size:26px}
+ .home-first .app-intro-hero{gap:36px}
+ .app-facts>div{grid-template-columns:1fr;gap:3px}
+}
+@media(max-width:980px){
+ .sidebar-brand{font-size:24px;line-height:1.25;gap:7px}
+ .sidebar-brand .brand-mark{width:34px;height:34px;font-size:24px}
+ .home-first .app-intro-hero{max-width:640px;gap:28px}
+ .app-intro-hero .app-poster{max-width:440px}
+}
+@media(max-width:600px){
+ .home-first .app-intro-hero{max-width:380px}
+}
