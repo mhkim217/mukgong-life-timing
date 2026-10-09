@@ -83,6 +83,27 @@
 .classic-references li{margin:14px 0}
 .classic-credit{font-size:12px;color:var(--muted);margin-top:24px!important}
 .classic-list-back{display:inline-block;margin-top:20px;font-size:14px}
+/* 묵공 주석: 실제 고서 스캔과 연구 소개를 함께 보여 주며, 원문 이미지 순번을 기록합니다. */
+.classic-source-showcase{display:grid;grid-template-columns:166px minmax(0,1fr);gap:30px;align-items:center;padding:27px 30px;border:1px solid #ddcfb6;border-radius:14px;background:linear-gradient(115deg,#f4eddf,#fcfaf6);margin:4px 0 28px}
+.classic-cover{min-width:0;text-align:center}
+.classic-cover-link{display:block;line-height:0;border-radius:4px;box-shadow:0 9px 20px #46392225}
+.classic-cover img{display:block;width:100%;height:auto;border-radius:4px}
+.classic-cover figcaption{font-size:11px;line-height:1.8;color:#71644f;margin-top:10px}
+.classic-source-intro{min-width:0}
+.classic-source-intro .classic-source-eyebrow{font-size:12px;font-weight:700;letter-spacing:.06em;color:#856742;margin:0 0 10px}
+.classic-body .classic-source-intro h2{font-size:25px;line-height:1.5;letter-spacing:-.045em;margin:0 0 13px;color:#493d2c}
+.classic-source-intro .classic-intro{padding:0;background:transparent;border:0;border-radius:0}
+.classic-source-intro .classic-intro p{color:#59616a;font-size:14px;line-height:1.85}
+.classic-source-actions{display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;margin-top:17px;font-size:13px}
+.classic-source-actions .teal-button{min-height:42px;padding:9px 17px}
+.classic-source-intro .classic-source-credit{font-size:11px;color:#766a57;line-height:1.8;margin:13px 0 0;overflow-wrap:anywhere}
+.classic-manuscript{margin:20px 0 26px;padding:16px;background:#f8f3e9;border:1px solid #ded3bd;border-radius:12px}
+.classic-manuscript>a{display:block;line-height:0}
+.classic-manuscript img{display:block;width:100%;height:auto;border-radius:5px}
+.classic-manuscript figcaption{margin-top:12px;font-size:12px;line-height:1.9;color:#746852;overflow-wrap:anywhere}
+.classic-image-rights{font-size:12px;color:var(--muted);line-height:1.8}
+@media(max-width:760px){.classic-source-showcase{grid-template-columns:145px minmax(0,1fr);gap:23px;padding:23px}.classic-body .classic-source-intro h2{font-size:23px}.classic-source-break{display:none}}
+@media(max-width:600px){.classic-source-showcase{grid-template-columns:1fr;gap:22px;padding:23px 20px}.classic-cover{width:158px;margin:0 auto}.classic-source-intro .classic-source-eyebrow{text-align:center}.classic-body .classic-source-intro h2{font-size:23px;text-align:center}.classic-source-intro .classic-intro p{font-size:14px}.classic-source-actions{justify-content:center;gap:12px}.classic-source-intro .classic-source-credit{text-align:center}.classic-manuscript{padding:9px}.classic-manuscript figcaption{font-size:11px}}
 @media(max-width:600px){.classic-card{padding:20px}.classic-card h2{font-size:21px}.classic-card-bottom{gap:12px}.classic-intro{padding:14px 17px}.classic-metadata{gap:7px 16px}.classic-toc{padding:16px 19px}.classic-toc ol{grid-template-columns:1fr;gap:2px}.classic-body h2{font-size:21px}.classic-body h3{font-size:17px}.classic-table{font-size:13px}.classic-table th,.classic-table td{padding:10px 12px}.mukgong-comment{padding:13px 17px}}
 @media(min-width:981px) and (max-height:850px){.home-first .app-intro-hero{max-width:min(1040px,calc((100svh - 250px)*2 + 32px))}.hero-information{gap:16px}.notice-panel{min-height:144px;padding:14px 18px}.app-eyebrow{margin-bottom:6px}.app-summary h2{font-size:28px}.app-summary-lead{margin-top:10px}.app-facts{margin-top:12px}.app-facts>div{padding:4px 0}.app-actions{margin-top:14px}}
 @media(max-width:1180px) and (min-width:981px){.home-first .app-intro-hero{gap:24px}.notice-panel{padding:14px}.app-summary h2{font-size:27px}.app-summary-lead{font-size:14px}.app-facts{font-size:12px}.app-actions{gap:12px}.app-service-link{font-size:12px}.desktop-break{display:none}}

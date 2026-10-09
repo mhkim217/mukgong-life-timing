@@ -1,5 +1,10 @@
 // 묵공 주석: 고전연구 게시글. 제공된 연구 메모를 웹용으로 정리하며 고전의 설명과 연구 관점을 구별합니다.
 (() => {
+  const sanming = {
+    pdf:'https://upload.wikimedia.org/wikipedia/commons/a/a4/Harvard_drs_53262215_%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83_v.2%E5%8D%B7%E4%B9%8B%E4%BA%8C.pdf',
+    record:'https://commons.wikimedia.org/wiki/File:Harvard_drs_53262215_三命通會_v.2卷之二.pdf',
+    collection:'https://commons.wikimedia.org/wiki/Category:三命通會'
+  };
   const articles = [{
     id:'samhyeong',
     title:'삼형(三刑)의 방향·전승·통변 검토',
@@ -10,7 +15,16 @@
     summary:'『본의12지지』 교정 과정에서 검토한 삼형의 방향, 명칭 전승, 내부 기운의 해설과 통변의 과제를 정리합니다.',
     body:`
 <div class="classic-metadata"><span>연구 기준일 <time datetime="2026-10-08">2026.10.08</time></span><span>게시일 <time datetime="2026-10-09">2026.10.09</time></span></div>
+<section class="classic-source-showcase" aria-labelledby="classic-source-title">
+<figure class="classic-cover">
+<a class="classic-cover-link" href="assets/classics/sanming-tonghui-volume2-cover.jpg" target="_blank" rel="noopener noreferrer" aria-label="『삼명통회』 권2 표지 크게 보기 (새 창)"><img src="assets/classics/sanming-tonghui-volume2-cover.jpg" width="330" height="502" alt="삼명통회 권2 고서 표지. 세로 제목표와 오른쪽 실 제본이 보입니다."></a>
+<figcaption>『삼명통회』 권2 표지<br><a href="assets/classics/sanming-tonghui-volume2-cover.jpg" target="_blank" rel="noopener noreferrer">표지 크게 보기 ↗</a></figcaption>
+</figure>
+<div class="classic-source-intro"><p class="classic-source-eyebrow">고전의 원문을 펼치며</p><h2 id="classic-source-title">『삼명통회』와 함께 읽는<br class="classic-source-break"> 삼형 연구</h2>
 <div class="classic-intro"><p>이 글은 『본의12지지』 교정 과정에서 마련한 연구 검토 자료를 홈페이지에서 읽기 편하게 정리한 것입니다. 고전이 제시한 관계와 명칭, 묵공의 연구 관점, 앞으로 확인할 과제를 구별합니다.</p><p>삼형의 구체적 작용을 모두 설명한 최종 학설이나 사건·길흉을 판정하는 공식으로 확정한 글은 아닙니다.</p></div>
+<div class="classic-source-actions"><a class="teal-button" href="${sanming.pdf}" target="_blank" rel="noopener noreferrer">권2 원문 PDF ↗</a><a href="${sanming.collection}" target="_blank" rel="noopener noreferrer">전체 권 공개 목록 ↗</a></div>
+<p class="classic-source-credit">이미지: 하버드 옌칭도서관 소장 고서 · <a href="${sanming.record}" target="_blank" rel="noopener noreferrer">Wikimedia Commons 공개 자료</a></p></div>
+</section>
 <nav class="classic-toc" aria-label="연구 글의 순서"><p>글의 순서</p><ol>
 <li><button type="button" data-scroll-target="classic-relations">채택한 형의 관계</button></li>
 <li><button type="button" data-scroll-target="classic-direction">삼합과 방위, 형의 방향</button></li>
@@ -21,6 +35,10 @@
 <li><button type="button" data-scroll-target="classic-references">참고문헌·전자 원문</button></li>
 </ol></nav>
 <section><h2 id="classic-relations" tabindex="-1">1. 이 글에서 채택한 형의 관계</h2>
+<figure class="classic-manuscript">
+<a href="assets/classics/sanming-tonghui-volume2-lunsanxing.jpg" target="_blank" rel="noopener noreferrer" aria-label="『삼명통회』 권2 논삼형 시작 면 크게 보기 (새 창)"><img src="assets/classics/sanming-tonghui-volume2-lunsanxing.jpg" width="960" height="831" loading="lazy" decoding="async" alt="삼명통회 권2 펼침 면. 왼쪽 면에 논삼형 제목과 삼합·방위에 따른 형 관계의 설명이 시작됩니다."></a>
+<figcaption>『삼명통회』 권2 「논삼형(論三刑)」 시작 부분 · 공개 PDF 92번째 이미지<br>소장: Harvard-Yenching Library · <a href="${sanming.record}" target="_blank" rel="noopener noreferrer">출처</a> · <a href="assets/classics/sanming-tonghui-volume2-lunsanxing.jpg" target="_blank" rel="noopener noreferrer">내지 크게 보기 ↗</a></figcaption>
+</figure>
 <p>삼형(三刑)은 지지 사이의 관계를 설명하는 전통적 범주입니다. 『본의12지지』의 해당 표와 이 글은 『삼명통회(三命通會)』 「논삼형(論三刑)」의 본설을 기준으로 다음 관계를 채택합니다. <span class="classic-citation">[1·2]</span></p>
 <div class="classic-table-wrap" tabindex="0" aria-label="형 관계 일람표"><table class="classic-table"><caption>채택 전승에 따른 형의 관계</caption><thead><tr><th scope="col">구분</th><th scope="col">관계</th></tr></thead><tbody>
 <tr><th scope="row">시세지형(恃勢之刑)</th><td>축(丑) → 술(戌) → 미(未) → 축(丑)</td></tr>
@@ -97,12 +115,13 @@
 </section>
 <section class="classic-references"><h2 id="classic-references" tabindex="-1">참고문헌·전자 원문</h2>
 <p class="classic-note">기준 자료: 묵공 주석 「삼형의 방향·전승·통변 검토」, 2026년 10월 8일. 웹 본문에서는 원고 교정용 각주와 작업 이력 대신 연구 내용의 흐름에 맞춰 순서를 정리했습니다.</p>
-<ol><li>만민영(萬民英), 『삼명통회(三命通會)』 권2 「논삼형(論三刑)」. <a href="https://www.shidianguji.com/zh/book/HY1521/chapter/1knwemh3lrtpj" target="_blank" rel="noopener noreferrer">식전고적 전자 원문</a> · <a href="https://zh.wikisource.org/zh-hant/欽定古今圖書集成/博物彙編/藝術典/第598卷" target="_blank" rel="noopener noreferrer">『고금도서집성』 수록 원문</a>.</li>
+<ol><li>만민영(萬民英), 『삼명통회(三命通會)』 권2 「논삼형(論三刑)」. <a href="${sanming.pdf}" target="_blank" rel="noopener noreferrer">하버드 옌칭도서관 소장본 권2 PDF</a> · <a href="${sanming.collection}" target="_blank" rel="noopener noreferrer">전체 권 공개 목록</a> · <a href="https://www.shidianguji.com/zh/book/HY1521/chapter/1knwemh3lrtpj" target="_blank" rel="noopener noreferrer">식전고적 전자 원문</a> · <a href="https://zh.wikisource.org/zh-hant/欽定古今圖書集成/博物彙編/藝術典/第598卷" target="_blank" rel="noopener noreferrer">『고금도서집성』 수록 원문</a>. 원문 이미지 대조 시 권수·편명과 PDF 이미지 순번을 함께 기록하며 인쇄면의 장차와 구별합니다.</li>
 <li>요중(廖中), 『오행정기(五行精紀)』 권25 「논삼형(論三刑)」. <a href="https://zh.wikisource.org/zh-hant/五行精紀" target="_blank" rel="noopener noreferrer">전자 원문</a>. 『옥소보감』은 해당 편의 인용 내용으로 참조합니다.</li>
 <li>『적천수천미(滴天髓闡微)』 「통신론·지지」 및 「방국」, 임씨 주석. <a href="https://zh.wikisource.org/zh-hant/滴天髓闡微" target="_blank" rel="noopener noreferrer">전자 원문</a>.</li>
 <li>소길(蕭吉), 『오행대의(五行大義)』 권2 「제십일논형(第十一論刑)」. <a href="https://zh.wikisource.org/zh-hant/五行大義/2" target="_blank" rel="noopener noreferrer">전자 원문</a>.</li>
 <li>김만태, 「십이지(十二支)의 상호작용 관계로서 충(衝)·형(刑)에 관한 근원 고찰」, 2013, 36권 3호, 134–164쪽. DOI: 10.25024/ksq.36.3.201309.134. <a href="https://www.accesson.kr/ksq/assets/pdf/40880/journal-36-3-134.pdf" target="_blank" rel="noopener noreferrer">논문 원문</a> · <a href="https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART001802048" target="_blank" rel="noopener noreferrer">KCI 서지</a>. 상세 인용은 원문 인쇄면의 쪽수를 기준으로 확인합니다.</li></ol>
 <p class="classic-credit">연구 관점: 묵공(默空) · 자료 정리·분석 보조: GPT</p>
+<p class="classic-image-rights">고서 이미지 이용 안내: 위 공개 파일의 퍼블릭 도메인 표시와 <a href="https://library.harvard.edu/about/policies/policy-access-digital-reproductions-works-public-domain" target="_blank" rel="noopener noreferrer">하버드 도서관의 공개 복제본 이용 정책</a>을 확인하여 출처와 함께 게재했습니다.</p>
 </section>
 <a class="classic-list-back" href="content.html#classics">← 고전연구 목록으로 돌아가기</a>
 `
