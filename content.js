@@ -2,7 +2,7 @@
 (() => {
   const pending = title => ({title,status:'원고 준비 중',lead:'이 항목의 안내 내용을 순서대로 정리하고 있습니다.',paragraphs:['안내 원고가 확정되면 이 페이지에 추가하겠습니다.']});
   const topics = {
-    board:{...pending('게시판'),lead:'공지와 연구소 소식을 안내하는 공간입니다.',paragraphs:['게시판의 운영 방식과 게시 내용을 준비하고 있습니다.']},
+    board:{title:'게시판 · 공지사항',lead:'연구소 소식과 이용 안내를 전해 드립니다.',paragraphs:[]},
     disposition:pending('기본 성향'), study:pending('학업'), career:pending('20대 적성 및 진로'),
     timing:pending('대운·세운'), relationship:pending('건강 및 궁합'), life:pending('인생 총평'),
     publishing:pending('출판 작업'),
@@ -18,13 +18,17 @@
   };
   function render() {
     const key = decodeURIComponent(location.hash.slice(1));
-    const topic = topics[key] || topics.research;
+    const noticeId = key.startsWith('notice/') ? key.slice(7) : null;
+    const notice = window.MukgongNotices?.entries.find(entry => entry.id === noticeId);
+    const topic = notice ? {title:notice.title,lead:'묵공오행연구소 공지사항',paragraphs:[]} : (noticeId !== null ? {title:'공지사항을 찾을 수 없습니다',lead:'공지사항 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['공지사항 전체 보기','content.html#board']]} : topics[key] || topics.research);
     document.title = `${topic.title} | 묵공오행연구소`;
     document.getElementById('topicTitle').textContent = topic.title;
     document.getElementById('topicLead').textContent = topic.lead;
     const status = document.getElementById('topicStatus'); status.replaceChildren();
     if (topic.status) {const badge=document.createElement('span');badge.className='draft-status';badge.textContent=topic.status;status.append(badge);}
     const copy=document.getElementById('topicContent');copy.replaceChildren();
+    if (key === 'board') {const board=document.createElement('div');board.className='board-notices';window.MukgongNotices.renderList(board);copy.append(board);}
+    if (notice) window.MukgongNotices.renderDetail(copy,notice);
     topic.paragraphs.forEach(text => {const p=document.createElement('p');p.textContent=text;copy.append(p);});
     if (topic.links) {
       const links=document.createElement('nav');links.className='content-topic-links';links.setAttribute('aria-label','관련 안내');
