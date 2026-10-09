@@ -108,12 +108,12 @@
   function questionPrompt(topic,question) {
     return [
       `「출생시를 몰라도」 앱의 「${topic.title}」 결과를 이해하고 싶습니다.`,
-      '아래 분석 내용 또는 함께 첨부한 해당 앱 화면을 기준으로, 쉬운 한국어와 존댓말로 답해 주세요.',
+      '함께 첨부한 해당 항목의 앱 결과 PDF·화면 또는 아래 분석 내용을 기준으로, 쉬운 한국어와 존댓말로 답해 주세요.',
       '앱에 적힌 내용과 설명을 위한 예시·제안을 구분해 주세요. 출생시각·시주를 추정하거나 제공되지 않은 사주 정보를 추가하지 마세요.',
       '자료가 없거나 읽기 어려우면 먼저 해당 내용을 요청해 주세요.',
       '', '[질문]', question, '',
       `[앱의 「${topic.title}」 분석 결과]`,
-      '(이곳에 해당 분석 내용을 붙여넣거나 해당 앱 화면을 함께 첨부해 주세요.)'
+      '(해당 항목의 결과 PDF 또는 앱 화면을 함께 첨부하거나, 분석 내용을 이곳에 붙여넣어 주세요.)'
     ].join('\n');
   }
   function topicQuestions(topic) {
@@ -131,10 +131,10 @@
         const prompt=questionPrompt(topic,question);button.disabled=true;
         try {
           await navigator.clipboard.writeText(prompt);manual.hidden=true;
-          status.textContent='질문을 복사했습니다. 해당 앱 결과와 함께 ChatGPT에 붙여넣으세요.';
+          status.textContent='질문을 복사했습니다. ChatGPT에 해당 결과 PDF를 첨부하고 질문을 붙여넣으세요.';
         } catch {
           manual.value=prompt;manual.hidden=false;manual.focus();manual.select();
-          status.textContent='아래 질문을 직접 복사하여 해당 앱 결과와 함께 사용하세요.';
+          status.textContent='아래 질문을 직접 복사하여 해당 앱 결과 PDF·분석 내용·화면과 함께 사용하세요.';
         } finally {button.disabled=false;}
       });
       item.append(button,status,manual);list.append(item);
@@ -173,15 +173,33 @@
     analysis.append(element('p','app-section-intro','성향과 관계를 이해하고, 적성과 생활 방향을 돌아보는 내용을 함께 제공합니다.'));
     const questionGuide=element('div','app-question-guide');
     questionGuide.append(element('h3','','앱 결과를 더 깊이 이해하고 싶다면'));
-    questionGuide.append(element('p','','각 항목의 「GPT 질문 3개」를 열고 궁금한 질문을 복사하세요. 복사한 질문과 앱의 해당 분석 내용 또는 화면을 ChatGPT에 전달해 주세요.'));
-    questionGuide.append(element('p','','이후에는 자신의 상황과 경험을 알려주며 궁금한 점을 계속 질문하실 수 있습니다.'));
+    questionGuide.append(element('p','','각 항목의 「GPT 질문 3개」를 열고 궁금한 질문을 복사하세요. 복사한 질문과 앱에서 저장한 해당 결과 PDF를 ChatGPT에 전달해 주세요. 분석 내용이나 앱 화면으로도 질문할 수 있습니다.'));
+    const usageLink=element('a','app-question-usage-link','PDF 저장과 질문 사용법 보기');usageLink.href='#app-question-usage';
+    usageLink.addEventListener('click',event=>{event.preventDefault();document.getElementById('app-question-usage').scrollIntoView({behavior:'smooth',block:'start'});});
+    questionGuide.append(usageLink);
     analysis.append(questionGuide);
     const cards=element('ol','app-analysis-grid');
     analysisTopics.forEach((topic,index)=>{
       const card=element('li','app-analysis-card');card.dataset.analysisId=topic.id;
       const summary=element('div','app-analysis-summary');summary.append(element('h3','',topic.title),element('p','',topic.description));
       card.append(element('span','app-analysis-number',String(index+1).padStart(2,'0')),summary,topicQuestions(topic));cards.append(card);
-    });analysis.append(cards);body.append(analysis);
+    });analysis.append(cards);
+    // 묵공 주석: 묵공님이 안내한 인쇄·PDF 저장 순서를 10개 항목의 끝에 설명합니다.
+    const usage=element('section','app-question-guide app-question-usage');usage.id='app-question-usage';
+    usage.setAttribute('aria-labelledby','app-question-usage-title');
+    const usageHeading=element('h3','','항목별 질문 3개, 이렇게 사용하세요');usageHeading.id='app-question-usage-title';usage.append(usageHeading);
+    const usageSteps=element('ol','app-question-usage-steps');
+    [
+      ['앱에서 분석 항목 열기','앱을 설치한 뒤 생년월일과 성별을 입력하고, 궁금한 항목을 엽니다. 예를 들어 「기본성향」을 선택합니다.'],
+      ['PDF 파일로 저장하기','분석 화면 아래의 「인쇄하기」를 누릅니다. 인쇄 화면에서 「PDF 파일로 저장」을 선택하고, 파일 이름과 저장 위치를 정해 저장합니다.'],
+      ['홈페이지에서 질문 복사하기','이 페이지에서 같은 항목의 「GPT 질문 3개」를 펼친 뒤, 원하는 질문의 「질문 복사」를 누릅니다. 먼저 질문 한 개를 골라 사용하시면 됩니다.'],
+      ['ChatGPT에 파일과 질문 보내기','ChatGPT 대화를 열고 저장한 PDF 파일을 첨부합니다. 복사한 질문을 입력란에 붙여넣고, 파일 첨부를 확인한 뒤 함께 전송합니다.']
+    ].forEach(([title,text])=>{
+      const step=element('li');step.append(element('h4','',title),element('p','',text));usageSteps.append(step);
+    });usage.append(usageSteps);
+    usage.append(element('p','app-question-usage-example','예: 「기본성향」 결과 PDF를 첨부하고 「기본성향」의 첫 번째 질문을 붙여넣어 전송합니다.'));
+    usage.append(element('p','','답변을 읽은 뒤 두 번째·세 번째 질문을 이어서 보내거나, 자신의 상황과 경험을 추가하며 자유롭게 질문하실 수 있습니다. 다른 항목을 질문할 때에는 해당 결과 PDF도 함께 첨부해 주세요.'));
+    analysis.append(usage);body.append(analysis);
     const resultScreens=screenshots.filter(screen=>screen.id!=='input');
     if(resultScreens.length) {
       const gallery=section('앱에서 보는 분석 화면','app-screens-title');
