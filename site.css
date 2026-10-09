@@ -374,3 +374,23 @@
   .sidebar-close,.menu-toggle{width:44px;height:44px}
   .top-nav a{min-height:44px}
 }
+
+/* 묵공 주석: 값이 없는 긴 통계 칸은 기존 안내 페이지로 연결되는 짧은 버튼으로 정돈합니다. */
+.metric-shortcut{display:block;border:1px solid #b5dfe6;border-radius:8px;background:#fff;padding:9px 10px;color:var(--navy)}
+.metric-shortcut:hover{background:#f6fbfd;color:var(--navy)}
+.metric-shortcut .metric-title{display:flex;flex-wrap:nowrap;gap:7px;line-height:1.3;margin-bottom:3px}
+.metric-shortcut .metric-title>.icon{width:19px;height:19px}
+.metric-shortcut .metric-title>.metric-arrow{width:14px;height:14px;margin-left:auto}
+.metric-shortcut .metric-status{margin-top:0;line-height:1.4}
+/* 묵공 주석: PC 메뉴는 문서와 함께 스크롤하며 대문 첫 구역 높이에 맞춥니다. 메뉴 글자 크기는 유지합니다. */
+@media(min-width:981px){
+ .sidebar{position:static;top:auto;display:flex;flex-direction:column;gap:12px;height:auto;min-height:0;overflow:visible;padding:12px 13.5px;align-self:start}
+ .sidebar-brand{margin-bottom:0;flex-shrink:0}
+ .sidebar>nav,.sidebar-metrics{flex-shrink:0}
+ .side-link{min-height:36px;line-height:1.25;padding:3px 6px;gap:8px}
+ .side-link .icon{width:19px;height:19px}
+ .menu-title{line-height:1.25;margin:12px 6px 4px;padding-bottom:4px}
+ .sidebar-metrics{gap:8px;margin-top:auto}
+ .home-page .sidebar{height:var(--home-first-height,100svh)}
+ .home-page .home-first{min-height:max(100svh,var(--sidebar-min-height,0px))}
+}

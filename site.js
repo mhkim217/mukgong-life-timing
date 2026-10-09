@@ -1,4 +1,4 @@
-// 묵공 주석: 모바일 메뉴·기존 홈페이지 앵커 연결을 담당합니다.
+// 묵공 주석: 대문 메뉴 높이·모바일 메뉴·기존 홈페이지 앵커 연결을 담당합니다.
 (() => {
   const sidebar = document.getElementById('siteSidebar');
   const toggle = document.querySelector('.menu-toggle');
@@ -7,6 +7,34 @@
   const main = document.getElementById('main');
   let savedOverflow = '';
   const isMobile = () => window.matchMedia('(max-width: 980px)').matches;
+  // 묵공 주석: 메뉴를 자르지 않고 대문 첫 구역과 끝선을 맞춥니다. 모바일은 기존 펼침 메뉴를 사용합니다.
+  const homeFirst = document.querySelector('.home-first');
+  if (homeFirst) {
+    const parts = [sidebar.querySelector('.sidebar-brand'), sidebar.querySelector('nav'), sidebar.querySelector('.sidebar-metrics')];
+    const setLength = (element, name, value) => {
+      if (element.style.getPropertyValue(name) !== value) element.style.setProperty(name, value);
+    };
+    const fitSidebar = () => {
+      if (isMobile()) {
+        homeFirst.style.removeProperty('--sidebar-min-height');
+        sidebar.style.removeProperty('--home-first-height');
+        return;
+      }
+      const style = getComputedStyle(sidebar);
+      const padding = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+      const gaps = (parts.length - 1) * parseFloat(style.rowGap);
+      const contentHeight = parts.reduce((height, part) => height + part.getBoundingClientRect().height, 0);
+      setLength(homeFirst, '--sidebar-min-height', `${Math.ceil(contentHeight + padding + gaps)}px`);
+      setLength(sidebar, '--home-first-height', `${homeFirst.getBoundingClientRect().height}px`);
+    };
+    fitSidebar();
+    window.addEventListener('resize', fitSidebar);
+    if (typeof ResizeObserver === 'function') {
+      const observer = new ResizeObserver(fitSidebar);
+      [homeFirst, ...parts].forEach(element => observer.observe(element));
+    }
+    document.fonts.ready.then(fitSidebar);
+  }
   function setOpen(open, restoreFocus = true) {
     sidebar.classList.toggle('open', open);
     backdrop.classList.toggle('open', open);
