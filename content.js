@@ -3,7 +3,7 @@
   const pending = title => ({title,status:'원고 준비 중',lead:'이 항목의 안내 내용을 순서대로 정리하고 있습니다.',paragraphs:['안내 원고가 확정되면 이 페이지에 추가하겠습니다.']});
   const topics = {
     board:{title:'게시판 · 공지사항',lead:'연구소 소식과 이용 안내를 전해 드립니다.',paragraphs:[]},
-    disposition:pending('기본 성향'), study:pending('학업'), career:pending('20대 적성 및 진로'),
+    disposition:{...window.MukgongDisposition.profile,paragraphs:[]}, study:pending('학업'), career:pending('20대 적성 및 진로'),
     timing:pending('대운·세운'), relationship:pending('건강 및 궁합'), life:pending('인생 총평'),
     publishing:pending('출판 작업'),
     classics:{title:'고전연구',lead:'고전의 원문과 해석을 검토하며 연구 내용을 차례로 기록합니다.',paragraphs:[]},
@@ -38,6 +38,7 @@
     if (key === 'classics') window.MukgongClassics.renderIndex(copy);
     if (classic) window.MukgongClassics.renderArticle(copy,classic);
     if (key === 'apps') window.MukgongApps.renderIntro(copy);
+    if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
     topic.paragraphs.forEach(text => {const p=document.createElement('p');p.textContent=text;copy.append(p);});
     if (topic.links) {

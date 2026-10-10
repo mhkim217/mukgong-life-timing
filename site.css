@@ -448,3 +448,43 @@
  .metric-detail-card dd{font-size:27px}
  .detail-copy .metrics-explanation{font-size:19.5px}
 }
+
+/* 묵공 주석: 승인된 기본성향 소개글은 기존 읽기 편한 글자 크기로 표시하며 앱 활용 후 질문으로 이어집니다. */
+.disposition-article{font-size:22.5px;line-height:1.85;min-width:0}
+.disposition-section{min-width:0;scroll-margin-top:24px}
+.disposition-section+.disposition-section{border-top:1px solid var(--line);margin-top:42px;padding-top:28px}
+.detail-copy .disposition-section h2{font-size:30px;line-height:1.45;letter-spacing:-.035em;margin:0 0 20px}
+.disposition-section h3{font-size:24px;line-height:1.6;letter-spacing:-.025em;margin:28px 0 12px;color:var(--teal)}
+.detail-copy .disposition-section p{margin:14px 0}
+.detail-copy .disposition-section-lead{color:#356073;font-weight:500}
+.disposition-note{border-left:4px solid #b28e56;background:#f7f5ef;border-radius:0 10px 10px 0;padding:18px 22px;margin:24px 0}
+.disposition-note h3{font-size:23.25px;margin:0 0 8px}
+.detail-copy .disposition-note p{margin:0}
+.disposition-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:21px;line-height:1.75;margin:18px 0}
+.disposition-table th,.disposition-table td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid #d6e1e5;overflow-wrap:anywhere}
+.disposition-table thead th{background:var(--teal);color:white;font-weight:700}
+.disposition-table th:first-child{width:26%}
+.disposition-table tbody th{font-weight:700;color:var(--teal)}
+.disposition-table tbody tr:nth-child(odd){background:#f3f8f8}
+.disposition-questions{padding:0;margin:20px 0 0;list-style:none;display:grid;gap:18px}
+.disposition-question{display:grid;grid-template-columns:40px minmax(0,1fr);gap:16px;padding:22px;background:#f1f7f7;border:1px solid #d2e4e6;border-radius:12px;min-width:0}
+.disposition-question-number{font-weight:800;font-size:24px;color:var(--teal);line-height:1.7}
+.disposition-question-body{min-width:0}
+.detail-copy .disposition-question-text{margin:0 0 14px}
+.detail-copy .disposition-question-status{font-size:19.5px;line-height:1.7;color:#376978;margin:10px 0 0}
+.disposition-question-status:empty{display:none}
+.disposition-question .app-question-manual{font-size:19.5px;line-height:1.75}
+@media(max-width:600px){
+ .disposition-article{font-size:21px;line-height:1.85}
+ .disposition-section+.disposition-section{margin-top:32px;padding-top:24px}
+ .detail-copy .disposition-section h2{font-size:27px;margin-bottom:16px}
+ .disposition-section h3{font-size:22.5px;margin-top:24px}
+ .disposition-note{padding:16px 14px;margin:20px 0}
+ .disposition-note h3{font-size:22.5px}
+ .disposition-table{font-size:19.5px}
+ .disposition-table th,.disposition-table td{padding:12px 10px}
+ .disposition-table th:first-child{width:32%}
+ .disposition-question{grid-template-columns:30px minmax(0,1fr);gap:10px;padding:18px 14px}
+ .disposition-question-number{font-size:21px}
+ .detail-copy .disposition-question-status{font-size:18px}
+}
