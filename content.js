@@ -58,7 +58,7 @@
       topic.links.forEach(([label,url])=>{const a=document.createElement('a');a.textContent=label;a.href=url;if(url.startsWith('https:')){a.target='_blank';a.rel='noopener noreferrer';}links.append(a);});
       copy.append(links);
     }
-    if (render.hasRendered) {document.querySelector('.detail-page').scrollIntoView({block:'start'});}
+    if (render.hasRendered) {document.querySelector('.detail-page').scrollIntoView({block:'start',behavior:caseParent||key==='study'||key==='timing'?'instant':'auto'});}
     render.hasRendered=true;
   }
   window.addEventListener('hashchange',render);render();
