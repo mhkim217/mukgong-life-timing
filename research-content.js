@@ -24,15 +24,12 @@
       '부운 25수는 재능과 기회를 살리면서도 겸손과 신중함을 지키는 태도로 주운을 뒷받침합니다. 약속과 신의를 소홀히 하지 않고, 다른 사람의 장점을 인정하며 자신의 부족함을 보완하는 방향입니다.',
       '외운 21수는 어려움 속에서도 뜻을 지키고, 경험을 통해 역량을 기르며 때에 맞게 자신의 길을 펼치는 방향으로 해석합니다. 소박함이 소극성에 머물지 않도록 필요한 때에는 의견을 분명하게 표현하고, 따뜻한 마음과 단단한 기준을 함께 갖추는 것이 좋겠습니다.',
       '총운 31수는 지혜와 어짊을 함께 기르고, 성실한 실천에 용기를 더하여 삶의 기반을 오래 지키는 의미를 담고 있습니다. 진실한 마음으로 주변과 조화를 이루고, 꾸준한 배움으로 판단력을 기르며 실력과 신뢰를 함께 쌓아 가는 이름이라 하겠습니다.'
-    ]},
-    {id:'suhyeon',name:'박수현',hanja:'朴修賢',middle:'수',character:'修',meaning:'닦을 수',radical:'人(亻)',elements:'土 · 金',subtitle:'꾸준한 자기 수양으로 실력과 인품을 함께 기르는 이름',paragraphs:[
-      '닦을 수(修)는 배우고 익히며 자신의 생각과 행동을 다듬는 과정을, 어질 현(賢)은 어진 품성과 지혜로운 역량을 나타냅니다. 두 글자가 만나 타고난 가능성을 성실한 노력으로 키우고, 배운 것을 사람과 삶을 이롭게 하는 데 실천하는 방향을 담고 있습니다.',
-      '주운 16수는 화합을 통해 신망을 얻고, 함께 힘을 모아 일을 발전시키는 역량을 강조합니다. 꾸준히 기른 실력과 책임 있는 태도를 바탕으로 주변의 의견을 듣고 각자의 장점을 연결하며, 성과와 책임을 나누는 협력의 자세로 풀이합니다.',
-      '부운 25수는 기회를 만나더라도 겸손하고 신중하게 처신하며 인화를 가꾸는 태도로 주운을 뒷받침합니다. 자기 수양은 지식이나 기술을 익히는 데에 그치지 않고, 약속을 지키고 다른 사람을 배려하는 일까지 포함합니다.',
-      '외운 21수는 어려움에도 뜻을 지키고, 경험을 쌓아 역량을 성숙시키는 흐름으로 해석합니다. 수양을 지나치게 엄격한 자기 요구로 받아들이기보다 휴식과 여유를 갖추고, 다른 사람과 도움을 나누며 지속할 수 있는 성장의 속도를 찾는 것이 좋겠습니다.',
-      '총운 31수는 지혜와 어짊, 실천의 용기를 균형 있게 기르며 성과와 신뢰를 오래 축적하는 방향을 나타냅니다. 꾸준한 배움과 따뜻한 배려로 주변과 협력하며, 맡은 역할을 책임 있게 수행하는 이름이라 하겠습니다.'
     ]}
   ];
+  const documentExamples={
+    naming:{title:'박소현 작명 원고',count:9,width:1132,height:1600,prefix:'naming-page-',padding:1},
+    study:{title:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도',count:13,width:1237,height:1600,prefix:'study-1988-page-',padding:2}
+  };
   const numberReadings=[
     ['주운(主運)','16','박 + 중간자','和衆得望 協力興業 以德領人 成果共享','화중득망 협력흥업 이덕령인 성과공향','사람들과 화합하여 신망을 얻고 협력하여 일을 발전시키며, 덕으로 사람을 이끌고 성과를 함께 나눕니다.'],
     ['부운(副運)','25','중간자 + 현','才機相遇 謙慎持身 修和補缺 穩進成事','재기상우 겸신지신 수화보결 온진성사','재능과 기회를 살리되 겸손하고 신중하게 처신합니다. 신의와 화합으로 부족함을 보완하며 안정적으로 일을 이루어 갑니다.'],
@@ -48,6 +45,46 @@
     const body=el('tbody');rows.forEach(row=>{const tr=el('tr');row.forEach((text,i)=>{const c=el(i===0?'th':'td','',text);if(i===0)c.scope='row';tr.append(c);});body.append(tr);});t.append(body);wrap.append(t);host.append(wrap);
   }
   function link(host,label,url) {const a=el('a','teal-button',label);a.href=url;if(url.startsWith('https:')){a.target='_blank';a.rel='noopener noreferrer';}host.append(a);}
+  // 묵공 주석: 업로드 원고의 모든 쪽을 본문에 표시하고, 확대도 같은 페이지 안에서 제공합니다.
+  let documentViewer;
+  function getDocumentViewer() {
+    if(documentViewer)return documentViewer;
+    const dialog=el('dialog','document-dialog');dialog.setAttribute('aria-labelledby','documentViewerTitle');
+    const header=el('div','document-dialog-header'),title=el('h2');title.id='documentViewerTitle';
+    const close=el('button','document-dialog-close','닫기');close.type='button';close.addEventListener('click',()=>dialog.close());header.append(title,close);
+    const toolbar=el('div','document-dialog-toolbar'),zoom=el('button','document-dialog-zoom','글씨 크게 보기');zoom.type='button';
+    const hint=el('p','','확대한 화면은 좌우로 움직여 읽으실 수 있습니다.');toolbar.append(zoom,hint);
+    const scroll=el('div','document-dialog-scroll'),img=el('img','document-dialog-image');scroll.append(img);dialog.append(header,toolbar,scroll);document.body.append(dialog);
+    let trigger,previousOverflow='';
+    zoom.addEventListener('click',()=>{
+      const enlarged=img.classList.toggle('is-enlarged');zoom.textContent=enlarged?'화면에 맞추기':'글씨 크게 보기';
+      scroll.scrollTo({top:0,left:enlarged?(scroll.scrollWidth-scroll.clientWidth)/2:0,behavior:'instant'});
+    });
+    dialog.addEventListener('close',()=>{document.body.style.overflow=previousOverflow;if(trigger?.isConnected)trigger.focus({preventScroll:true});});
+    window.addEventListener('hashchange',()=>{if(dialog.open)dialog.close();});
+    documentViewer={open(source,button){
+      trigger=button;previousOverflow=document.body.style.overflow;
+      title.textContent=source.alt;img.src=source.src;img.alt=source.alt;img.width=source.width;img.height=source.height;
+      img.classList.remove('is-enlarged');zoom.textContent='글씨 크게 보기';
+      dialog.showModal();document.body.style.overflow='hidden';scroll.scrollTo({top:0,left:0,behavior:'instant'});
+    }};
+    return documentViewer;
+  }
+  function renderDocumentExample(host,key) {
+    const info=documentExamples[key],example=section('<예제>');example.id=key+'-example';example.classList.add('document-example');
+    example.append(el('h3','document-example-title',info.title));
+    paragraph(example,'아래에서 원고 전체를 바로 읽으실 수 있습니다. 글씨가 작으면 해당 쪽을 누른 뒤 ‘글씨 크게 보기’를 선택하세요.','document-example-guide');
+    const pages=el('div','document-pages');
+    for(let page=1;page<=info.count;page++){
+      const figure=el('figure','document-page'),button=el('button','document-page-open'),img=el('img');button.type='button';
+      img.src='assets/examples/'+info.prefix+String(page).padStart(info.padding,'0')+'.jpg';
+      img.alt=info.title+' — '+page+'쪽 / 전체 '+info.count+'쪽';img.width=info.width;img.height=info.height;img.loading='lazy';img.decoding='async';
+      button.setAttribute('aria-label',page+'쪽 전체 화면으로 보기 · '+info.title);button.setAttribute('aria-haspopup','dialog');
+      button.append(img);button.addEventListener('click',()=>getDocumentViewer().open(img,button));
+      figure.append(button,el('figcaption','',page+' / '+info.count+'쪽 · 눌러서 전체 화면 보기'));pages.append(figure);
+    }
+    example.append(pages);host.append(example);
+  }
   function study(host) {
     paragraph(host,'학업을 살펴보는 일은 성적이나 학과 이름만으로 자신의 가능성을 정하는 일이 아닙니다. 어떤 방식으로 이해하고 표현하는지, 무엇에 관심이 오래 이어지는지, 어려움 뒤에도 어떤 활동을 다시 선택하는지를 함께 살펴보는 과정입니다.','research-opening');
     paragraph(host,'묵공식 배움·재능·진로 분석은 출생년월일시를 바탕으로 잠재적성·학습성향을 먼저 읽고, 학교생활·성적·관심·결과물 등의 실제 자료를 별도로 대조합니다. 실제 자료는 처음의 잠재점수를 소급하여 바꾸는 입력값이 아니라, 해석과 실제 발현의 일치·불일치를 확인하는 자료로 활용합니다.');
@@ -55,7 +92,8 @@
     paragraph(note,'이 분석은 특정 대학·학과의 합격 가능성을 판정하거나 진학결정을 대신하는 자료가 아닙니다. 실제 진학은 성적·지원조건·희망·환경 등 현실자료와 함께 판단합니다.');host.append(note);
     const items=section('10개 항목으로 이어지는 배움과 성장');
     studyItems.forEach(([title,text],i)=>{const item=el('section','research-topic');item.append(el('h3','',String(i+1).padStart(2,'0')+' · '+title));paragraph(item,text);items.append(item);});host.append(items);
-    const example=section('최근 원고에서 살펴보는 연구 예시');
+    renderDocumentExample(host,'study');
+    const example=section('2012년생 연속 분석의 구성 예시');
     paragraph(example,'2012년생을 대상으로 2026~2031년의 학업·전공적성 흐름을 연결한 원고입니다. 아래는 2031년 최종연도 분석의 핵심을 정리한 것입니다. 향후 흐름을 검토하는 연구 예시이며, 실제 6년간의 관찰 결과가 확인된 사례를 뜻하지 않습니다.');
     table(example,'출생기반 잠재적성 — 주요 후보군',['후보군','연구 모형의 잠재점수'],[['공학·기술·정보','62.70'],['생명·의학·정밀','62.62'],['경영·경제·전략','61.73'],['과학·연구','61.03']]);
     paragraph(example,'첫 두 후보의 차이는 0.08점으로 사실상 동률입니다. 숫자 순위만으로 한 전공을 확정하지 않고, 설계·구현과 정밀관찰·반복기록 중 어느 공부 방식이 실제로 지속되는지 확인합니다. 위 값은 묵공의 연구 모형에 따른 잠재점수이며, 학교성적이나 합격확률을 뜻하지 않습니다.');
@@ -64,11 +102,11 @@
     const evidence=section('실제 경험을 이렇게 기록해 보세요');
     table(evidence,'잠재적성과 실제 배움의 경험을 대조하기',['관찰할 내용','기록할 질문'],[['관심·탐색','평가가 없어도 찾아본 주제와 스스로 넓혀 본 자료는 무엇인가요?'],['지속·재도전','흥미가 줄거나 어려움이 생긴 뒤에도 다시 선택한 활동은 무엇인가요?'],['행동·결과물','문제풀이·제작·실험·설명 가운데 무엇을 완성하고 수정했나요?'],['적합·성과','잘하는 활동과 다시 하고 싶은 활동이 같은가요? 학교생활과 선택에서 어떤 차이가 나타났나요?']]);
     paragraph(evidence,'묵공 주석: 출생기반 잠재분석과 실제 행동증거를 구별한 뒤 함께 읽습니다. 외부 진로 연구는 관심·행동·선택·성과를 확인하는 과정의 참고자료로 활용하며, 출생기반 판정식의 직접 근거와는 구별합니다.','research-source');host.append(evidence);
-    paragraph(host,'정리 기준: 2026.09.17 수정보완판 R2 · 전공적성 분기 및 검증 모듈 v2.5 · M-CAVE v1.0 · 2012년생 2031년 최종연도 원고.','research-source');
+    paragraph(host,'예제 원고: 묵공이 제공한 「1988년생 여성 · 2007년 丁亥년 학업운·전공적성 분석」 최종 편집본. 기존 설명의 정리 기준: 2026.09.17 수정보완판 R2 · 전공적성 분기 및 검증 모듈 v2.5 · M-CAVE v1.0 · 2012년생 2031년 최종연도 원고.','research-source');
   }
   function naming(host) {
     paragraph(host,'이름을 풀이할 때에는 글자의 뜻과 소리가 어떻게 어울리는지, 획수로 이루어진 수리 구조와 오행이 어떤 삶의 방향으로 연결되는지를 함께 살펴봅니다. 묵공의 작명은 그 의미를 이해하기 쉬운 문장으로 풀어, 이름을 지어 준 뜻과 성장의 방향을 전하는 데 중심을 둡니다.','research-opening');
-    paragraph(host,'아래는 묵공이 작업한 박소현·박수현의 작명 총론과 작명 해제 샘플입니다. 같은 획수 구조를 지니더라도 글자의 뜻이 달라 이름에 담긴 성장의 방향은 서로 다르게 풀이됩니다.');
+    paragraph(host,'아래는 묵공이 작업한 박소현의 작명 총론과 작명 해제 샘플입니다. 글자의 뜻과 획수, 수리와 오행이 이름에 담긴 성장의 방향으로 어떻게 연결되는지 살펴보실 수 있습니다.');
     namingSamples.forEach(sample=>{
       const part=section(sample.name+'('+sample.hanja+')');part.id='naming-'+sample.id;
       paragraph(part,sample.subtitle,'research-sample-lead');
@@ -76,7 +114,8 @@
       table(part,'작명 해제 — 글자의 뜻과 구성',['구분','성씨','중간자','끝 자'],[['한글','박',sample.middle,'현'],['한자','朴',sample.character,'賢'],['음훈','성씨 박',sample.meaning,'어질 현'],['획수','6','10','15'],['부수','木',sample.radical,'貝'],['자원오행 · 소리오행','木 · 水',sample.elements,'土 · 火']]);
       paragraph(part,'자원오행은 글자의 구성과 의미를 읽는 기준이며, 소리오행은 이름의 자음을 분류하는 기준입니다. 두 기준을 구별하여 위 표에 함께 표시했습니다.');host.append(part);
     });
-    const readings=section('두 이름에 공통으로 적용한 수리 해제');
+    renderDocumentExample(host,'naming');
+    const readings=section('박소현의 수리 해제');
     table(readings,'주운·부운·외운·총운',['구분','수리','구성'],numberReadings.map(row=>row.slice(0,3)));
     numberReadings.forEach(([title,number,composition,verse,reading,text])=>{
       const item=el('section','naming-reading');item.append(el('h3','',title+' '+number+'수'),el('p','naming-verse',verse),el('p','naming-reading-sound',reading));paragraph(item,text);readings.append(item);
@@ -84,7 +123,7 @@
     const comment=el('aside','research-note');comment.append(el('h2','','묵공 주석'));
     paragraph(comment,'소리오행은 모음을 제외하고 자음으로 구분하며, 초성과 받침의 순서로 표기합니다. 16자 해석문은 묵공의 현대 해석문으로, 고전의 직접 인용과 구별하여 읽습니다.');
     paragraph(comment,'작명 해제는 이름에 담은 뜻과 지향하는 성장의 방향을 설명합니다. 실제 삶에서는 배움과 경험, 관계와 선택을 통해 그 의미를 가꾸어 갑니다.');host.append(comment);
-    paragraph(host,'정리 자료: 묵공의 「박소현(3)」·「박수현(3)」 작명 원고(2026.10.04)와 「묵공식 작명 절차와 적용 기준」.','research-source');
+    paragraph(host,'예제 원고: 묵공이 제공한 「박소현」 PDF(2026.10.11). 설명의 정리 자료: 묵공의 박소현 작명 원고와 「묵공식 작명 절차와 적용 기준」.','research-source');
   }
   function thesis(host) {
     paragraph(host,'解題(해제)는 논문의 주제와 연구 배경, 주요 내용과 의미를 독자가 이해하기 쉬운 말로 풀어 소개하는 글입니다. 이 공간에서는 묵공의 학위논문을 바탕으로 연구 내용을 차례로 정리할 예정입니다.','research-opening');
