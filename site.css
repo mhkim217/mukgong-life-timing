@@ -489,14 +489,12 @@
  .detail-copy .disposition-question-status{font-size:18px}
 }
 
-/* 묵공 주석: 1호앱 아래 기본성향 하위 메뉴와 학업·적성, 작명, 학위논문 소개를 기존 글자 크기로 정돈합니다. */
+/* 묵공 주석: 1호앱 아래 기본성향 하위 메뉴와 학업·적성, 작명을 기존 글자 크기로 정돈합니다. */
 .menu-branch{min-width:0}
 .side-submenu{margin:3px 0 2px 25px;padding-left:8px;border-left:2px solid #b6d2db}
 .side-sublink{font-size:20.25px}
 .side-sublink .icon{width:17px;height:17px}
 .side-link.has-current-child{color:var(--teal);font-weight:700}
-.side-thesis{align-items:flex-start}
-.side-thesis>.icon{margin-top:4px}
 .app-disposition-link{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;font-size:21px;font-weight:700}
 .disposition-app-example{padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--line)}
 .disposition-app-example>h3:first-child{margin-top:0}

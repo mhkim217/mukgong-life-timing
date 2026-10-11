@@ -2,8 +2,7 @@
 (() => {
   const profiles={
     study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 잠재적성을 살펴보고 실제 배움의 경험으로 확인합니다.'},
-    naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.'},
-    thesis:{title:'『천안향교의 풍수 입지에 관한 연구』 解題',lead:'묵공의 학위논문을 소개하고 연구 내용을 풀어 읽는 공간입니다.',status:'解題 원고 준비 중'}
+    naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.'}
   };
   const studyItems=[
     ['나의 배움 방식','자신이 납득한 기준으로 탐색하고 실행하는 방식, 주도적으로 공부할 때의 강점과 필요한 기초훈련을 살펴봅니다. 이해한 내용을 실제 과제와 결과물로 연결하는 과정도 함께 확인합니다.'],
@@ -44,7 +43,6 @@
     const head=el('thead'),hr=el('tr');headers.forEach(text=>{const c=el('th','',text);c.scope='col';hr.append(c);});head.append(hr);t.append(head);
     const body=el('tbody');rows.forEach(row=>{const tr=el('tr');row.forEach((text,i)=>{const c=el(i===0?'th':'td','',text);if(i===0)c.scope='row';tr.append(c);});body.append(tr);});t.append(body);wrap.append(t);host.append(wrap);
   }
-  function link(host,label,url) {const a=el('a','teal-button',label);a.href=url;if(url.startsWith('https:')){a.target='_blank';a.rel='noopener noreferrer';}host.append(a);}
   // 묵공 주석: 업로드 원고의 모든 쪽을 본문에 표시하고, 확대도 같은 페이지 안에서 제공합니다.
   let documentViewer;
   function getDocumentViewer() {
@@ -125,13 +123,6 @@
     paragraph(comment,'작명 해제는 이름에 담은 뜻과 지향하는 성장의 방향을 설명합니다. 실제 삶에서는 배움과 경험, 관계와 선택을 통해 그 의미를 가꾸어 갑니다.');host.append(comment);
     paragraph(host,'예제 원고: 묵공이 제공한 「박소현」 PDF(2026.10.11). 설명의 정리 자료: 묵공의 박소현 작명 원고와 「묵공식 작명 절차와 적용 기준」.','research-source');
   }
-  function thesis(host) {
-    paragraph(host,'解題(해제)는 논문의 주제와 연구 배경, 주요 내용과 의미를 독자가 이해하기 쉬운 말로 풀어 소개하는 글입니다. 이 공간에서는 묵공의 학위논문을 바탕으로 연구 내용을 차례로 정리할 예정입니다.','research-opening');
-    table(host,'학위논문 서지 안내',['구분','내용'],[['논문명','천안향교의 풍수 입지에 관한 연구'],['저자','김명하(묵공)'],['학위','석사학위논문'],['학교','국제뇌교육종합대학원대학교'],['발행','2023년 2월'],['국회도서관 청구기호','TM181-23-33']]);
-    paragraph(host,'해제 본문은 논문 원문과 묵공의 설명을 확인한 뒤 연구 대상, 분석 기준, 주요 내용과 결론의 순서로 추가하겠습니다.');
-    const actions=el('div','research-actions');link(actions,'학교의 석·박사 논문 목록','https://www.ube.ac.kr/hmpg/biz/kor/mjgd/OrientalListOfTheses.do');host.append(actions);
-    paragraph(host,'서지 기준: 묵공이 제공한 국회도서관 소장정보 화면과 학교의 석·박사 논문 목록.','research-source');
-  }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key);({study,naming,thesis})[key](article);container.append(article);}
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key);({study,naming})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();
