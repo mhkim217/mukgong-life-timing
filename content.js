@@ -7,6 +7,8 @@
     study:{...window.MukgongResearch.profiles.study,paragraphs:[]},
     naming:{...window.MukgongResearch.profiles.naming,paragraphs:[]},
     timing:{...window.MukgongResearch.profiles.timing,paragraphs:[]},
+    'study/1':{...window.MukgongResearch.profiles['study/1'],paragraphs:[]},
+    'timing/1':{...window.MukgongResearch.profiles['timing/1'],paragraphs:[]},
     publishing:{...window.MukgongPublishing.profile,paragraphs:[]},
     classics:{title:'고전연구',lead:'고전의 원문과 해석을 검토하며 연구 내용을 차례로 기록합니다.',paragraphs:[]},
     cases:{...pending('실제 분석 사례'),lead:'분석의 구성과 해설 방식을 소개할 예정입니다.',paragraphs:['공개할 실제 사례를 선정하고 내용을 확인한 후 추가하겠습니다.']},
@@ -27,12 +29,14 @@
     const notice = window.MukgongNotices?.entries.find(entry => entry.id === noticeId);
     const classicId = key.startsWith('classics/') ? key.slice(9) : null;
     const classic = window.MukgongClassics?.articles.find(article => article.id === classicId);
+    const caseParent=key.startsWith('study/')?'study':key.startsWith('timing/')?'timing':null;
     let topic = topics[key] || topics.research;
+    if(caseParent&&!topics[key])topic={title:'사례를 찾을 수 없습니다',lead:'분야별 안내에서 게시된 사례를 확인해 주세요.',paragraphs:[],links:[[topics[caseParent].title+' 안내','content.html#'+caseParent]]};
     if (noticeId !== null) topic = notice ? {title:notice.title,lead:'묵공오행연구소 공지사항',paragraphs:[]} : {title:'공지사항을 찾을 수 없습니다',lead:'공지사항 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['공지사항 전체 보기','content.html#board']]};
     if (classicId !== null) topic = classic ? {...classic,paragraphs:[]} : {title:'연구 글을 찾을 수 없습니다',lead:'고전연구 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['고전연구 목록','content.html#classics']]};
     const back=document.querySelector('.back-link');
-    back.href=classicId!==null?'content.html#classics':key==='disposition'?'content.html#apps':'index.html';
-    back.textContent=classicId!==null?'← 고전연구 목록으로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
+    back.href=classicId!==null?'content.html#classics':caseParent?'content.html#'+caseParent:key==='disposition'?'content.html#apps':'index.html';
+    back.textContent=classicId!==null?'← 고전연구 목록으로':caseParent?'← '+topics[caseParent].title+' 안내로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
     document.title = `${topic.title} | 묵공오행연구소`;
     document.getElementById('topicTitle').textContent = topic.title;
     document.getElementById('topicLead').textContent = topic.lead;
@@ -46,7 +50,7 @@
     if (key === 'apps') window.MukgongApps.renderIntro(copy);
     if (key === 'publishing') window.MukgongPublishing.renderIntro(copy);
     if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
-    if (['study','naming','timing'].includes(key)) window.MukgongResearch.renderArticle(copy,key);
+    if (Object.hasOwn(window.MukgongResearch.profiles,key)) window.MukgongResearch.renderArticle(copy,key);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
     topic.paragraphs.forEach(text => {const p=document.createElement('p');p.textContent=text;copy.append(p);});
     if (topic.links) {

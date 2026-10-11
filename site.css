@@ -560,6 +560,9 @@
 .detail-copy .naming-reading-sound{font-size:19.5px;color:var(--muted);margin:6px 0}
 .detail-copy .research-source{font-size:19.5px;line-height:1.85;color:var(--muted);margin-top:24px}
 .research-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.research-case-card{padding:20px 22px;border:1px solid #cbdfe5;border-radius:10px;background:#f6fafb;margin:18px 0}
+.research-case-card h3{font-size:25.5px;line-height:1.5;color:var(--teal)}
+.research-case-card .teal-button{min-height:44px;padding:8px 14px;font-size:21px;margin-top:8px}
 .timing-jumps .teal-button{min-height:44px;padding:8px 14px;font-size:21px;font-family:inherit;cursor:pointer}
 .timing-jumps button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 .research-timing .research-section h2{scroll-margin-top:20px}

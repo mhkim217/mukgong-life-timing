@@ -86,7 +86,7 @@
     sidebar.querySelectorAll('a.side-link').forEach(link => {
       const target = new URL(link.href);
       const samePath = target.pathname === location.pathname;
-      const current = samePath && (target.hash === location.hash || (target.hash && location.hash.startsWith(target.hash + '/')));
+      const current = samePath && (target.hash === location.hash || (!link.closest('.menu-branch') && target.hash && location.hash.startsWith(target.hash + '/')));
       if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
     });
     sidebar.querySelectorAll('.menu-branch').forEach(branch=>{
