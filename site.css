@@ -560,6 +560,9 @@
 .detail-copy .naming-reading-sound{font-size:19.5px;color:var(--muted);margin:6px 0}
 .detail-copy .research-source{font-size:19.5px;line-height:1.85;color:var(--muted);margin-top:24px}
 .research-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.timing-jumps .teal-button{min-height:44px;padding:8px 14px;font-size:21px;font-family:inherit;cursor:pointer}
+.timing-jumps button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.research-timing .research-section h2{scroll-margin-top:20px}
 /* 묵공 주석: 예제 원고 전체를 순서대로 읽고 같은 페이지 안에서 확대합니다. */
 .document-example-title{font-size:25.5px;line-height:1.6;margin:0 0 16px;color:var(--teal);overflow-wrap:anywhere}
 .detail-copy .document-example-guide{font-size:21px;color:var(--muted);margin-bottom:24px}

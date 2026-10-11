@@ -1,8 +1,9 @@
-// 묵공 주석: 최신 학업·적성 원고와 확정 작명 샘플에서 공개 소개에 필요한 내용을 정리합니다.
+// 묵공 주석: 최신 학업·적성 원고, 작명 샘플과 대운·세운 공개용 수정본을 소개합니다.
 (() => {
   const profiles={
     study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 잠재적성을 살펴보고 실제 배움의 경험으로 확인합니다.'},
-    naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.'}
+    naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.'},
+    timing:{title:'대운·세운',lead:'1959년생 남성 — 신유대운과 2026년 병오세운 해설 예제'}
   };
   const studyItems=[
     ['나의 배움 방식','자신이 납득한 기준으로 탐색하고 실행하는 방식, 주도적으로 공부할 때의 강점과 필요한 기초훈련을 살펴봅니다. 이해한 내용을 실제 과제와 결과물로 연결하는 과정도 함께 확인합니다.'],
@@ -27,7 +28,9 @@
   ];
   const documentExamples={
     naming:{title:'박소현 작명 원고',count:9,width:1132,height:1600,prefix:'naming-page-',padding:1},
-    study:{title:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도',count:13,width:1237,height:1600,prefix:'study-1988-page-',padding:2}
+    study:{title:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도',count:13,width:1237,height:1600,prefix:'study-1988-page-',padding:2},
+    'timing-general':{title:'신유대운·2026년 병오세운 — 일반인용',count:14,width:1132,height:1600,prefix:'timing-1959-general-page-',padding:2,extension:'png'},
+    'timing-expert':{title:'신유대운·2026년 병오세운 — 전문가용',count:18,width:1132,height:1600,prefix:'timing-1959-expert-page-',padding:2,extension:'png'}
   };
   const numberReadings=[
     ['주운(主運)','16','박 + 중간자','和衆得望 協力興業 以德領人 成果共享','화중득망 협력흥업 이덕령인 성과공향','사람들과 화합하여 신망을 얻고 협력하여 일을 발전시키며, 덕으로 사람을 이끌고 성과를 함께 나눕니다.'],
@@ -68,20 +71,37 @@
     }};
     return documentViewer;
   }
-  function renderDocumentExample(host,key) {
-    const info=documentExamples[key],example=section('<예제>');example.id=key+'-example';example.classList.add('document-example');
+  function renderDocumentExample(host,key,options={}) {
+    const info=documentExamples[key],example=section(options.heading||'<예제>');example.id=key+'-example';example.classList.add('document-example');
     example.append(el('h3','document-example-title',info.title));
+    if(options.description)paragraph(example,options.description);
     paragraph(example,'아래에서 원고 전체를 바로 읽으실 수 있습니다. 글씨가 작으면 해당 쪽을 누른 뒤 ‘글씨 크게 보기’를 선택하세요.','document-example-guide');
     const pages=el('div','document-pages');
     for(let page=1;page<=info.count;page++){
       const figure=el('figure','document-page'),button=el('button','document-page-open'),img=el('img');button.type='button';
-      img.src='assets/examples/'+info.prefix+String(page).padStart(info.padding,'0')+'.jpg';
+      img.src='assets/examples/'+info.prefix+String(page).padStart(info.padding,'0')+'.'+(info.extension||'jpg');
       img.alt=info.title+' — '+page+'쪽 / 전체 '+info.count+'쪽';img.width=info.width;img.height=info.height;img.loading='lazy';img.decoding='async';
       button.setAttribute('aria-label',page+'쪽 전체 화면으로 보기 · '+info.title);button.setAttribute('aria-haspopup','dialog');
       button.append(img);button.addEventListener('click',()=>getDocumentViewer().open(img,button));
       figure.append(button,el('figcaption','',page+' / '+info.count+'쪽 · 눌러서 전체 화면 보기'));pages.append(figure);
     }
-    example.append(pages);host.append(example);
+    example.append(pages);host.append(example);return example;
+  }
+  function timing(host) {
+    const intro=section('<예제> 대운 세운');intro.id='timing-example';
+    paragraph(intro,'1959년생 남성의 신유대운(2022~2031년)과 2026년 병오세운을 살펴본 해설입니다.','research-sample-lead');
+    paragraph(intro,'일반인용 해설을 먼저 싣고, 그 분석의 이론과 근거를 담은 전문가용 해설을 이어서 소개합니다. 두 문서의 모든 쪽을 아래에서 읽으실 수 있습니다.');
+    const jumps=el('nav','research-actions timing-jumps');jumps.setAttribute('aria-label','대운·세운 예제 바로가기');intro.append(jumps);host.append(intro);
+    for(const [key,label,heading,description] of [
+      ['timing-general','일반인용 읽기','일반인용 해설 · 전체 14쪽','일반인용은 전문가용의 분석 내용을 일상적인 말로 풀어 쓴 해설입니다. 대운과 세운의 흐름, 생활 영역별 점검과 실천 방향을 살펴보실 수 있습니다.'],
+      ['timing-expert','전문가용 읽기','전문가용 해설 · 전체 18쪽','앞의 일반인용 해설은 이 전문가용에 제시된 이론과 분석 근거에 따라 작성했습니다. 전문가용에는 원국·오행·대운·세운을 살펴본 근거와 전문 용어를 담았습니다.']
+    ]){
+      const example=renderDocumentExample(host,key,{heading,description});
+      const title=example.querySelector('h2');title.id=key+'-title';title.tabIndex=-1;
+      const button=el('button','teal-button',label);button.type='button';button.setAttribute('aria-controls',title.id);
+      button.addEventListener('click',()=>{title.scrollIntoView({block:'start'});title.focus({preventScroll:true});});jumps.append(button);
+    }
+    paragraph(host,'묵공 주석: 같은 사례를 생활 속에서 읽기 쉬운 일반인용과 분석 근거를 살펴보는 전문가용으로 나누었습니다. 실제 상담에서는 의뢰인의 상황과 질문을 함께 확인하여 해설을 구체화합니다.','research-source');
   }
   function study(host) {
     paragraph(host,'학업을 살펴보는 일은 성적이나 학과 이름만으로 자신의 가능성을 정하는 일이 아닙니다. 어떤 방식으로 이해하고 표현하는지, 무엇에 관심이 오래 이어지는지, 어려움 뒤에도 어떤 활동을 다시 선택하는지를 함께 살펴보는 과정입니다.','research-opening');
@@ -123,6 +143,6 @@
     paragraph(comment,'작명 해제는 이름에 담은 뜻과 지향하는 성장의 방향을 설명합니다. 실제 삶에서는 배움과 경험, 관계와 선택을 통해 그 의미를 가꾸어 갑니다.');host.append(comment);
     paragraph(host,'예제 원고: 묵공이 제공한 「박소현」 PDF(2026.10.11). 설명의 정리 자료: 묵공의 박소현 작명 원고와 「묵공식 작명 절차와 적용 기준」.','research-source');
   }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key);({study,naming})[key](article);container.append(article);}
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key);({study,naming,timing})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();

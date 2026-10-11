@@ -6,7 +6,7 @@
     disposition:{...window.MukgongDisposition.profile,paragraphs:[]},
     study:{...window.MukgongResearch.profiles.study,paragraphs:[]},
     naming:{...window.MukgongResearch.profiles.naming,paragraphs:[]},
-    timing:pending('대운·세운'),
+    timing:{...window.MukgongResearch.profiles.timing,paragraphs:[]},
     publishing:{...window.MukgongPublishing.profile,paragraphs:[]},
     classics:{title:'고전연구',lead:'고전의 원문과 해석을 검토하며 연구 내용을 차례로 기록합니다.',paragraphs:[]},
     cases:{...pending('실제 분석 사례'),lead:'분석의 구성과 해설 방식을 소개할 예정입니다.',paragraphs:['공개할 실제 사례를 선정하고 내용을 확인한 후 추가하겠습니다.']},
@@ -46,7 +46,7 @@
     if (key === 'apps') window.MukgongApps.renderIntro(copy);
     if (key === 'publishing') window.MukgongPublishing.renderIntro(copy);
     if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
-    if (['study','naming'].includes(key)) window.MukgongResearch.renderArticle(copy,key);
+    if (['study','naming','timing'].includes(key)) window.MukgongResearch.renderArticle(copy,key);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
     topic.paragraphs.forEach(text => {const p=document.createElement('p');p.textContent=text;copy.append(p);});
     if (topic.links) {
