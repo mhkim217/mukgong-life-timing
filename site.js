@@ -89,6 +89,10 @@
       const current = samePath && (target.hash === location.hash || (target.hash && location.hash.startsWith(target.hash + '/')));
       if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
     });
+    sidebar.querySelectorAll('.menu-branch').forEach(branch=>{
+      const active=Boolean(branch.querySelector('.side-submenu [aria-current="page"]'));
+      branch.querySelector(':scope > .side-link').classList.toggle('has-current-child',active);
+    });
   }
   window.addEventListener('hashchange', updateCurrent);
   updateCurrent();

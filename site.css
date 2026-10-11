@@ -488,3 +488,59 @@
  .disposition-question-number{font-size:21px}
  .detail-copy .disposition-question-status{font-size:18px}
 }
+
+/* 묵공 주석: 1호앱 아래 기본성향 하위 메뉴와 학업·적성, 작명, 학위논문 소개를 기존 글자 크기로 정돈합니다. */
+.menu-branch{min-width:0}
+.side-submenu{margin:3px 0 2px 25px;padding-left:8px;border-left:2px solid #b6d2db}
+.side-sublink{font-size:20.25px}
+.side-sublink .icon{width:17px;height:17px}
+.side-link.has-current-child{color:var(--teal);font-weight:700}
+.side-thesis{align-items:flex-start}
+.side-thesis>.icon{margin-top:4px}
+.app-disposition-link{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;font-size:21px;font-weight:700}
+.disposition-app-example{padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.disposition-app-example>h3:first-child{margin-top:0}
+.disposition-screen-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;max-width:760px;margin:24px auto}
+.disposition-screen-gallery .app-screen{width:100%;max-width:360px}
+.disposition-screen-gallery .app-screen-link{padding:8px;border-radius:16px;background:#eaf1f3}
+.disposition-screen-gallery .app-screen figcaption{font-size:19.5px}
+.app-screen-credit{display:inline-block;font-size:19.5px}
+.research-article{font-size:22.5px;line-height:1.85;min-width:0}
+.detail-copy .research-article p{margin:14px 0}
+.research-opening{font-weight:500;color:#356073}
+.research-section{border-top:1px solid var(--line);margin-top:34px;padding-top:26px;min-width:0}
+.detail-copy .research-section h2{font-size:30px;line-height:1.45;margin:0 0 18px;letter-spacing:-.03em}
+.research-topic{margin:22px 0}
+.research-topic h3,.naming-reading h3{font-size:24px;line-height:1.6;margin:0 0 10px;color:var(--teal)}
+.research-note{margin:24px 0;padding:18px 22px;background:#f2f7f7;border-left:4px solid var(--teal);border-radius:0 10px 10px 0}
+.research-note h2{font-size:24px;line-height:1.6;margin:0 0 10px}
+.detail-copy .research-note p{margin:8px 0}
+.research-table-wrap{max-width:100%;overflow-x:auto;margin:22px 0;border:1px solid #d6e2e8;border-radius:10px}
+.research-table{width:100%;border-collapse:collapse;font-size:21px;line-height:1.75;text-align:left}
+.research-table caption{padding:12px 16px;background:#eaf4f5;text-align:left;font-weight:700;color:var(--teal)}
+.research-table th,.research-table td{padding:12px 16px;vertical-align:top;border-bottom:1px solid #d6e2e8;overflow-wrap:anywhere}
+.research-table thead th{background:#f3f7fa}
+.research-table tbody th{font-weight:700;color:#365d69}
+.research-table tbody tr:last-child>*{border-bottom:0}
+.research-table tbody tr:nth-child(even){background:#f9fbfc}
+.research-sample-lead{font-weight:600;color:#356073}
+.naming-reading{padding:20px 0;border-bottom:1px solid var(--line)}
+.detail-copy .naming-verse{font-size:24px;font-weight:600;line-height:1.8;color:#24485a}
+.detail-copy .naming-reading-sound{font-size:19.5px;color:var(--muted);margin:6px 0}
+.detail-copy .research-source{font-size:19.5px;line-height:1.85;color:var(--muted);margin-top:24px}
+.research-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+@media(min-width:981px) and (max-width:1280px){.side-sublink{font-size:18px}}
+@media(max-width:600px){
+ .side-sublink{font-size:19.5px}
+ .research-article{font-size:21px}
+ .detail-copy .research-section h2{font-size:27px}
+ .research-topic h3,.naming-reading h3,.research-note h2{font-size:22.5px}
+ .research-note{padding:16px 14px}
+ .research-table{font-size:19.5px}
+ .research-table th,.research-table td{padding:11px 10px}
+ .research-naming .research-table{min-width:440px}
+ .detail-copy .naming-verse{font-size:22.5px}
+ .detail-copy .research-source,.app-screen-credit{font-size:18px}
+ .disposition-screen-gallery{grid-template-columns:1fr;gap:22px}
+ .disposition-screen-gallery .app-screen{max-width:320px}
+}

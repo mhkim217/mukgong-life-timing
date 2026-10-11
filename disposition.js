@@ -264,6 +264,7 @@
       sectionTitle.id=section.id+'-title';
       if(index===0) sectionTitle.hidden=true;
       section.setAttribute('aria-labelledby',sectionTitle.id);section.append(sectionTitle);
+      if(data.id==='app-usage') section.append(appScreenExamples());
       let list;
       data.blocks.forEach(block=>{
         if(block.type==='question') {
@@ -281,6 +282,24 @@
       article.append(section);
     });
     container.append(article);
+  }
+  function appScreenExamples() {
+    const sample=element('div','disposition-app-example');
+    sample.append(element('h3','','휴대폰에서 보는 기본성향과 PDF 저장'));
+    sample.append(element('p','','아래는 Google Play에 공개된 실제 앱 화면입니다. 기본성향 화면은 전환·혁신형 결과의 일부이고, PDF 저장 화면은 안정·실속형 결과의 예시입니다. 입력한 생년월일과 성별에 따라 각자의 결과가 달라집니다.'));
+    const gallery=element('div','disposition-screen-gallery');
+    window.MukgongApps.screenshots.filter(screen=>['disposition','print'].includes(screen.id)).forEach(screen=>{
+      const figure=element('figure','app-screen');const a=element('a','app-screen-link');a.href=screen.src;a.target='_blank';a.rel='noopener noreferrer';
+      a.setAttribute('aria-label',screen.caption+' 원본 크게 보기');
+      const img=document.createElement('img');img.src=screen.src;img.alt=screen.alt;img.width=screen.width;img.height=screen.height;img.loading='lazy';img.decoding='async';
+      a.append(img);figure.append(a,element('figcaption','',screen.caption));gallery.append(figure);
+    });sample.append(gallery);
+    sample.append(element('h3','','이미지의 내용을 글로 함께 읽습니다'));
+    sample.append(element('p','','전환·혁신형 예시는 변화에 대응하며 자신의 길을 만들어 가는 성향으로 설명하고 있습니다. 이런 결과를 읽을 때에는 변화에 대응했던 실제 경험과 결정할 때의 습관을 떠올리고, 잘 맞는 설명과 다른 설명을 구별해 보세요.'));
+    sample.append(element('p','','PDF 저장 예시에 담긴 안정·실속형 결과는 익숙한 일을 조용히 수행하고 기준을 지키는 성향을 설명합니다. 두 화면의 유형명은 각각의 분석 예시에 해당합니다. 자신의 강점과 보완점은 앱에서 받은 개인 결과를 기준으로 확인합니다.'));
+    sample.append(element('p','','화면의 작은 글씨는 이미지를 눌러 크게 볼 수 있으며, 아래 순서로 결과 PDF를 저장하면 본문을 읽거나 ChatGPT에 첨부하여 질문할 수 있습니다.'));
+    const credit=element('a','app-screen-credit','화면 출처: Google Play 「출생시를 몰라도」');credit.href='https://play.google.com/store/apps/details?id=com.mukgong.lifetiming';credit.target='_blank';credit.rel='noopener noreferrer';sample.append(credit);
+    return sample;
   }
   window.MukgongDisposition=Object.freeze({profile,renderArticle});
 })();

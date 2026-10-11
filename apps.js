@@ -70,9 +70,12 @@
       '제가 가장 고민하는 주제를 먼저 물어본 뒤, 이 멘토링을 참고하여 앞으로 한 달 동안 실천할 작은 목표와 점검 방법을 함께 정리해 주세요.'
     ]
   };
-  // 묵공 주석: 실제 앱 화면이 제공되면 등록합니다. 화면이나 분석 결과를 임의로 제작하지 않습니다.
-  // 각 항목: {id, src, width, height, alt, caption}. id가 input이면 상단, 나머지는 분석 항목 아래에 배치합니다.
-  const screenshots = [];
+  // 묵공 주석: Google Play에 공개된 실제 앱 화면을 원본 크기로 가져왔습니다. 임의의 입력·결과 화면을 만들지 않습니다.
+  const screenshots = [
+    {id:'intro',src:'assets/app-screens/app-intro.jpg',width:1080,height:1920,alt:'출생시각 없이 이용하는 앱의 소개 화면',caption:'출생시를 몰라도 이용할 수 있는 생활 멘토링 앱 안내'},
+    {id:'disposition',src:'assets/app-screens/basic-disposition.jpg',width:1080,height:1920,alt:'전환·혁신형 기본성향 결과 예시의 일부',caption:'기본성향 결과 예시 · 전환·혁신형'},
+    {id:'print',src:'assets/app-screens/save-pdf.png',width:428,height:732,alt:'안정·실속형 기본성향 결과를 PDF 파일로 저장하는 화면',caption:'PDF 저장 화면 · 안정·실속형 결과 예시'}
+  ];
 
   function element(tag,className,text) {
     const node=document.createElement(tag);
@@ -154,6 +157,7 @@
     const actions=element('div','app-download-actions');
     actions.append(storeLink(),element('span','app-store-caption','Google Play에서 앱 보기'));
     intro.append(actions);
+    const related=element('a','app-disposition-link','기본성향 소개와 활용법 보기 →');related.href='content.html#disposition';intro.append(related);
     const facts=element('aside','app-detail-facts');facts.setAttribute('aria-label','앱 이용 정보');
     const inputScreen=screenshots.find(screen=>screen.id==='input');
     if(inputScreen) facts.append(screenshotFigure(inputScreen));
@@ -203,7 +207,7 @@
     const resultScreens=screenshots.filter(screen=>screen.id!=='input');
     if(resultScreens.length) {
       const gallery=section('앱에서 보는 분석 화면','app-screens-title');
-      gallery.append(element('p','app-section-intro','이미지를 누르면 실제 앱 화면을 크게 볼 수 있습니다.'));
+      gallery.append(element('p','app-section-intro','Google Play에 공개된 앱 화면입니다. 기본성향과 PDF 저장 화면은 서로 다른 결과 예시이며, 이미지를 누르면 크게 볼 수 있습니다.'));
       const grid=element('div','app-screen-gallery');resultScreens.forEach(screen=>grid.append(screenshotFigure(screen)));
       gallery.append(grid);body.append(gallery);
     }
