@@ -7,7 +7,7 @@
     study:{...window.MukgongResearch.profiles.study,paragraphs:[]},
     naming:{...window.MukgongResearch.profiles.naming,paragraphs:[]},
     timing:pending('대운·세운'),
-    publishing:pending('출판 작업'),
+    publishing:{...window.MukgongPublishing.profile,paragraphs:[]},
     classics:{title:'고전연구',lead:'고전의 원문과 해석을 검토하며 연구 내용을 차례로 기록합니다.',paragraphs:[]},
     cases:{...pending('실제 분석 사례'),lead:'분석의 구성과 해설 방식을 소개할 예정입니다.',paragraphs:['공개할 실제 사례를 선정하고 내용을 확인한 후 추가하겠습니다.']},
     intake:{title:'전문 분석 안내·접수',status:'접수 안내 준비 중',lead:'분석 분야와 진행 절차를 안내할 공간입니다.',paragraphs:['분석 분야·비용·접수 방법·진행 절차를 정리하고 있습니다.','접수 안내가 확정되면 이 페이지에서 확인하실 수 있습니다.'],links:[['고객센터 문의','content.html#contact']]},
@@ -44,6 +44,7 @@
     if (key === 'classics') window.MukgongClassics.renderIndex(copy);
     if (classic) window.MukgongClassics.renderArticle(copy,classic);
     if (key === 'apps') window.MukgongApps.renderIntro(copy);
+    if (key === 'publishing') window.MukgongPublishing.renderIntro(copy);
     if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
     if (['study','naming'].includes(key)) window.MukgongResearch.renderArticle(copy,key);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
