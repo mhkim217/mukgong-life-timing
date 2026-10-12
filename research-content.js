@@ -4,7 +4,9 @@
     study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 잠재적성을 살펴보고 실제 배움의 경험으로 확인합니다.',leadInIntroduction:true},
     naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.',leadInIntroduction:true},
     timing:{title:'대운·세운',lead:'대운과 세운의 흐름을 분석 사례로 살펴봅니다.',leadInIntroduction:true},
-    'study/1':{title:'학업 및 적성 · 사례 1',lead:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도'},
+    'study/1':{title:'학업 및 적성 · 사례 1',lead:'2012년생 남학생 · 2026년 병오(丙午)년 · 6년 분석의 1년차'},
+    'study/2':{title:'학업 및 적성 · 사례 2',lead:'2012년생 남학생 · 2029년 기유(己酉)년 · 6년 분석의 4년차'},
+    'study/3':{title:'학업 및 적성 · 사례 3',lead:'1988년생 여성 · 2007년 정해(丁亥)년 · 6년 분석의 최종 6년차'},
     'timing/1':{title:'대운·세운 · 사례 1',lead:'1959년생 남성 — 신유대운과 2026년 병오세운 해설'}
   };
   // 묵공 주석: 승인한 홍보 문안과 공개용 분석 안내를 각 분야 상단에 표시합니다.
@@ -53,12 +55,18 @@
   ];
   const documentExamples={
     naming:{title:'박소현 작명 원고',count:9,width:1132,height:1600,prefix:'naming-page-',padding:1},
-    study:{title:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도',count:13,width:1237,height:1600,prefix:'study-1988-page-',padding:2},
+    'study-case-1':{title:'2012년생 남학생 · 2026년 1년차 · 분석 개요 발췌본',count:2,width:1224,height:1584,prefix:'study-case-1-page-',padding:2,extension:'png'},
+    'study-case-2':{title:'2012년생 남학생 · 2029년 4년차 학업운·전공적성 분석',count:11,width:1224,height:1584,prefix:'study-case-2-page-',padding:2,extension:'png'},
+    'study-case-3':{title:'1988년생 여성 · 2007년 최종 6년차 학업운·전공적성 분석',count:13,width:1224,height:1584,prefix:'study-case-3-page-',padding:2,extension:'png'},
     'timing-general':{title:'신유대운·2026년 병오세운 — 일반인용',count:14,width:1132,height:1600,prefix:'timing-1959-general-page-',padding:2,extension:'png'},
     'timing-expert':{title:'신유대운·2026년 병오세운 — 전문가용',count:18,width:1132,height:1600,prefix:'timing-1959-expert-page-',padding:2,extension:'png'}
   };
   const publishedCases={
-    study:[{id:'1',title:documentExamples.study.title,description:'학업운·전공적성 분석의 최종연도 원고 전체 13쪽을 읽으실 수 있습니다.'}],
+    study:[
+      {id:'1',title:profiles['study/1'].lead,description:'제공된 분석 개요 1쪽을 모범 형식으로 정리한 발췌본입니다. 표지를 포함한 2쪽을 읽으실 수 있습니다.'},
+      {id:'2',title:profiles['study/2'].lead,description:'모범 형식에 맞춘 4년차 분석입니다. 표지와 본문 10쪽, 전체 11쪽을 읽으실 수 있습니다.'},
+      {id:'3',title:profiles['study/3'].lead,description:'세 사례의 모범 편집 기준으로 정한 최종 6년차 원고입니다. 표지를 포함한 전체 13쪽을 읽으실 수 있습니다.'}
+    ],
     timing:[{id:'1',title:'1959년생 남성 — 신유대운(2022~2031년)과 2026년 병오세운',description:'일반인용 14쪽과 전문가용 18쪽을 차례로 읽으실 수 있습니다.'}]
   };
   const numberReadings=[
@@ -168,9 +176,14 @@
     paragraph(evidence,'묵공 주석: 출생기반 잠재분석과 실제 행동증거를 구별한 뒤 함께 읽습니다. 외부 진로 연구는 관심·행동·선택·성과를 확인하는 과정의 참고자료로 활용하며, 출생기반 판정식의 직접 근거와는 구별합니다.','research-source');host.append(evidence);
     paragraph(host,'설명의 정리 기준: 2026.09.17 수정보완판 R2 · 전공적성 분기 및 검증 모듈 v2.5 · M-CAVE v1.0 · 2012년생 2031년 최종연도 원고.','research-source');
   }
-  function studyCase1(host) {
-    renderDocumentExample(host,'study',{heading:'<사례 1>'});
-    paragraph(host,'사례 1 원고: 묵공이 제공한 「1988년생 여성 · 2007년 丁亥년 학업운·전공적성 분석」 최종 편집본입니다. 원고 전체 13쪽을 위에 게시하였습니다.','research-source');
+  function studyCase(host,id) {
+    const entry=publishedCases.study.find(item=>item.id===id);
+    renderDocumentExample(host,'study-case-'+id,{heading:'<사례 '+id+'>',description:entry.description});
+    paragraph(host,id==='1'
+      ?'묵공 주석: 현재 제공된 원본은 전체 10쪽 중 첫 번째 분석 개요 1쪽입니다. 이 부분에 표지를 더해 게시하였으며, 나머지 9쪽은 포함되어 있지 않습니다.'
+      :id==='2'
+      ?'묵공 주석: 1988년생 여성 6년차 원고의 글꼴·제목 띠·상자 정렬·본문 간격을 기준으로 편집하였습니다. 4년차 원고의 분석 내용은 보존하였습니다.'
+      :'묵공 주석: 묵공이 제공한 1988년생 여성의 2007년 丁亥년 최종 6년차 편집본입니다. 다른 두 사례의 편집 형식은 이 원고를 기준으로 맞추었습니다.', 'research-source');
   }
   function naming(host) {
     renderIntroduction(host,'naming');
@@ -193,6 +206,6 @@
     paragraph(comment,'작명 해제는 이름에 담은 뜻과 지향하는 성장의 방향을 설명합니다. 실제 삶에서는 배움과 경험, 관계와 선택을 통해 그 의미를 가꾸어 갑니다.');host.append(comment);
     paragraph(host,'예제 원고: 묵공이 제공한 「박소현」 PDF(2026.10.11). 설명의 정리 자료: 묵공의 박소현 작명 원고와 「묵공식 작명 절차와 적용 기준」.','research-source');
   }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({study,naming,timing,'study/1':studyCase1,'timing/1':timingCase1})[key](article);container.append(article);}
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();

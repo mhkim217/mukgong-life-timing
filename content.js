@@ -8,6 +8,8 @@
     naming:{...window.MukgongResearch.profiles.naming,paragraphs:[]},
     timing:{...window.MukgongResearch.profiles.timing,paragraphs:[]},
     'study/1':{...window.MukgongResearch.profiles['study/1'],paragraphs:[]},
+    'study/2':{...window.MukgongResearch.profiles['study/2'],paragraphs:[]},
+    'study/3':{...window.MukgongResearch.profiles['study/3'],paragraphs:[]},
     'timing/1':{...window.MukgongResearch.profiles['timing/1'],paragraphs:[]},
     publishing:{...window.MukgongPublishing.profile,paragraphs:[]},
     classics:{title:'고전연구',lead:'고전의 원문과 해석을 검토하며 연구 내용을 차례로 기록합니다.',paragraphs:[]},
