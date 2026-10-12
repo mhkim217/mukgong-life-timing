@@ -635,3 +635,14 @@
  .document-dialog-toolbar{flex-wrap:wrap;gap:6px;padding:8px 10px}
  .document-dialog-toolbar p{font-size:16.5px}
 }
+
+/* 묵공 주석: 사례 등 하위 메뉴는 기본 접힘이며 화살표는 별도의 조작 영역입니다. */
+.menu-branch{position:relative}
+.sidebar .menu-branch > .side-link{padding-right:36px}
+.submenu-toggle{position:absolute;right:0;top:0;display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;border-radius:6px;background:transparent;color:var(--teal);font:20px/1 sans-serif}
+.submenu-toggle:hover{background:#dcecf5}
+.submenu-toggle span{transition:transform .15s}
+.submenu-toggle[aria-expanded="true"] span{transform:rotate(180deg)}
+.side-submenu[hidden]{display:none!important}
+@media(max-width:980px){.submenu-toggle{width:44px;height:44px}.sidebar .menu-branch > .side-link{padding-right:48px}}
+@media(prefers-reduced-motion:reduce){.submenu-toggle span{transition:none}}

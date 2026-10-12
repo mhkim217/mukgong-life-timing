@@ -6,6 +6,30 @@
   const backdrop = document.querySelector('.menu-backdrop');
   const main = document.getElementById('main');
   let savedOverflow = '';
+  // 묵공 주석: 상위 메뉴의 링크와 별도로 화살표 버튼으로 하위 메뉴를 접고 펼칩니다.
+  const branches = [...sidebar.querySelectorAll('.menu-branch')];
+  function setBranchOpen(branch, open) {
+    const submenu = branch.querySelector('.side-submenu');
+    const button = branch.querySelector('.submenu-toggle');
+    submenu.hidden = !open;
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', branch.dataset.menuLabel + ' 하위 메뉴 ' + (open ? '접기' : '펼치기'));
+  }
+  branches.forEach((branch, index) => {
+    const link = branch.querySelector(':scope > .side-link');
+    const submenu = branch.querySelector('.side-submenu');
+    branch.dataset.menuLabel = link.textContent.trim();
+    submenu.id = 'sidebar-submenu-' + index;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'submenu-toggle';
+    button.setAttribute('aria-controls', submenu.id);
+    button.innerHTML = '<span aria-hidden="true">⌄</span>';
+    branch.insertBefore(button, submenu);
+    setBranchOpen(branch, false);
+    button.addEventListener('click', () => setBranchOpen(branch, submenu.hidden));
+  });
+
   const isMobile = () => window.matchMedia('(max-width: 980px)').matches;
   // 묵공 주석: 메뉴를 자르지 않고 대문 첫 구역과 끝선을 맞춥니다. 모바일은 기존 펼침 메뉴를 사용합니다.
   const homeFirst = document.querySelector('.home-first');
@@ -65,7 +89,7 @@
     if (!sidebar.classList.contains('open')) return;
     if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
     if (event.key === 'Tab') {
-      const focusable = [...sidebar.querySelectorAll('a[href],button:not([disabled])')];
+      const focusable = [...sidebar.querySelectorAll('a[href],button:not([disabled])')].filter(element => !element.closest('[hidden]'));
       const first = focusable[0], last = focusable.at(-1);
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
@@ -92,6 +116,7 @@
     sidebar.querySelectorAll('.menu-branch').forEach(branch=>{
       const active=Boolean(branch.querySelector('.side-submenu [aria-current="page"]'));
       branch.querySelector(':scope > .side-link').classList.toggle('has-current-child',active);
+      if (active) setBranchOpen(branch, true);
     });
   }
   window.addEventListener('hashchange', updateCurrent);
