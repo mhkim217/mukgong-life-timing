@@ -55,7 +55,7 @@
   ];
   const documentExamples={
     naming:{title:'박소현 작명 원고',count:9,width:1132,height:1600,prefix:'naming-page-',padding:1},
-    'study-case-1':{title:'2012년생 남학생 · 2026년 1년차 · 분석 개요 발췌본',count:2,width:1224,height:1584,prefix:'study-case-1-page-',padding:2,extension:'png'},
+    'study-case-1':{title:'2012년생 남학생 · 2026년 1년차 학업운·전공적성 분석',count:11,width:1224,height:1584,prefix:'study-case-1-full-page-',padding:2,extension:'png'},
     'study-case-2':{title:'2012년생 남학생 · 2029년 4년차 학업운·전공적성 분석',count:11,width:1224,height:1584,prefix:'study-case-2-page-',padding:2,extension:'png'},
     'study-case-3':{title:'1988년생 여성 · 2007년 최종 6년차 학업운·전공적성 분석',count:13,width:1224,height:1584,prefix:'study-case-3-page-',padding:2,extension:'png'},
     'timing-general':{title:'신유대운·2026년 병오세운 — 일반인용',count:14,width:1132,height:1600,prefix:'timing-1959-general-page-',padding:2,extension:'png'},
@@ -63,7 +63,7 @@
   };
   const publishedCases={
     study:[
-      {id:'1',title:profiles['study/1'].lead,description:'제공된 분석 개요 1쪽을 모범 형식으로 정리한 발췌본입니다. 표지를 포함한 2쪽을 읽으실 수 있습니다.'},
+      {id:'1',title:profiles['study/1'].lead,description:'모범 형식에 맞춘 1년차 분석입니다. 표지와 본문 10쪽, 전체 11쪽을 읽으실 수 있습니다.'},
       {id:'2',title:profiles['study/2'].lead,description:'모범 형식에 맞춘 4년차 분석입니다. 표지와 본문 10쪽, 전체 11쪽을 읽으실 수 있습니다.'},
       {id:'3',title:profiles['study/3'].lead,description:'세 사례의 모범 편집 기준으로 정한 최종 6년차 원고입니다. 표지를 포함한 전체 13쪽을 읽으실 수 있습니다.'}
     ],
@@ -180,7 +180,7 @@
     const entry=publishedCases.study.find(item=>item.id===id);
     renderDocumentExample(host,'study-case-'+id,{heading:'<사례 '+id+'>',description:entry.description});
     paragraph(host,id==='1'
-      ?'묵공 주석: 현재 제공된 원본은 전체 10쪽 중 첫 번째 분석 개요 1쪽입니다. 이 부분에 표지를 더해 게시하였으며, 나머지 9쪽은 포함되어 있지 않습니다.'
+      ?'묵공 주석: 다시 제공한 2012년생 남학생의 2026년 1년차 재분석본입니다. 1988년생 여성 6년차의 모범 편집 형식에 맞춰 원고 전체 11쪽을 게시하였습니다. 분석값과 해설은 제공한 원고를 기준으로 보존하였습니다.'
       :id==='2'
       ?'묵공 주석: 1988년생 여성 6년차 원고의 글꼴·제목 띠·상자 정렬·본문 간격을 기준으로 편집하였습니다. 4년차 원고의 분석 내용은 보존하였습니다.'
       :'묵공 주석: 묵공이 제공한 1988년생 여성의 2007년 丁亥년 최종 6년차 편집본입니다. 다른 두 사례의 편집 형식은 이 원고를 기준으로 맞추었습니다.', 'research-source');
