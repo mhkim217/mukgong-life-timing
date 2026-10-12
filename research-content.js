@@ -1,9 +1,9 @@
 // 묵공 주석: 최신 학업·적성 원고, 작명 샘플과 대운·세운 공개용 수정본을 소개합니다.
 (() => {
   const profiles={
-    study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 잠재적성을 살펴보고 실제 배움의 경험으로 확인합니다.'},
-    naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.'},
-    timing:{title:'대운·세운',lead:'대운과 세운의 흐름을 분석 사례로 살펴봅니다.'},
+    study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 잠재적성을 살펴보고 실제 배움의 경험으로 확인합니다.',leadInIntroduction:true},
+    naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.',leadInIntroduction:true},
+    timing:{title:'대운·세운',lead:'대운과 세운의 흐름을 분석 사례로 살펴봅니다.',leadInIntroduction:true},
     'study/1':{title:'학업 및 적성 · 사례 1',lead:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도'},
     'timing/1':{title:'대운·세운 · 사례 1',lead:'1959년생 남성 — 신유대운과 2026년 병오세운 해설'}
   };
@@ -71,8 +71,8 @@
   function section(title) {const node=el('section','research-section');node.append(el('h2','',title));return node;}
   function paragraph(host,text,className='') {host.append(el('p',className,text));}
   function renderIntroduction(host,key) {
-    const info=introductions[key],intro=el('section','research-promo'),title=el('h2','research-promo-title',info.title);
-    title.id='researchPromoTitle-'+key;intro.setAttribute('aria-labelledby',title.id);intro.append(title);
+    const info=introductions[key],intro=el('section','research-promo'),heading=el('header','research-promo-heading'),title=el('h2','research-promo-title',info.title),subtitle=el('p','research-promo-subtitle',profiles[key].lead);
+    title.id='researchPromoTitle-'+key;subtitle.id='researchPromoSubtitle-'+key;intro.setAttribute('aria-labelledby',title.id);intro.setAttribute('aria-describedby',subtitle.id);heading.append(title,subtitle);intro.append(heading);
     info.paragraphs.forEach(text=>paragraph(intro,text));
     const guide=el('aside','research-analysis-guide'),label=el('h3','','분석 안내');label.id='researchGuideTitle-'+key;
     guide.setAttribute('aria-labelledby',label.id);guide.append(label);info.notes.forEach(text=>paragraph(guide,text));intro.append(guide);host.append(intro);

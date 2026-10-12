@@ -39,7 +39,7 @@
     back.textContent=classicId!==null?'← 고전연구 목록으로':caseParent?'← '+topics[caseParent].title+' 안내로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
     document.title = `${topic.title} | 묵공오행연구소`;
     document.getElementById('topicTitle').textContent = topic.title;
-    document.getElementById('topicLead').textContent = topic.lead;
+    const lead=document.getElementById('topicLead');lead.textContent=topic.leadInIntroduction?'':topic.lead;lead.hidden=Boolean(topic.leadInIntroduction);
     const status = document.getElementById('topicStatus'); status.replaceChildren();
     if (topic.status) {const badge=document.createElement('span');badge.className='draft-status';badge.textContent=topic.status;status.append(badge);}
     const copy=document.getElementById('topicContent');copy.replaceChildren();
