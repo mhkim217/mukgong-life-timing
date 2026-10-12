@@ -7,6 +7,29 @@
     'study/1':{title:'학업 및 적성 · 사례 1',lead:'1988년생 여성 학업운 6년차(15세 - 20세) 중 마지막 6년차 2007년도'},
     'timing/1':{title:'대운·세운 · 사례 1',lead:'1959년생 남성 — 신유대운과 2026년 병오세운 해설'}
   };
+  // 묵공 주석: 승인한 홍보 문안과 공개용 분석 안내를 각 분야 상단에 표시합니다.
+  const introductions={
+    study:{title:'나의 적성은? 나에게 맞는 배움과 진로를 찾아보세요.',paragraphs:[
+      '어떤 공부 방식이 나에게 맞을까요? 어떤 분야에서 나의 가능성을 키울 수 있을까요?',
+      '묵공의 학업·적성 분석은 출생년월일시를 바탕으로 배움의 방식, 집중과 표현의 특징, 잠재적성, 전공과 진로의 방향을 살펴봅니다. 15세부터 20세까지 6년 동안 해마다 이어지는 학업의 과제와 성장의 흐름을 알기 쉽게 풀어, 학생이 자신을 이해하고 배움과 진로를 준비하는 길잡이를 제공합니다.'
+    ],notes:[
+      '본 분석은 학교성적을 반영하여 실제 진학 여부를 결정하는 도구가 아니라, 출생년월일시 정보를 바탕으로 잠재적성·학습성향·전공 및 진로 가능성을 분석하는 체계입니다. 학교성적, 학교기록, 희망전공, 실제 진학결과, 회고자료 등은 출생기반 적성판정의 입력값으로 사용하지 않으며, 이후 실제 발현·성과전환·검증을 확인하기 위한 별도 자료로 활용합니다. 따라서 본 결과는 특정 대학·학과의 합격 가능성을 판정하거나 실제 진학결정을 대신하는 자료가 아니며, 실제 진학은 성적·지원조건·희망·환경 등 현실자료와 함께 별도로 판단해야 합니다.',
+      '위 소개에 표기한 나이는 만 나이가 아니며, 태어난 해에 1세를 부여하여 세는 나이입니다.'
+    ]},
+    naming:{title:'이름에 담긴 뜻, 삶에서 가꾸어 갈 방향을 살펴보세요.',paragraphs:[
+      '이름은 한 사람을 부르고 기억하는 말입니다. 그 뜻과 소리에는 이름을 지어 준 마음과 성장에 대한 바람이 담겨 있습니다.',
+      '묵공의 작명은 한자의 뜻과 소리, 획수에 따른 수리와 오행, 출생정보와의 조화를 함께 검토합니다. 이름의 구성과 의미를 알기 쉽게 풀이하여, 그 이름에 담은 뜻과 지향하는 삶의 방향을 전해 드립니다.'
+    ],notes:[
+      '작명 해설은 성명학의 전통 이론과 적용 기준에 따른 해석입니다. 이름만으로 성격이나 삶의 결과가 결정된다고 단정하거나, 성공·재물·건강 등을 보장하는 자료는 아닙니다. 이름에 담긴 뜻과 지향점을 이해하는 참고자료로 활용해 주세요. 실제 삶은 배움과 경험, 환경과 관계, 자신의 선택과 실천을 통해 가꾸어 갑니다.'
+    ]},
+    timing:{title:'삶의 흐름을 이해하고, 지금의 선택을 준비하세요.',paragraphs:[
+      '계절에 따라 준비와 성장, 결실의 시간이 달라지듯, 삶에서도 때에 맞는 점검과 준비가 필요합니다.',
+      '묵공의 대운·세운 분석은 출생년월일시를 바탕으로 긴 시기의 흐름과 해당 연도의 주제를 함께 살펴봅니다.',
+      '대운에서는 10년간의 운의 흐름과 방향을 살피고, 세운에서는 내가 지향하고자 하는 그 해의 방향성과 주변 환경, 그리고 일과 관계·재물·생활 리듬에서 무엇을 살피고 보완하면 좋을지 알기 쉽게 풀어드립니다. 이를 통해 기회를 활용하고 어려움에 대비하는 방향을 안내합니다.'
+    ],notes:[
+      '대운·세운 해설은 제공된 출생정보와 전통 이론의 적용 기준에 따른 해석으로, 특정 사건의 발생이나 그 결과를 확정·보장하는 자료는 아닙니다. 같은 사주라도 환경과 경험, 개인의 선택과 노력에 따라 삶의 모습은 달라질 수 있습니다. 해설은 자신의 상황을 점검하고 준비하는 참고자료로 활용하시며, 중요한 결정은 실제 조건과 확인된 정보를 함께 살펴 판단해 주세요.'
+    ]}
+  };
   const studyItems=[
     ['나의 배움 방식','자신이 납득한 기준으로 탐색하고 실행하는 방식, 주도적으로 공부할 때의 강점과 필요한 기초훈련을 살펴봅니다. 이해한 내용을 실제 과제와 결과물로 연결하는 과정도 함께 확인합니다.'],
     ['이해와 표현의 특징','핵심 개념 → 근거 → 과정 → 결론 → 피드백의 순서로 생각을 정리합니다. 알고 있는 내용을 설명하고 새로운 조건에 적용한 뒤, 피드백을 받아 수정하는 방식까지 살펴봅니다.'],
@@ -47,6 +70,13 @@
   function el(tag,className,text) {const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;}
   function section(title) {const node=el('section','research-section');node.append(el('h2','',title));return node;}
   function paragraph(host,text,className='') {host.append(el('p',className,text));}
+  function renderIntroduction(host,key) {
+    const info=introductions[key],intro=el('section','research-promo'),title=el('h2','research-promo-title',info.title);
+    title.id='researchPromoTitle-'+key;intro.setAttribute('aria-labelledby',title.id);intro.append(title);
+    info.paragraphs.forEach(text=>paragraph(intro,text));
+    const guide=el('aside','research-analysis-guide'),label=el('h3','','분석 안내');label.id='researchGuideTitle-'+key;
+    guide.setAttribute('aria-labelledby',label.id);guide.append(label);info.notes.forEach(text=>paragraph(guide,text));intro.append(guide);host.append(intro);
+  }
   function renderCaseList(host,key) {
     const list=section('분석 사례');list.classList.add('research-case-list');
     publishedCases[key].forEach(entry=>{
@@ -102,7 +132,7 @@
     example.append(pages);host.append(example);return example;
   }
   function timing(host) {
-    paragraph(host,'대운·세운 해설에서는 긴 시기의 흐름과 해당 연도의 과제를 함께 살펴봅니다. 원국·오행·대운·세운의 분석을 생활 속에서 이해하기 쉬운 말로 풀어 소개합니다.','research-opening');
+    renderIntroduction(host,'timing');
     paragraph(host,'아래 사례에서 일반인용 해설을 먼저 읽고, 전문가용 해설을 통해 분석의 이론과 근거를 함께 확인하실 수 있습니다.');
     renderCaseList(host,'timing');
   }
@@ -123,10 +153,7 @@
     paragraph(host,'묵공 주석: 같은 사례를 생활 속에서 읽기 쉬운 일반인용과 분석 근거를 살펴보는 전문가용으로 나누었습니다. 실제 상담에서는 의뢰인의 상황과 질문을 함께 확인하여 해설을 구체화합니다.','research-source');
   }
   function study(host) {
-    paragraph(host,'학업을 살펴보는 일은 성적이나 학과 이름만으로 자신의 가능성을 정하는 일이 아닙니다. 어떤 방식으로 이해하고 표현하는지, 무엇에 관심이 오래 이어지는지, 어려움 뒤에도 어떤 활동을 다시 선택하는지를 함께 살펴보는 과정입니다.','research-opening');
-    paragraph(host,'묵공식 배움·재능·진로 분석은 출생년월일시를 바탕으로 잠재적성·학습성향을 먼저 읽고, 학교생활·성적·관심·결과물 등의 실제 자료를 별도로 대조합니다. 실제 자료는 처음의 잠재점수를 소급하여 바꾸는 입력값이 아니라, 해석과 실제 발현의 일치·불일치를 확인하는 자료로 활용합니다.');
-    const note=el('aside','research-note');note.append(el('h2','','분석을 읽는 기준'));
-    paragraph(note,'이 분석은 특정 대학·학과의 합격 가능성을 판정하거나 진학결정을 대신하는 자료가 아닙니다. 실제 진학은 성적·지원조건·희망·환경 등 현실자료와 함께 판단합니다.');host.append(note);
+    renderIntroduction(host,'study');
     const items=section('10개 항목으로 이어지는 배움과 성장');
     studyItems.forEach(([title,text],i)=>{const item=el('section','research-topic');item.append(el('h3','',String(i+1).padStart(2,'0')+' · '+title));paragraph(item,text);items.append(item);});host.append(items);
     renderCaseList(host,'study');
@@ -146,7 +173,7 @@
     paragraph(host,'사례 1 원고: 묵공이 제공한 「1988년생 여성 · 2007년 丁亥년 학업운·전공적성 분석」 최종 편집본입니다. 원고 전체 13쪽을 위에 게시하였습니다.','research-source');
   }
   function naming(host) {
-    paragraph(host,'이름을 풀이할 때에는 글자의 뜻과 소리가 어떻게 어울리는지, 획수로 이루어진 수리 구조와 오행이 어떤 삶의 방향으로 연결되는지를 함께 살펴봅니다. 묵공의 작명은 그 의미를 이해하기 쉬운 문장으로 풀어, 이름을 지어 준 뜻과 성장의 방향을 전하는 데 중심을 둡니다.','research-opening');
+    renderIntroduction(host,'naming');
     paragraph(host,'아래는 묵공이 작업한 박소현의 작명 총론과 작명 해제 샘플입니다. 글자의 뜻과 획수, 수리와 오행이 이름에 담긴 성장의 방향으로 어떻게 연결되는지 살펴보실 수 있습니다.');
     namingSamples.forEach(sample=>{
       const part=section(sample.name+'('+sample.hanja+')');part.id='naming-'+sample.id;

@@ -538,6 +538,11 @@
  .publishing-note{padding:16px}
 }
 .detail-copy .research-article p{margin:14px 0}
+/* 묵공 주석: 초록 RGB(40,155,110)의 명도를 40% 밝게 한 첨부 예시 색상입니다. HY견고딕은 기기 설치 글꼴을 사용합니다. */
+.detail-copy .research-promo-title{margin:0 0 20px;padding:14px 20px;background:#69d8ad;color:#000;font-family:"HY견고딕","HYGothic-Extra","Malgun Gothic","Noto Sans KR",sans-serif;font-size:15pt;font-weight:800;font-synthesis:none;line-height:1.6;text-align:center;letter-spacing:0;overflow-wrap:anywhere}
+.research-analysis-guide{margin:24px 0 28px;color:#4a5f68;font-size:18px;line-height:1.85}
+.research-analysis-guide h3{font-size:19.5px;line-height:1.6;margin:0 0 8px;color:#36525d}
+.detail-copy .research-analysis-guide p{margin:10px 0}
 .research-opening{font-weight:500;color:#356073}
 .research-section{border-top:1px solid var(--line);margin-top:34px;padding-top:26px;min-width:0}
 .detail-copy .research-section h2{font-size:30px;line-height:1.45;margin:0 0 18px;letter-spacing:-.03em}
