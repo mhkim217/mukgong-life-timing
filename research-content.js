@@ -69,7 +69,7 @@
       {id:'2',title:profiles['study/2'].lead,description:'방향 판단과 AI 학습 실행상담을 반영한 R4 4년차 분석입니다. 전체 11쪽을 읽으실 수 있습니다.'},
       {id:'3',title:profiles['study/3'].lead,description:'최종 6년차 R3 원고입니다. 전체 13쪽을 읽으실 수 있습니다.'}
     ],
-    timing:[{id:'1',title:'신유대운과 2026년 병오세운 사례',description:'일반인용 25쪽과 전문가용 34쪽을 차례로 읽으실 수 있습니다.'}]
+    timing:[{id:'1',title:'신유대운과 2026년 병오세운 사례',description:'일반인용 16쪽과 전문가용 25쪽을 차례로 읽으실 수 있습니다.'}]
   };
   const numberReadings=[
     ['주운(主運)','16','박 + 중간자','和衆得望 協力興業 以德領人 成果共享','화중득망 협력흥업 이덕령인 성과공향','사람들과 화합하여 신망을 얻고 협력하여 일을 발전시키며, 덕으로 사람을 이끌고 성과를 함께 나눕니다.'],
@@ -153,8 +153,8 @@
     paragraph(intro,'일반인용 해설을 먼저 싣고, 그 분석의 이론과 근거를 담은 전문가용 해설을 이어서 소개합니다. 두 문서의 모든 쪽을 아래에서 읽으실 수 있습니다.');
     const jumps=el('nav','research-actions timing-jumps');jumps.setAttribute('aria-label','대운·세운 예제 바로가기');intro.append(jumps);host.append(intro);
     for(const [key,label,heading,description] of [
-      ['timing-general','일반인용 읽기','일반인용 방향판단·AI 실행상담 · 전체 25쪽','일반인용은 전문가용의 분석 내용을 일상적인 말로 풀어 쓴 해설입니다. 대운과 세운의 흐름, 생활 영역별 점검과 실천 방향을 살펴보실 수 있습니다.'],
-      ['timing-expert','전문가용 읽기','전문가용 방향판단·AI 실행상담 · 전체 34쪽','앞의 일반인용 해설은 이 전문가용에 제시된 이론과 분석 근거에 따라 작성했습니다. 전문가용에는 원국·오행·대운·세운을 살펴본 근거와 전문 용어를 담았습니다.']
+      ['timing-general','일반인용 읽기','일반인용 방향판단·AI 실행상담 · 전체 16쪽','일반인용은 전문가용의 분석 내용을 일상적인 말로 풀어 쓴 해설입니다. 대운과 세운의 흐름, 생활 영역별 점검과 실천 방향을 살펴보실 수 있습니다.'],
+      ['timing-expert','전문가용 읽기','전문가용 방향판단·AI 실행상담 · 전체 25쪽','앞의 일반인용 해설은 이 전문가용에 제시된 이론과 분석 근거에 따라 작성했습니다. 전문가용에는 원국·오행·대운·세운을 살펴본 근거와 전문 용어를 담았습니다.']
     ]){
       const example=renderDocumentExample(host,key,{heading,description});
       const title=example.querySelector('h2');title.id=key+'-title';title.tabIndex=-1;
