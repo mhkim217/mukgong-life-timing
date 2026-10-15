@@ -69,7 +69,7 @@
       {id:'2',title:profiles['study/2'].lead,description:'방향 판단과 AI 학습 실행상담을 반영한 R4 4년차 분석입니다. 전체 11쪽을 읽으실 수 있습니다.'},
       {id:'3',title:profiles['study/3'].lead,description:'최종 6년차 R3 원고입니다. 전체 13쪽을 읽으실 수 있습니다.'}
     ],
-    timing:[{id:'1',title:'1959년생 남성 — 신유대운(2022~2031년)과 2026년 병오세운',description:'일반인용 25쪽과 전문가용 34쪽을 차례로 읽으실 수 있습니다.'}]
+    timing:[{id:'1',title:'신유대운과 2026년 병오세운 사례',description:'일반인용 25쪽과 전문가용 34쪽을 차례로 읽으실 수 있습니다.'}]
   };
   const numberReadings=[
     ['주운(主運)','16','박 + 중간자','和衆得望 協力興業 以德領人 成果共享','화중득망 협력흥업 이덕령인 성과공향','사람들과 화합하여 신망을 얻고 협력하여 일을 발전시키며, 덕으로 사람을 이끌고 성과를 함께 나눕니다.'],
@@ -129,8 +129,8 @@
     const info=documentExamples[key],example=section(options.heading||'<예제>');example.id=key+'-example';example.classList.add('document-example');
     example.append(el('h3','document-example-title',info.title));
     if(options.description)paragraph(example,options.description);
+    if(info.pdfHref){paragraph(example,'출생정보를 가린 공개용 PDF입니다. 아래 링크에서 전체 문서를 열거나 내려받으실 수 있습니다.','document-example-guide');const downloads=el('p','research-actions'),open=el('a','teal-button','출생정보 가림 PDF 열기'),download=el('a','teal-button','PDF 다운로드');open.href=info.pdfHref;open.target='_blank';open.rel='noopener';download.href=info.pdfHref;download.download='';downloads.append(open,download);example.append(downloads);host.append(example);return example;}
     paragraph(example,'아래에서 원고 전체를 바로 읽으실 수 있습니다. 글씨가 작으면 해당 쪽을 누른 뒤 ‘글씨 크게 보기’를 선택하세요.','document-example-guide');
-    if(info.pdfHref){const downloads=el('p','research-actions'),open=el('a','teal-button','출생정보 가림 PDF 열기'),download=el('a','teal-button','PDF 다운로드');open.href=info.pdfHref;open.target='_blank';open.rel='noopener';download.href=info.pdfHref;download.download='';downloads.append(open,download);example.append(downloads);}
     const pages=el('div','document-pages');
     for(let page=1;page<=info.count;page++){
       const figure=el('figure','document-page'),button=el('button','document-page-open'),img=el('img');button.type='button';
