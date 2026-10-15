@@ -4,10 +4,10 @@
     study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 독립 분석과 방향 판단을 학습 실행·재검증으로 이어갑니다.',leadInIntroduction:true},
     naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.',leadInIntroduction:true},
     timing:{title:'대운·세운',lead:'대운과 세운의 흐름을 분석 사례로 살펴봅니다.',leadInIntroduction:true},
-    'study/1':{title:'학업 및 적성 · 사례 1',lead:'2012년생 남학생 · 2026년 병오(丙午)년 · 6년 분석의 1년차'},
-    'study/2':{title:'학업 및 적성 · 사례 2',lead:'2012년생 남학생 · 2029년 기유(己酉)년 · 6년 분석의 4년차'},
-    'study/3':{title:'학업 및 적성 · 사례 3',lead:'1988년생 여성 · 2007년 정해(丁亥)년 · 6년 분석의 최종 6년차'},
-    'timing/1':{title:'대운·세운 · 사례 1',lead:'1959년생 남성 — 신유대운과 2026년 병오세운 해설'}
+    'study/1':{title:'학업 및 적성 · 사례 1',lead:'학업 및 적성 · 2026년 병오(丙午)년 · 6년 분석의 1년차'},
+    'study/2':{title:'학업 및 적성 · 사례 2',lead:'학업 및 적성 · 2029년 기유(己酉)년 · 6년 분석의 4년차'},
+    'study/3':{title:'학업 및 적성 · 사례 3',lead:'학업 및 적성 · 2007년 정해(丁亥)년 · 6년 분석의 최종 6년차'},
+    'timing/1':{title:'대운·세운 · 사례 1',lead:'신유대운과 2026년 병오세운 해설'}
   };
   // 묵공 주석: 승인한 홍보 문안과 공개용 분석 안내를 각 분야 상단에 표시합니다.
   const introductions={
@@ -57,17 +57,17 @@
   ];
   const documentExamples={
     naming:{title:'박소현 작명 원고',count:9,width:1132,height:1600,prefix:'naming-page-',padding:1},
-    'study-case-1':{title:'2012년생 남학생 · 2026년 1년차 학업운·전공적성 분석',count:11,width:1224,height:1584,prefix:'study-20261014-case-1-page-',padding:2,extension:'webp'},
-    'study-case-2':{title:'2012년생 남학생 · 2029년 4년차 학업운·전공적성 분석',count:11,width:1224,height:1584,prefix:'study-20261014-case-2-page-',padding:2,extension:'webp'},
-    'study-case-3':{title:'1988년생 여성 · 2007년 최종 6년차 학업운·전공적성 분석',count:13,width:1224,height:1584,prefix:'study-20261014-case-3-page-',padding:2,extension:'webp'},
-    'timing-general':{title:'신유대운·2026년 병오세운 — 일반인용',count:25,width:1132,height:1600,prefix:'timing-v15-general-page-',padding:2,extension:'webp'},
-    'timing-expert':{title:'신유대운·2026년 병오세운 — 전문가용',count:34,width:1132,height:1600,prefix:'timing-v15-expert-page-',padding:2,extension:'webp'}
+    'study-case-1':{title:'학업적성 사례 1 · 2026년 1년차 분석',count:11,width:1224,height:1584,prefix:'study-20261014-case-1-page-',padding:2,extension:'webp',pdfHref:'assets/public-pdfs/study-case-1.pdf'},
+    'study-case-2':{title:'학업적성 사례 2 · 2029년 4년차 분석',count:11,width:1224,height:1584,prefix:'study-20261014-case-2-page-',padding:2,extension:'webp',pdfHref:'assets/public-pdfs/study-case-2.pdf'},
+    'study-case-3':{title:'학업적성 사례 3 · 최종 6년차 분석',count:13,width:1224,height:1584,prefix:'study-20261014-case-3-page-',padding:2,extension:'webp',pdfHref:'assets/public-pdfs/study-case-3.pdf'},
+    'timing-general':{title:'대운·세운 사례 1 · 일반인용',count:25,width:1132,height:1600,prefix:'timing-v15-general-page-',padding:2,extension:'webp',pdfHref:'assets/public-pdfs/timing-case-1-general.pdf'},
+    'timing-expert':{title:'대운·세운 사례 1 · 전문가용',count:34,width:1132,height:1600,prefix:'timing-v15-expert-page-',padding:2,extension:'webp',pdfHref:'assets/public-pdfs/timing-case-1-expert.pdf'}
   };
   const publishedCases={
     study:[
       {id:'1',title:profiles['study/1'].lead,description:'방향 판단과 AI 학습 실행상담을 반영한 R4 1년차 분석입니다. 전체 11쪽을 읽으실 수 있습니다.'},
       {id:'2',title:profiles['study/2'].lead,description:'방향 판단과 AI 학습 실행상담을 반영한 R4 4년차 분석입니다. 전체 11쪽을 읽으실 수 있습니다.'},
-      {id:'3',title:profiles['study/3'].lead,description:'1988년생 여성의 최종 6년차 R3 원고입니다. 전체 13쪽을 읽으실 수 있습니다.'}
+      {id:'3',title:profiles['study/3'].lead,description:'최종 6년차 R3 원고입니다. 전체 13쪽을 읽으실 수 있습니다.'}
     ],
     timing:[{id:'1',title:'1959년생 남성 — 신유대운(2022~2031년)과 2026년 병오세운',description:'일반인용 25쪽과 전문가용 34쪽을 차례로 읽으실 수 있습니다.'}]
   };
@@ -130,6 +130,7 @@
     example.append(el('h3','document-example-title',info.title));
     if(options.description)paragraph(example,options.description);
     paragraph(example,'아래에서 원고 전체를 바로 읽으실 수 있습니다. 글씨가 작으면 해당 쪽을 누른 뒤 ‘글씨 크게 보기’를 선택하세요.','document-example-guide');
+    if(info.pdfHref){const downloads=el('p','research-actions'),open=el('a','teal-button','출생정보 가림 PDF 열기'),download=el('a','teal-button','PDF 다운로드');open.href=info.pdfHref;open.target='_blank';open.rel='noopener';download.href=info.pdfHref;download.download='';downloads.append(open,download);example.append(downloads);}
     const pages=el('div','document-pages');
     for(let page=1;page<=info.count;page++){
       const figure=el('figure','document-page'),button=el('button','document-page-open'),img=el('img');button.type='button';
@@ -148,7 +149,7 @@
   }
   function timingCase1(host) {
     const intro=section('<사례 1>');intro.id='timing-example';
-    paragraph(intro,'1959년생 남성의 신유대운(2022~2031년)과 2026년 병오세운을 살펴본 해설입니다.','research-sample-lead');
+    paragraph(intro,'신유대운(2022~2031년)과 2026년 병오세운을 살펴본 해설입니다.','research-sample-lead');
     paragraph(intro,'일반인용 해설을 먼저 싣고, 그 분석의 이론과 근거를 담은 전문가용 해설을 이어서 소개합니다. 두 문서의 모든 쪽을 아래에서 읽으실 수 있습니다.');
     const jumps=el('nav','research-actions timing-jumps');jumps.setAttribute('aria-label','대운·세운 예제 바로가기');intro.append(jumps);host.append(intro);
     for(const [key,label,heading,description] of [
@@ -180,7 +181,7 @@
     const evidence=section('실제 경험을 이렇게 기록해 보세요');
     table(evidence,'잠재적성과 실제 배움의 경험을 대조하기',['관찰할 내용','기록할 질문'],[['관심·탐색','평가가 없어도 찾아본 주제와 스스로 넓혀 본 자료는 무엇인가요?'],['지속·재도전','흥미가 줄거나 어려움이 생긴 뒤에도 다시 선택한 활동은 무엇인가요?'],['행동·결과물','문제풀이·제작·실험·설명 가운데 무엇을 완성하고 수정했나요?'],['적합·성과','잘하는 활동과 다시 하고 싶은 활동이 같은가요? 학교생활과 선택에서 어떤 차이가 나타났나요?']]);
     paragraph(evidence,'묵공 주석: 출생기반 잠재분석과 실제 행동증거를 구별한 뒤 함께 읽습니다. 외부 진로 연구는 관심·행동·선택·성과를 확인하는 과정의 참고자료로 활용하며, 출생기반 판정식의 직접 근거와는 구별합니다.','research-source');host.append(evidence);
-    paragraph(host,'묵공 주석: 2026년 10월 14일 제공 원고 기준 — 2012년생 1년차·4년차 R4와 1988년생 여성 6년차 R3를 게시합니다. 실행과 재검증의 결과는 학생의 실제 기록을 통해 별도로 확인합니다.','research-source');
+    paragraph(host,'묵공 주석: 2026년 10월 14일 제공 원고 기준 — 1년차·4년차 R4와 최종 6년차 R3 사례를 게시합니다. 실행과 재검증의 결과는 학생의 실제 기록을 통해 별도로 확인합니다.','research-source');
   }
   function studyCase(host,id) {
     const entry=publishedCases.study.find(item=>item.id===id);
