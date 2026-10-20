@@ -283,15 +283,85 @@
     paragraph(references,'묵공 주석: 천문학적 정의와 공전 궤도에 관한 자료를 확인하고, 천문학적 계절과 명리학의 월령·절입 기준을 구별하여 정리했습니다.','research-source');
     host.append(references);
   }
+  function renderSeasonalTerms(host) {
+    const basics=section('1. 24절기는 태양의 황경을 기준으로 합니다');
+    paragraph(basics,'24절기(二十四節氣)는 지구에서 보이는 태양의 겉보기 황경을 기준으로 한 해를 24개 지점으로 나눈 체계입니다. 황경은 황도 위에서 태양의 위치를 각도로 나타낸 값이며, 춘분점을 0°로 삼습니다. 황경이 15°씩 바뀔 때마다 절기 하나가 돌아오므로 한 절기 사이의 간격은 대략 15일입니다. 다만 지구의 공전 속도가 일정하지 않아 날짜 간격이 매번 정확히 같지는 않습니다.');
+    paragraph(basics,'태양이 실제로 지구 주위를 도는 것은 아닙니다. 지구가 공전하기 때문에 지구에서 본 태양이 황도 위를 이동하는 것처럼 보이며, 이 겉보기 위치가 24절기의 기준이 됩니다.');
+    paragraph(basics,'지구의 자전축은 공전 궤도면에 수직인 방향에서 약 23.4° 기울어져 있습니다. 이 기울기로 북반구와 남반구가 받는 햇빛의 각도와 낮의 길이가 달라져 계절이 생깁니다. 24절기는 이 계절의 흐름을 태양의 위치로 표시하며, 계절을 만드는 직접 원인은 지구와 태양 사이의 거리 변화가 아니라 자전축의 기울기입니다.');
+    host.append(basics);
+
+    const kinds=section('2. 절(節)과 중기(中氣)');
+    paragraph(kinds,'24개의 지점은 전통 역법에서 절(節) 12개와 중기(中氣) 12개로 번갈아 배열됩니다. 일상적으로는 24개 전체를 통틀어 절기라고 부르지만, 절과 중기는 구분되는 명칭입니다. 입춘·입하·입추·입동은 각 계절의 시작을 알리는 절이고, 춘분·하지·추분·동지는 계절의 가운데 지점에 해당하는 중기입니다.');
+    paragraph(kinds,'태양의 황경은 춘분 0°, 하지 90°, 추분 180°, 동지 270°입니다. 춘분과 추분 무렵에는 태양의 중심이 천구의 적도를 지나며, 하지와 동지 무렵에는 태양의 적위가 각각 북쪽과 남쪽으로 가장 크게 치우칩니다.');
+    table(kinds,'절과 중기의 대표 구분',['구분','해당 절기'],[
+      ['절(節) · 12개','입춘, 경칩, 청명, 입하, 망종, 소서, 입추, 백로, 한로, 입동, 대설, 소한'],
+      ['중기(中氣) · 12개','우수, 춘분, 곡우, 소만, 하지, 대서, 처서, 추분, 상강, 소설, 동지, 대한']
+    ]);
+    host.append(kinds);
+
+    const figureSection=section('3. 지구 공전 궤도 그림');
+    const figure=el('figure','mentoring-figure');
+    const image=el('img');
+    image.src='assets/mentoring/earth-orbit-24-terms.png';
+    image.alt='황경 0°, 90°, 180°, 270°와 춘분·하지·추분·동지의 관계를 단순화해 나타낸 지구 공전 궤도 개념도';
+    image.loading='lazy';image.decoding='async';
+    figure.append(image);
+    figure.append(el('figcaption','','그림 1. 지구 공전 궤도와 사계절의 위치를 설명하는 개념도. 실제 궤도 모양과 태양의 초점 위치, 거리 비율을 정밀하게 나타낸 도면은 아닙니다.'));
+    figureSection.append(figure);
+    paragraph(figureSection,'그림에 표시된 황경은 지구에서 관측한 태양의 겉보기 위치를 기준으로 합니다. 따라서 그림 속 지구의 위치를 태양 황경과 같은 각도의 실제 지구 공전 좌표로 읽어서는 안 됩니다. 실제 지구 궤도는 원에 매우 가까운 타원이며, 태양은 타원의 한 초점에 있습니다.');
+    host.append(figureSection);
+
+    const calendar=section('4. 2025년 24절기 시각');
+    paragraph(calendar,'다음 표는 한국천문연구원 달력자료에 수록된 2025년 절기 시각을 한국 표준시(KST)로 정리한 것입니다. 태양의 황경 값은 각 절기의 기준점이며, 시각은 태양이 해당 황경에 도달하는 순간입니다. 날짜와 시각은 해마다 달라집니다.');
+    table(calendar,'2025년 24절기와 태양 황경',['절기','구분','태양 황경','날짜·시각(KST)'],[
+      ['소한','절','285°','1월 5일 11:33'],['대한','중기','300°','1월 20일 05:00'],
+      ['입춘','절','315°','2월 3일 23:10'],['우수','중기','330°','2월 18일 19:07'],
+      ['경칩','절','345°','3월 5일 17:07'],['춘분','중기','0°','3월 20일 18:01'],
+      ['청명','절','15°','4월 4일 21:49'],['곡우','중기','30°','4월 20일 04:56'],
+      ['입하','절','45°','5월 5일 14:57'],['소만','중기','60°','5월 21일 03:55'],
+      ['망종','절','75°','6월 5일 18:57'],['하지','중기','90°','6월 21일 11:42'],
+      ['소서','절','105°','7월 7일 05:05'],['대서','중기','120°','7월 22일 22:29'],
+      ['입추','절','135°','8월 7일 14:52'],['처서','중기','150°','8월 23일 05:34'],
+      ['백로','절','165°','9월 7일 17:52'],['추분','중기','180°','9월 23일 03:19'],
+      ['한로','절','195°','10월 8일 09:41'],['상강','중기','210°','10월 23일 12:51'],
+      ['입동','절','225°','11월 7일 13:04'],['소설','중기','240°','11월 22일 10:36'],
+      ['대설','절','255°','12월 7일 06:05'],['동지','중기','270°','12월 22일 00:03']
+    ]);
+    paragraph(calendar,'묵공 주석: 한국천문연구원 2025 달력자료 페이지는 해당 자료가 공식 월력요항 발표 전 참고자료라고 안내합니다. 분 단위의 공식 역서 값이 필요한 연구·달력 작업에서는 우주항공청이 발표한 해당 연도의 월력요항을 우선 확인해 주세요.','research-source');
+    host.append(calendar);
+
+    const lunar=section('5. 절기와 음력은 무엇이 다를까요?');
+    paragraph(lunar,'24절기는 태양의 겉보기 위치를 기준으로 하고, 음력의 한 달은 달의 위상이 한 번 되풀이되는 주기를 기준으로 합니다. 한 삭망월은 평균 약 29.53일이며, 음력 12개월은 약 354.37일입니다. 이는 계절의 순환을 나타내는 태양년보다 약 10.9일 짧습니다.');
+    paragraph(lunar,'달의 주기만으로 달력을 만들면 계절과 달의 날짜가 해마다 어긋나므로, 동아시아의 태음태양력은 윤달을 넣어 음력월과 계절의 흐름을 맞춥니다. 19년 동안 윤달을 7번 두는 방식은 그 차이를 줄이는 근사 주기이며, 윤달이 정확히 3년마다 돌아오는 것은 아닙니다. 전통 역법에서는 중기가 들지 않는 음력월을 윤달로 정하는 원칙도 사용합니다.');
+    paragraph(lunar,'따라서 24절기를 음력 날짜와 같은 것으로 보거나, 매년 양력의 같은 날짜에 고정된다고 이해하면 안 됩니다. 절기는 태양 위치로 계산되므로 해마다 시각이 달라지고, 양력 날짜가 하루 정도 앞뒤로 달라질 수 있습니다.');
+    host.append(lunar);
+
+    const application=section('명리학 연구에서 구분할 점');
+    paragraph(application,'일반적인 사주명리의 월주 경계를 살필 때는 24절기 전체가 아니라 입춘·경칩·청명·입하·망종·소서·입추·백로·한로·입동·대설·소한의 12개 절이 드는 시각을 기준으로 삼습니다. 날짜만으로 경계를 정하지 말고 해당 연도의 절입 시각을 확인해야 합니다. 달력의 절·중기 구분과 명리학의 적용 기준을 함께 확인하면 용어와 계산 경계를 혼동하는 일을 줄일 수 있습니다.');
+    host.append(application);
+
+    const references=section('참고 자료');
+    const refs=[
+      ['한국천문연구원 · 2025년 달력자료(24절기)','https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025'],
+      ['한국천문연구원 · 월력요항 안내','https://astro.kasi.re.kr/kor/life/post/almanac'],
+      ['한국천문연구원 · 2025년도 월력요항 발표 안내','https://www.kasi.re.kr/publication/post/newsMaterial/30071?cPage=8'],
+      ['U.S. Naval Observatory · The Tropical Year','https://aa.usno.navy.mil/faq/asa_glossary'],
+      ['NASA · Facts About Earth (자전축 기울기와 계절)','https://science.nasa.gov/earth/facts/']
+    ];
+    const links=el('ul','research-source-list');
+    refs.forEach(([label,url])=>{const item=el('li'),link=el('a','',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);links.append(item);});
+    references.append(links);host.append(references);
+  }
   function renderMentoringIndex(host) {
     const section=el('section','mentoring-index');
     const heading=el('h2','','게시글');
     const list=el('ul','mentoring-article-list');
-    const item=el('li');
-    const link=el('a','','사계절의 길이(천문학적 길이)');
-    link.href='content.html#mentoring/season-length';
-    item.append(link);list.append(item);section.append(heading,list);host.append(section);
+    [
+      ['사계절의 길이(천문학적 길이)','content.html#mentoring/season-length'],
+      ['24절기의 개념','content.html#mentoring/seasonal-terms']
+    ].forEach(([title,url])=>{const item=el('li'),link=el('a','',title);link.href=url;item.append(link);list.append(item);});
+    section.append(heading,list);host.append(section);
   }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,'mentoring/seasonal-terms':renderSeasonalTerms,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();
