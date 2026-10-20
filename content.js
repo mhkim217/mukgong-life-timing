@@ -21,6 +21,7 @@
     mentoring:{title:'명리학 연구를 위한 AI 보조 멘토링',lead:'AI를 연구 보조도구로 활용해 개념을 구분하고 근거를 확인하는 과정을 기록합니다.',paragraphs:[]},
     'mentoring/season-length':{title:'사계절의 길이(천문학적 길이)',lead:'천문학 주제를 통해 개념을 구분하고 근거를 확인하는 AI 연구 보조 과정을 살펴봅니다.',paragraphs:[]},
     'mentoring/seasonal-terms':{title:'24절기의 개념',lead:'태양의 황경을 기준으로 나누는 24절기의 원리와 달력에서의 쓰임을 살펴봅니다.',paragraphs:[]},
+    'mentoring/seasonal-foods':{title:'24절기별 제철 음식',lead:'절기와 제철 식재료의 관계, 전통 음식문화와 안전한 식생활을 함께 살펴봅니다.',paragraphs:[]},
     contact:{title:'고객센터 · 상담 접수',lead:'학업·적성, 대운·세운, 작명 상담을 이메일로 접수합니다.',paragraphs:[],links:[['mhkim@paran.com','mailto:mhkim@paran.com'],['이용약관','terms.html'],['개인정보처리방침','privacy.html'],['데이터 삭제 안내','data-deletion.html']]},
     exchange:{title:'환율 안내',lead:'미국 달러·유로·엔·위안의 원화 환율을 기준일과 함께 확인합니다.',paragraphs:[]},
     visitors:{title:'방문 현황',lead:'오늘과 누적 방문 횟수를 한국 시간 기준으로 안내합니다.',paragraphs:[]}
@@ -56,7 +57,7 @@
     if (key === 'publishing') window.MukgongPublishing.renderIntro(copy);
     if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
     if (key === 'mentoring') window.MukgongResearch.renderMentoringIndex(copy);
-    else if (Object.hasOwn(window.MukgongResearch.profiles,key) || key === 'mentoring/season-length' || key === 'mentoring/seasonal-terms') window.MukgongResearch.renderArticle(copy,key);
+    else if (Object.hasOwn(window.MukgongResearch.profiles,key) || key === 'mentoring/season-length' || key === 'mentoring/seasonal-terms' || key === 'mentoring/seasonal-foods') window.MukgongResearch.renderArticle(copy,key);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
     if (key === 'contact' || key === 'intake') {
       // 묵공 주석: 신청 내용 확인 후 비용·범위·일정을 협의하며 자동 접수·결제하지 않습니다.
