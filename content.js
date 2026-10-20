@@ -18,7 +18,7 @@
     about:{title:'묵공오행연구소',lead:'서비스 브랜드: 묵공 Life Timing',paragraphs:['묵공오행연구소는 출생 정보를 바탕으로 자신의 기본 성향과 생활의 흐름을 살펴보는 Mukgong Life Timing 시리즈를 연구·개발하고 있습니다.','전통 동양학 연구를 현대적인 데이터 구조와 이해하기 쉬운 설명으로 정리하는 것을 목표로 합니다.'],links:[['연구 활동','content.html#research'],['앱 안내','content.html#apps']]},
     apps:{...window.MukgongApps.profile,paragraphs:[]},
     research:{title:'연구 활동',lead:'앱 개발, 출판 작업, 고전연구, AI 보조 멘토링',paragraphs:['각 연구 활동의 안내를 아래 항목에서 확인하실 수 있습니다.'],links:[['1호앱 출시 및 후속앱 개발','content.html#apps'],['기본성향 · 1호앱 활용','content.html#disposition'],['출판 작업','content.html#publishing'],['고전연구','content.html#classics'],['명리학 연구를 위한 AI 보조 멘토링','content.html#mentoring']]},
-    mentoring:{title:'명리학 연구를 위한 AI 보조 멘토링',lead:'전통 이론의 정리와 연구·개발을 돕는 보조도구',paragraphs:['AI는 분석 구조 정리, 데이터 체계화, 문장 구성과 검토, 일관성 점검 및 결과 표현 개선을 위한 연구·개발 보조도구로 활용됩니다.','이 항목의 멘토링 범위와 이용 안내는 원고 검토 후 추가하겠습니다.']},
+    mentoring:{title:'명리학 연구를 위한 AI 보조 멘토링',lead:'AI를 연구 보조도구로 활용해 개념을 구분하고 근거를 확인하는 과정을 기록합니다.',paragraphs:[]},
     contact:{title:'고객센터 · 상담 접수',lead:'학업·적성, 대운·세운, 작명 상담을 이메일로 접수합니다.',paragraphs:[],links:[['mhkim@paran.com','mailto:mhkim@paran.com'],['이용약관','terms.html'],['개인정보처리방침','privacy.html'],['데이터 삭제 안내','data-deletion.html']]},
     exchange:{title:'환율 안내',lead:'미국 달러·유로·엔·위안의 원화 환율을 기준일과 함께 확인합니다.',paragraphs:[]},
     visitors:{title:'방문 현황',lead:'오늘과 누적 방문 횟수를 한국 시간 기준으로 안내합니다.',paragraphs:[]}
