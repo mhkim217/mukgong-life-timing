@@ -353,16 +353,18 @@
     refs.forEach(([label,url])=>{const item=el('li'),link=el('a','',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);links.append(item);});
     references.append(links);host.append(references);
   }
+  function renderSeasonalFoods(host) { const x=section('24절기별 식탁 아이디어'); paragraph(x,'절기에 맞춰 제철 식재료를 살펴봅니다.'); host.append(x); }
   function renderMentoringIndex(host) {
     const section=el('section','mentoring-index');
     const heading=el('h2','','게시글');
     const list=el('ul','mentoring-article-list');
     [
       ['사계절의 길이(천문학적 길이)','content.html#mentoring/season-length'],
-      ['24절기의 개념','content.html#mentoring/seasonal-terms']
+      ['24절기의 개념','content.html#mentoring/seasonal-terms'],
+      ['24절기별 제철 음식','content.html#mentoring/seasonal-foods']
     ].forEach(([title,url])=>{const item=el('li'),link=el('a','',title);link.href=url;item.append(link);list.append(item);});
     section.append(heading,list);host.append(section);
   }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,'mentoring/seasonal-terms':renderSeasonalTerms,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,'mentoring/seasonal-terms':renderSeasonalTerms,'mentoring/seasonal-foods':renderSeasonalFoods,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();
