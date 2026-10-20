@@ -651,3 +651,8 @@
 body.mentoring-article-page .detail-page h1{font-size:clamp(42px,3.5vw,56.25px);line-height:1.22}
 body.mentoring-article-page .detail-copy .mentoring-article{margin-top:74px}
 @media(max-width:600px){body.mentoring-article-page .detail-page h1{font-size:40px}}
+
+/* 묵공 주석: 24절기 멘토링 글의 공전 궤도 도판을 읽기 좋은 크기로 표시합니다. */
+.mentoring-figure{max-width:643px;margin:24px auto}
+.mentoring-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}
+.mentoring-figure figcaption{font-size:18px;line-height:1.65;color:var(--muted);margin-top:8px}
