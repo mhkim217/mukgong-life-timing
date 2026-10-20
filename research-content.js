@@ -353,7 +353,56 @@
     refs.forEach(([label,url])=>{const item=el('li'),link=el('a','',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);links.append(item);});
     references.append(links);host.append(references);
   }
-  function renderSeasonalFoods(host) { const x=section('24절기별 식탁 아이디어'); paragraph(x,'절기에 맞춰 제철 식재료를 살펴봅니다.'); host.append(x); }
+
+  function renderSeasonalFoods(host) {
+    const premise=section('1. 절기와 제철 식재료를 읽는 방법');
+    paragraph(premise,'24절기는 태양의 황경을 기준으로 계절의 흐름을 표시하는 달력상의 기준입니다. 절기가 바뀌는 날이 전국의 날씨나 농수산물 출하 시점을 똑같이 바꾸는 것은 아닙니다. 실제 제철은 지역의 기후, 재배·어획 방식, 그해 날씨와 유통 여건에 따라 달라집니다.');
+    paragraph(premise,'따라서 절기마다 하나의 음식이나 특정 지역의 대표 음식을 정답처럼 붙이기보다, 그 무렵 구하기 쉬운 식재료를 살펴 식탁에 다양하게 활용하는 편이 알맞습니다. 아래 목록은 전통적으로 정해진 절식 목록이 아니라 계절별 식재료를 떠올리기 위한 메뉴 아이디어입니다.');
+    host.append(premise);
+
+    const foods=section('2. 24절기별 식탁 아이디어');
+    table(foods,'계절에 따라 살펴볼 식재료와 음식 예시',['계절·절기','식탁 아이디어(예시)'],[
+      ['봄 · 입춘','달래·냉이 나물, 봄나물밥'],['봄 · 우수','봄동 겉절이, 무나물'],
+      ['봄 · 경칩','미나리무침, 쑥국'],['봄 · 춘분','딸기, 봄나물 비빔밥'],
+      ['봄 · 청명','바지락국, 미나리전'],['봄 · 곡우','두릅·취나물 무침, 녹차'],
+      ['여름 · 입하','열무김치, 보리밥'],['여름 · 소만','감자조림, 오이무침'],
+      ['여름 · 망종','완두콩밥, 보리 음식'],['여름 · 하지','오이냉국, 토마토'],
+      ['여름 · 소서','수박, 참외'],['여름 · 대서','옥수수, 가지볶음'],
+      ['가을 · 입추','복숭아, 옥수수'],['가을 · 처서','포도, 감자 요리'],
+      ['가을 · 백로','배, 버섯 요리'],['가을 · 추분','밤밥, 고구마'],
+      ['가을 · 한로','사과, 무 요리'],['가을 · 상강','배추·무 반찬, 새우 요리'],
+      ['겨울 · 입동','배추김치, 무국'],['겨울 · 소설','귤, 고구마'],
+      ['겨울 · 대설','굴국, 시래기밥'],['겨울 · 동지','팥죽'],
+      ['겨울 · 소한','귤, 배추국'],['겨울 · 대한','시래기나물, 따뜻한 콩 요리']
+    ]);
+    paragraph(foods,'표의 식재료는 계절을 감각적으로 살펴보기 위한 일반적인 예시입니다. 실제 구매 때는 원산지와 생산·어획 시기, 신선도와 가격을 함께 확인하고, 알레르기나 개인의 건강 상태에 맞춰 선택하세요.');
+    host.append(foods);
+
+    const traditions=section('3. 세시 음식과 지역 음식문화');
+    paragraph(traditions,'절기와 관련된 전통 음식은 지역과 시대에 따라 다르게 전해집니다. 한국민속대백과사전은 입춘 음식으로 궁중의 오신반, 민가의 세생채, 함경도의 명태순대 등을 소개합니다. 동지에는 팥죽을 쑤어 나누어 먹던 풍속이 전해집니다. 이 사례들은 각 절기의 음식문화가 하나의 전국 공통 메뉴로만 설명되지 않음을 보여 줍니다.');
+    paragraph(traditions,'반면 “입추에는 어느 지역의 전어”, “한로에는 어느 지역의 도토리 음식”처럼 24절기마다 특정 지역 음식을 일대일로 연결하려면 지역별 문헌이나 조사 자료가 필요합니다. 근거가 확인되지 않은 조합은 전통으로 단정하지 않고, 계절에 따라 즐길 수 있는 음식 제안과 구분하는 것이 좋습니다.');
+    host.append(traditions);
+
+    const care=section('4. 건강 정보와 식품 안전');
+    paragraph(care,'달래가 간 기능을 강화한다거나 특정 차가 알레르기를 예방한다는 식으로 개별 음식에 질병 예방·치료 효과를 단정하기는 어렵습니다. 제철 음식은 식재료를 다양하게 접하는 방법으로 소개하고, 건강한 식생활은 여러 식품군을 균형 있게 먹는 원칙과 개인별 필요를 중심으로 살펴보세요.');
+    paragraph(care,'기온이 높아지는 시기에는 계절 음식 선택과 별도로 식품 안전을 챙겨야 합니다. 식품의약품안전처는 흐르는 물에 비누로 30초 이상 손 씻기, 날음식과 조리음식 구분, 충분히 익혀 먹기, 조리기구 세척·소독, 냉장·냉동 보관 온도 지키기 등을 안내합니다.');
+    host.append(care);
+
+    const refs=section('참고 자료');
+    const links=el('ul','research-source-list');
+    [
+      ['한국민속대백과사전 · 입춘','https://folkency.nfm.go.kr/topic/입춘'],
+      ['한국민속대백과사전 · 동지팥죽','https://folkency.nfm.go.kr/topic/detail/3649?keyword=팥죽&pageType=search'],
+      ['식품의약품안전처 · 식중독 예방 6대 요령','https://www.mfds.go.kr/brd/m_827/view.do?seq=3609'],
+      ['농식품 올바로 · 건강식단관리','https://koreanfood.rda.go.kr/kfi/mgnNewDietQuality/DietQualityEvaluation'],
+      ['한국농수산식품유통공사 · 봄철 딸기와 제철 농수산물','https://www.at.or.kr/article/apko362000/view.action?articleId=30815&at.condition.currentPage=290&at.condition.currentPage=477'],
+      ['한국농수산식품유통공사 · 여름철 수박','https://www.at.or.kr/article/apko362000/view.action?articleId=31847&at.condition.currentPage=255']
+    ].forEach(([label,url])=>{const item=el('li'),link=el('a','',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);links.append(item);});
+    refs.append(links);
+    paragraph(refs,'묵공 주석: 건강 효능을 단정한 표현과 근거가 확인되지 않은 절기별 지역 음식 배정을 정리하고, 세시 음식의 문헌 기록과 일반적인 제철 식재료 아이디어를 구분했습니다.','research-source');
+    host.append(refs);
+  }
+
   function renderMentoringIndex(host) {
     const section=el('section','mentoring-index');
     const heading=el('h2','','게시글');
