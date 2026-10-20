@@ -2,7 +2,8 @@
 (() => {
   const pending = title => ({title,status:'원고 준비 중',lead:'이 항목의 안내 내용을 순서대로 정리하고 있습니다.',paragraphs:['안내 원고가 확정되면 이 페이지에 추가하겠습니다.']});
   const topics = {
-    board:{title:'게시판 · 공지사항',lead:'연구소 소식과 이용 안내를 전해 드립니다.',paragraphs:[]},
+    board:{title:'공지사항',lead:'연구소 공식 소식과 이용 안내를 전해 드립니다.',paragraphs:[]},
+    'free-board':{title:'자유게시판',lead:'방문자들이 자유롭게 의견을 나눌 수 있는 공간입니다.',status:'게시글 작성 기능 준비 중',paragraphs:['아직 등록된 게시글이 없습니다. 게시글 작성과 관리 기능을 준비하고 있습니다.']},
     disposition:{...window.MukgongDisposition.profile,paragraphs:[]},
     study:{...window.MukgongResearch.profiles.study,paragraphs:[]},
     naming:{...window.MukgongResearch.profiles.naming,paragraphs:[]},
