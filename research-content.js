@@ -1,6 +1,7 @@
 // 묵공 주석: 최신 학업·적성 원고, 작명 샘플과 대운·세운 공개용 수정본을 소개합니다.
 (() => {
   const profiles={
+    mentoring:{title:'AI 보조 멘토링 · 사계절의 길이',lead:'천문학 주제를 통해 개념을 구분하고 근거를 확인하는 AI 연구 보조 과정을 살펴봅니다.'},
     study:{title:'학업 및 적성',lead:'묵공식 배움·재능·진로 — 독립 분석과 방향 판단을 학습 실행·재검증으로 이어갑니다.',leadInIntroduction:true},
     naming:{title:'작명',lead:'이름의 뜻과 소리, 수리와 오행을 연결하여 삶의 방향을 풀이합니다.',leadInIntroduction:true},
     timing:{title:'대운·세운',lead:'대운과 세운의 흐름을 분석 사례로 살펴봅니다.',leadInIntroduction:true},
@@ -210,6 +211,78 @@
     paragraph(comment,'작명 해제는 이름에 담은 뜻과 지향하는 성장의 방향을 설명합니다. 실제 삶에서는 배움과 경험, 관계와 선택을 통해 그 의미를 가꾸어 갑니다.');host.append(comment);
     paragraph(host,'예제 원고: 묵공이 제공한 「박소현」 PDF(2026.10.11). 설명의 정리 자료: 묵공의 박소현 작명 원고와 「묵공식 작명 절차와 적용 기준」.','research-source');
   }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
+  function renderMentoring(host) {
+    const intro=el('section','research-section mentoring-article');
+    intro.append(el('h2','','사계절의 길이(천문학적 길이)'));
+    paragraph(intro,'AI를 연구 보조도구로 활용할 때는 질문의 범위를 분명히 하고, 서로 다른 원인을 구분한 뒤, 자료로 사실을 확인하는 과정이 필요합니다. 이 글에서는 지구의 자전축 기울기와 타원 궤도가 사계절에 어떤 영향을 주는지 살펴봅니다.');
+    host.append(intro);
+
+    const cause=section('1. 사계절은 왜 생길까요?');
+    paragraph(cause,'사계절이 생기는 주된 이유는 지구의 자전축이 기울어진 채 태양 주위를 공전하기 때문입니다. 지구의 자전축은 공전 궤도면에 수직인 방향에서 약 23.4° 기울어져 있습니다. 그 결과 한 해 동안 북반구와 남반구가 받는 햇빛의 각도와 낮의 길이가 달라집니다. 북반구가 태양 쪽으로 기울어 있을 때는 북반구의 여름이고, 반대쪽으로 기울어 있을 때는 겨울입니다. 남반구는 계절이 반대로 나타납니다.');
+    paragraph(cause,'지구 궤도가 타원형이라는 사실도 계절을 이해할 때 중요하지만, 타원 궤도가 사계절을 만들어 내는 것은 아닙니다. 타원 궤도는 주로 천문학적 계절의 길이가 서로 달라지는 데 영향을 줍니다.');
+    host.append(cause);
+
+    const definition=section('2. 천문학에서는 계절을 어떻게 나눌까요?');
+    paragraph(definition,'천문학적 계절은 지구에서 보이는 태양의 황경을 기준으로 춘분·하지·추분·동지를 경계로 나눕니다. 황경은 지구에서 본 태양의 겉보기 위치를 나타내는 좌표입니다.');
+    table(definition,'천문학적 사계절의 기준',['구분','태양의 황경','북반구에서 시작하는 계절'],[
+      ['춘분','0°','봄'],['하지','90°','여름'],['추분','180°','가을'],['동지','270°','겨울']
+    ]);
+    paragraph(definition,'춘분과 추분에는 태양의 직사광선이 적도 부근에 도달해 낮과 밤의 길이가 거의 같아집니다. 하지 무렵에는 태양의 직사광선이 북회귀선 부근에, 동지 무렵에는 남회귀선 부근에 도달합니다. 북반구에서는 하지에 낮이 가장 길고 동지에 밤이 가장 깁니다.');
+    host.append(definition);
+
+    const duration=section('3. 계절의 길이는 왜 서로 다를까요?');
+    paragraph(duration,'지구는 태양 주위를 타원 궤도로 공전하며, 태양과 가까운 근일점 부근에서는 더 빠르게 움직이고 먼 원일점 부근에서는 더 느리게 움직입니다. 케플러의 제2법칙에 따르면 태양과 행성을 잇는 선은 같은 시간 동안 같은 면적을 쓸고 지나갑니다. 따라서 공전 궤도상의 위치에 따라 지구의 움직임이 빨라지거나 느려집니다.');
+    paragraph(duration,'천문학적 계절은 황경이 90°씩 변하는 구간으로 나뉘지만, 지구가 각 구간을 지나는 데 걸리는 시간은 같지 않습니다. 북반구의 여름은 지구가 원일점 부근에서 상대적으로 느리게 움직이는 구간을 포함해 긴 편이고, 겨울은 근일점 부근에서 빠르게 움직이는 구간을 포함해 짧은 편입니다.');
+    host.append(duration);
+
+    const lengths=section('4. 계절별 대표 길이');
+    paragraph(lengths,'현재 시기의 대표적인 근삿값으로 보면 북반구의 천문학적 계절은 다음과 같이 서로 길이가 다릅니다. 실제 계절 길이는 해당 연도의 춘분·하지·추분·동지 시각에 따라 조금씩 달라집니다.');
+    table(lengths,'현재 시기 북반구 천문학적 계절의 대표 길이',['계절','시작과 끝','대표 길이'],[
+      ['봄','춘분부터 하지까지','약 92.8일'],
+      ['여름','하지부터 추분까지','약 93.6일'],
+      ['가을','추분부터 동지까지','약 89.8일'],
+      ['겨울','동지부터 다음 춘분까지','약 89.0일']
+    ]);
+    paragraph(lengths,'북반구에서는 여름이 겨울보다 대략 4.6~4.7일 긴 편입니다. 표의 값은 각각 반올림한 근삿값이며, 정확한 계절 길이는 각 연도의 천문 현상 시각을 기준으로 계산해야 합니다.');
+    host.append(lengths);
+
+    const points=section('5. 근일점과 원일점');
+    paragraph(points,'지구는 보통 1월 초에 태양과 가장 가까운 근일점을 지나고, 7월 초에 가장 먼 원일점을 지납니다. 거리는 근일점에서 약 1억 4,710만 km, 원일점에서 약 1억 5,210만 km 정도이며 날짜와 거리는 해마다 조금씩 달라질 수 있습니다.');
+    paragraph(points,'북반구에서는 태양과 가까운 시기가 겨울이고 먼 시기가 여름입니다. 그러므로 태양과의 거리만으로 계절의 더위와 추위를 설명할 수는 없습니다. 계절을 만드는 중심 원인은 자전축의 기울기이며, 타원 궤도와 공전 속도 차이는 계절의 길이에 영향을 주는 요소입니다.');
+    host.append(points);
+
+    const south=section('6. 남반구의 계절');
+    paragraph(south,'남반구에서는 북반구와 계절이 반대로 나타납니다. 따라서 북반구 겨울에 해당하는 짧은 구간이 남반구의 여름이고, 북반구 여름에 해당하는 긴 구간이 남반구의 겨울입니다.');
+    paragraph(south,'다만 실제 기온과 날씨는 바다와 대륙의 분포, 해류, 대기 순환 등에도 영향을 받습니다. 계절의 천문학적 길이만으로 어느 지역의 여름이 더 덥거나 겨울이 더 춥다고 판단해서는 안 됩니다.');
+    host.append(south);
+
+    const application=section('명리학 연구와 구분할 점');
+    paragraph(application,'이 글에서 다루는 사계절은 춘분·하지·추분·동지를 경계로 삼는 천문학적 계절입니다. 명리학에서 월령과 절입을 적용하는 기준은 별도의 체계이므로, 두 기준을 같은 것으로 혼동하지 않도록 구분해야 합니다. AI의 답변을 연구에 활용할 때도 먼저 용어와 기준을 확인하고, 질문한 분야에 맞는 근거를 따져 보는 것이 중요합니다.');
+    host.append(application);
+
+    const practice=section('AI와 함께 확인해 볼 질문');
+    const prompts=[
+      '이 글에서 사계절이 생기는 원인과 계절 길이가 달라지는 원인을 각각 한 문장으로 구분해 설명해 주세요.',
+      '특정 연도의 춘분·하지·추분·동지 시각을 찾아 각 천문학적 계절의 길이를 계산하고, 위 대표 근삿값과 비교해 주세요.',
+      '천문학적 계절과 명리학의 월령·절입 기준이 어떻게 다른지, 두 기준을 혼동하면 어떤 해석 오류가 생길 수 있는지 설명해 주세요.'
+    ];
+    const list=el('ol','mentoring-prompts');
+    prompts.forEach(text=>list.append(el('li','',text)));
+    practice.append(list);host.append(practice);
+
+    const references=section('참고 자료');
+    const refs=[
+      ['NASA Space Place · What Causes the Seasons?','https://spaceplace.nasa.gov/seasons/en/'],
+      ['U.S. Naval Observatory · The Seasons and the Earth’s Orbit','https://aa.usno.navy.mil/faq/seasons_orbit'],
+      ['NOAA NCEI · Meteorological Versus Astronomical Seasons','https://www.ncei.noaa.gov/news/meteorological-versus-astronomical-seasons'],
+      ['NASA Science · Chapter 2: Reference Systems','https://science.nasa.gov/learn/basics-of-space-flight/chapter2-1/']
+    ];
+    const links=el('ul','research-source-list');
+    refs.forEach(([label,url])=>{const li=el('li'),a=el('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';li.append(a);links.append(li);});
+    references.append(links);
+    paragraph(references,'묵공 주석: 천문학적 정의와 공전 궤도에 관한 자료를 확인하고, 천문학적 계절과 명리학의 월령·절입 기준을 구별하여 정리했습니다.','research-source');
+    host.append(references);
+  }
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();
