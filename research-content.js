@@ -283,6 +283,15 @@
     paragraph(references,'묵공 주석: 천문학적 정의와 공전 궤도에 관한 자료를 확인하고, 천문학적 계절과 명리학의 월령·절입 기준을 구별하여 정리했습니다.','research-source');
     host.append(references);
   }
-  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
+  function renderMentoringIndex(host) {
+    const section=el('section','mentoring-index');
+    const heading=el('h2','','게시글');
+    const list=el('ul','mentoring-article-list');
+    const item=el('li');
+    const link=el('a','','사계절의 길이(천문학적 길이)');
+    link.href='content.html#mentoring/season-length';
+    item.append(link);list.append(item);section.append(heading,list);host.append(section);
+  }
+  function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
 })();
