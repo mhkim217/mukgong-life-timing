@@ -26,6 +26,7 @@
   };
   function render() {
     const key = decodeURIComponent(location.hash.slice(1));
+    document.body.classList.toggle('mentoring-article-page', key === 'mentoring/season-length');
     const moved={career:'study',relationship:'research',life:'research',thesis:'research'};
     if(moved[key]) {location.replace('content.html#'+moved[key]);return;}
     const noticeId = key.startsWith('notice/') ? key.slice(7) : null;
