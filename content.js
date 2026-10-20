@@ -19,6 +19,7 @@
     apps:{...window.MukgongApps.profile,paragraphs:[]},
     research:{title:'연구 활동',lead:'앱 개발, 출판 작업, 고전연구, AI 보조 멘토링',paragraphs:['각 연구 활동의 안내를 아래 항목에서 확인하실 수 있습니다.'],links:[['1호앱 출시 및 후속앱 개발','content.html#apps'],['기본성향 · 1호앱 활용','content.html#disposition'],['출판 작업','content.html#publishing'],['고전연구','content.html#classics'],['명리학 연구를 위한 AI 보조 멘토링','content.html#mentoring']]},
     mentoring:{title:'명리학 연구를 위한 AI 보조 멘토링',lead:'AI를 연구 보조도구로 활용해 개념을 구분하고 근거를 확인하는 과정을 기록합니다.',paragraphs:[]},
+    'mentoring/season-length':{title:'사계절의 길이(천문학적 길이)',lead:'천문학 주제를 통해 개념을 구분하고 근거를 확인하는 AI 연구 보조 과정을 살펴봅니다.',paragraphs:[]},
     contact:{title:'고객센터 · 상담 접수',lead:'학업·적성, 대운·세운, 작명 상담을 이메일로 접수합니다.',paragraphs:[],links:[['mhkim@paran.com','mailto:mhkim@paran.com'],['이용약관','terms.html'],['개인정보처리방침','privacy.html'],['데이터 삭제 안내','data-deletion.html']]},
     exchange:{title:'환율 안내',lead:'미국 달러·유로·엔·위안의 원화 환율을 기준일과 함께 확인합니다.',paragraphs:[]},
     visitors:{title:'방문 현황',lead:'오늘과 누적 방문 횟수를 한국 시간 기준으로 안내합니다.',paragraphs:[]}
@@ -37,8 +38,8 @@
     if (noticeId !== null) topic = notice ? {title:notice.title,lead:'묵공오행연구소 공지사항',paragraphs:[]} : {title:'공지사항을 찾을 수 없습니다',lead:'공지사항 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['공지사항 전체 보기','content.html#board']]};
     if (classicId !== null) topic = classic ? {...classic,paragraphs:[]} : {title:'연구 글을 찾을 수 없습니다',lead:'고전연구 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['고전연구 목록','content.html#classics']]};
     const back=document.querySelector('.back-link');
-    back.href=classicId!==null?'content.html#classics':caseParent?'content.html#'+caseParent:key==='disposition'?'content.html#apps':'index.html';
-    back.textContent=classicId!==null?'← 고전연구 목록으로':caseParent?'← '+topics[caseParent].title+' 안내로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
+    back.href=classicId!==null?'content.html#classics':caseParent?'content.html#'+caseParent:key.startsWith('mentoring/')?'content.html#mentoring':key==='disposition'?'content.html#apps':'index.html';
+    back.textContent=classicId!==null?'← 고전연구 목록으로':caseParent?'← '+topics[caseParent].title+' 안내로':key.startsWith('mentoring/')?'← 멘토링 목록으로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
     document.title = `${topic.title} | 묵공오행연구소`;
     document.getElementById('topicTitle').textContent = topic.title;
     const lead=document.getElementById('topicLead');lead.textContent=topic.leadInIntroduction?'':topic.lead;lead.hidden=Boolean(topic.leadInIntroduction);
@@ -52,7 +53,8 @@
     if (key === 'apps') window.MukgongApps.renderIntro(copy);
     if (key === 'publishing') window.MukgongPublishing.renderIntro(copy);
     if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
-    if (Object.hasOwn(window.MukgongResearch.profiles,key)) window.MukgongResearch.renderArticle(copy,key);
+    if (key === 'mentoring') window.MukgongResearch.renderMentoringIndex(copy);
+    else if (Object.hasOwn(window.MukgongResearch.profiles,key) || key === 'mentoring/season-length') window.MukgongResearch.renderArticle(copy,key);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
     if (key === 'contact' || key === 'intake') {
       // 묵공 주석: 신청 내용 확인 후 비용·범위·일정을 협의하며 자동 접수·결제하지 않습니다.
