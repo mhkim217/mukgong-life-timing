@@ -404,7 +404,12 @@
   }
 
   function renderMentoringIndex(host) {
-    const section=el('section','mentoring-index');
+    const preface=section('서문 | AI를 연구 보조도구로 활용한다는 것');
+    paragraph(preface,'AI는 연구자의 경험과 판단을 대신하지 않습니다. 대화를 나누는 것만으로 연구 기준을 완전히 익히거나 답변의 정확성을 보장하는 것도 아닙니다. 그러나 질문을 구체적으로 세우고, 답변을 자료와 대조해 검토하며, 확인된 기준과 자료를 정리해 다시 활용하면 연구의 생각을 넓히고 표현을 다듬는 데 도움을 받을 수 있습니다.');
+    paragraph(preface,'이 메뉴에는 명리학 연구 과정에서 AI의 답변을 그대로 받아들이기보다, 용어와 근거를 확인하고 묵공의 연구 기준에 따라 수정·보완한 내용을 기록합니다. AI는 연구를 돕는 도구로 활용하며, 해석과 최종 판단은 연구자가 맡습니다.');
+    host.append(preface);
+
+    const sectionNode=el('section','mentoring-index');
     const heading=el('h2','','게시글');
     const list=el('ul','mentoring-article-list');
     [
@@ -412,7 +417,7 @@
       ['24절기의 개념','content.html#mentoring/seasonal-terms'],
       ['24절기별 제철 음식','content.html#mentoring/seasonal-foods']
     ].forEach(([title,url])=>{const item=el('li'),link=el('a','',title);link.href=url;item.append(link);list.append(item);});
-    section.append(heading,list);host.append(section);
+    sectionNode.append(heading,list);host.append(sectionNode);
   }
   function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,'mentoring/seasonal-terms':renderSeasonalTerms,'mentoring/seasonal-foods':renderSeasonalFoods,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
   window.MukgongResearch=Object.freeze({profiles,renderArticle});
