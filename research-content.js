@@ -420,5 +420,5 @@
     sectionNode.append(heading,list);host.append(sectionNode);
   }
   function renderArticle(container,key) {const article=el('div','research-article research-'+key.split('/')[0]);({mentoring:renderMentoring,'mentoring/season-length':renderMentoring,'mentoring/seasonal-terms':renderSeasonalTerms,'mentoring/seasonal-foods':renderSeasonalFoods,study,naming,timing,'study/1':host=>studyCase(host,'1'),'study/2':host=>studyCase(host,'2'),'study/3':host=>studyCase(host,'3'),'timing/1':timingCase1})[key](article);container.append(article);}
-  window.MukgongResearch=Object.freeze({profiles,renderArticle});
+  window.MukgongResearch=Object.freeze({profiles,renderArticle,renderMentoringIndex});
 })();
