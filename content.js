@@ -66,7 +66,6 @@
       const actions=document.createElement('nav');actions.className='research-actions';actions.setAttribute('aria-label','소론 PDF');
       const pdfPath='assets/public-pdfs/yi-sang-diagnosis-0-1.pdf?rev=20261030-formula-notes-r1';
       const open=document.createElement('a');open.className='teal-button';open.href=pdfPath;open.target='_blank';open.rel='noopener noreferrer';open.textContent='PDF로 읽기 · 12쪽';
-      const download=document.createElement('a');download.className='teal-button';download.href=pdfPath;download.download='이상의_진단0-1_문학연구.pdf';download.textContent='PDF 다운로드';
       actions.append(open);copy.append(article,actions);
     }
     if (Object.hasOwn(window.MukgongResearch.profiles,key) || key === 'mentoring/season-length' || key === 'mentoring/seasonal-terms' || key === 'mentoring/seasonal-foods') window.MukgongResearch.renderArticle(copy,key);
