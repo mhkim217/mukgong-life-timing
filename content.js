@@ -64,10 +64,10 @@
       const article=document.createElement('section');article.className='research-section';
       const description=document.createElement('p');description.textContent='숫자 배열의 반복 구조와 구분점의 이동을 형식적으로 살펴보고, 이를 현대 정보처리의 관점에서 재독해한 문학연구 소론입니다. 선행연구와의 관계, 수학적 모델의 범위, 디지털 은유의 가능성과 한계를 함께 다룹니다.';article.append(description);
       const actions=document.createElement('nav');actions.className='research-actions';actions.setAttribute('aria-label','소론 PDF');
-      const pdfPath='assets/public-pdfs/yi-sang-diagnosis-0-1.pdf?rev=20261029-source-cited-r1';
+      const pdfPath='assets/public-pdfs/yi-sang-diagnosis-0-1.pdf?rev=20261030-formula-notes-r1';
       const open=document.createElement('a');open.className='teal-button';open.href=pdfPath;open.target='_blank';open.rel='noopener noreferrer';open.textContent='PDF로 읽기 · 12쪽';
       const download=document.createElement('a');download.className='teal-button';download.href=pdfPath;download.download='이상의_진단0-1_문학연구.pdf';download.textContent='PDF 다운로드';
-      actions.append(open,download);copy.append(article,actions);
+      actions.append(open);copy.append(article,actions);
     }
     if (Object.hasOwn(window.MukgongResearch.profiles,key) || key === 'mentoring/season-length' || key === 'mentoring/seasonal-terms' || key === 'mentoring/seasonal-foods') window.MukgongResearch.renderArticle(copy,key);
     if (key === 'exchange' || key === 'visitors') window.MukgongMetrics.renderDetail(copy,key);
