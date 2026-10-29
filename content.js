@@ -18,8 +18,9 @@
     intake:{title:'전문 분석 안내·접수',lead:'신청서를 작성하여 이메일로 접수해 주세요.',paragraphs:[],links:[['고객센터 · 상담 접수','content.html#contact']]},
     about:{title:'묵공오행연구소',lead:'서비스 브랜드: 묵공 Life Timing',paragraphs:['묵공오행연구소는 출생 정보를 바탕으로 자신의 기본 성향과 생활의 흐름을 살펴보는 Mukgong Life Timing 시리즈를 연구·개발하고 있습니다.','전통 동양학 연구를 현대적인 데이터 구조와 이해하기 쉬운 설명으로 정리하는 것을 목표로 합니다.'],links:[['연구 활동','content.html#research'],['앱 안내','content.html#apps']]},
     apps:{...window.MukgongApps.profile,paragraphs:[]},
-    research:{title:'연구 활동',lead:'앱 개발, 출판 작업, 고전연구, AI 협업 문학연구, AI 보조 멘토링',paragraphs:['각 연구 활동의 안내를 아래 항목에서 확인하실 수 있습니다.'],links:[['1호앱 출시 및 후속앱 개발','content.html#apps'],['기본성향 · 1호앱 활용','content.html#disposition'],['출판 작업','content.html#publishing'],['고전연구','content.html#classics'],['AI 협업 코너','content.html#ai-collaboration'],['명리학 연구를 위한 AI 보조 멘토링','content.html#mentoring']]},
-    'ai-collaboration':{title:'AI 협업 코너',lead:'문학 작품의 형식과 의미를 AI 보조도구와 함께 검토한 연구 글을 소개합니다.',paragraphs:[]},
+    research:{title:'연구 활동',lead:'앱 개발, 출판 작업, 고전연구, AI 협업 코너, AI 보조 멘토링',paragraphs:['각 연구 활동의 안내를 아래 항목에서 확인하실 수 있습니다.'],links:[['1호앱 출시 및 후속앱 개발','content.html#apps'],['기본성향 · 1호앱 활용','content.html#disposition'],['출판 작업','content.html#publishing'],['고전연구','content.html#classics'],['AI 협업 코너','content.html#ai-collaboration'],['명리학 연구를 위한 AI 보조 멘토링','content.html#mentoring']]},
+    'ai-collaboration':{title:'AI 협업 코너',lead:'AI를 연구와 집필의 보조도구로 활용하며 정리한 글과 자료를 모아 소개합니다.',paragraphs:['각 게시글에서 연구 주제와 참고 자료, 완성된 원고를 확인하실 수 있습니다.'],links:[['이상의 「진단 0:1」','content.html#ai-collaboration/diagnosis-0-1']]},
+    'ai-collaboration/diagnosis-0-1':{title:'이상의 「진단 0:1」',lead:'숫자 배열에 숨겨진 질서와 그 의미 — 문학·수학·정보철학의 교차 독해',paragraphs:[]},
     mentoring:{title:'명리학 연구를 위한 AI 보조 멘토링',lead:'AI를 연구 보조도구로 활용해 개념을 구분하고 근거를 확인하는 과정을 기록합니다.',paragraphs:[]},
     'mentoring/season-length':{title:'사계절의 길이(천문학적 길이)',lead:'천문학 주제를 통해 개념을 구분하고 근거를 확인하는 AI 연구 보조 과정을 살펴봅니다.',paragraphs:[]},
     'mentoring/seasonal-terms':{title:'24절기의 개념',lead:'태양의 황경을 기준으로 나누는 24절기의 원리와 달력에서의 쓰임을 살펴봅니다.',paragraphs:[]},
@@ -43,8 +44,8 @@
     if (noticeId !== null) topic = notice ? {title:notice.title,lead:'묵공오행연구소 공지사항',paragraphs:[]} : {title:'공지사항을 찾을 수 없습니다',lead:'공지사항 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['공지사항 전체 보기','content.html#board']]};
     if (classicId !== null) topic = classic ? {...classic,paragraphs:[]} : {title:'연구 글을 찾을 수 없습니다',lead:'고전연구 목록에서 게시된 글을 확인해 주세요.',paragraphs:[],links:[['고전연구 목록','content.html#classics']]};
     const back=document.querySelector('.back-link');
-    back.href=classicId!==null?'content.html#classics':caseParent?'content.html#'+caseParent:key.startsWith('mentoring/')?'content.html#mentoring':key==='disposition'?'content.html#apps':'index.html';
-    back.textContent=classicId!==null?'← 고전연구 목록으로':caseParent?'← '+topics[caseParent].title+' 안내로':key.startsWith('mentoring/')?'← 멘토링 목록으로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
+    back.href=classicId!==null?'content.html#classics':caseParent?'content.html#'+caseParent:key.startsWith('ai-collaboration/')?'content.html#ai-collaboration':key.startsWith('mentoring/')?'content.html#mentoring':key==='disposition'?'content.html#apps':'index.html';
+    back.textContent=classicId!==null?'← 고전연구 목록으로':caseParent?'← '+topics[caseParent].title+' 안내로':key.startsWith('ai-collaboration/')?'← AI 협업 코너로':key.startsWith('mentoring/')?'← 멘토링 목록으로':key==='disposition'?'← 1호앱 소개로':'← 대문으로 돌아가기';
     document.title = `${topic.title} | 묵공오행연구소`;
     document.getElementById('topicTitle').textContent = topic.title;
     const lead=document.getElementById('topicLead');lead.textContent=topic.leadInIntroduction?'':topic.lead;lead.hidden=Boolean(topic.leadInIntroduction);
@@ -59,10 +60,8 @@
     if (key === 'publishing') window.MukgongPublishing.renderIntro(copy);
     if (key === 'disposition') window.MukgongDisposition.renderArticle(copy);
     if (key === 'mentoring') window.MukgongResearch.renderMentoringIndex(copy);
-    if (key === 'ai-collaboration') {
+    if (key === 'ai-collaboration/diagnosis-0-1') {
       const article=document.createElement('section');article.className='research-section';
-      const heading=document.createElement('h2');heading.textContent='이상의 「진단 0:1」';article.append(heading);
-      const subtitle=document.createElement('p');subtitle.textContent='숫자 배열에 숨겨진 질서와 그 의미 — 문학·수학·정보철학의 교차 독해';article.append(subtitle);
       const description=document.createElement('p');description.textContent='숫자 배열의 반복 구조와 구분점의 이동을 형식적으로 살펴보고, 이를 현대 정보처리의 관점에서 재독해한 문학연구 소론입니다. 선행연구와의 관계, 수학적 모델의 범위, 디지털 은유의 가능성과 한계를 함께 다룹니다.';article.append(description);
       const actions=document.createElement('nav');actions.className='research-actions';actions.setAttribute('aria-label','소론 PDF');
       const pdfPath='assets/public-pdfs/yi-sang-diagnosis-0-1.pdf';
